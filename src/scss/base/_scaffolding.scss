@@ -1,0 +1,99 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: $transparent-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $grey-base;
+  background-color: $global-color;
+  -webkit-overflow-scrolling: touch;
+
+  &.is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  &.modal-is-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+a {
+  background-color: $transparent-color;
+  -webkit-text-decoration-skip: objects;
+  text-decoration: none;
+  color: $grey-base;
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    outline:none;
+  }
+}
+
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+
+  &.object-fit {
+    @include object-fit;
+  }
+  
+  &.ir {
+    @include img-responsive;
+  }
+}
+
+a,
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"],
+[role=button],
+[role=link] {
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  outline: none !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

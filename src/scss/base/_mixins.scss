@@ -1,0 +1,393 @@
+// variables
+$mobile: 320px !default;
+$tablet: 767px !default;
+$laptop: 1170px !default;
+$desktop: 1400px !default;
+$desktop-hd: 1900px !default;
+$desktop-2k: 2400px !default;
+
+@mixin mobile {
+  @media screen and (min-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin mobile-max {
+  @media screen and (max-width: #{$tablet - 1}) {
+    @content;
+  }
+}
+
+// min-width small screen / tablets
+@mixin tablet {
+  @media screen and (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+// max-width small screen / tablets
+@mixin tablet-max {
+  @media screen and  (max-width: #{$laptop - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media screen and (min-width: #{$tablet}) and (max-width: #{$laptop - 1}) {
+    @content;
+  }
+}
+
+// max-width large screen / wide desktop
+@mixin laptop {
+  @media screen and (min-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin laptop-only {
+  @media screen and (min-width: #{$laptop}) and (max-width: #{$desktop - 1}) {
+    @content;
+  }
+}
+// min-width large screen / wide desktop
+@mixin desktop {
+  @media screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @media screen and (min-width: #{$desktop}) and (max-width: #{$desktop-hd - 1}) {
+    @content;
+  }
+}
+
+// min-width large screen / wide desktop
+@mixin desktop-hd {
+  @media screen and (min-width: #{$desktop-hd}) {
+    @content;
+  }
+}
+
+// min-width xlarge screen
+@mixin desktop-2k {
+  @media screen and (min-width: #{$desktop-2k}) {
+    @content;
+  }
+}
+
+// iphone 3, 3gs, 4, 4s
+@mixin iphone-xs {
+  @media screen and (device-aspect-ratio: 2/3) {
+    @content;
+  }
+}
+// iPhone 5, 5s, SE
+@mixin iphone-sm {
+  @media screen and (device-aspect-ratio: 40/71) {
+    @content;
+  }
+}
+
+// iPhone 6, 6s, 7, 8
+@mixin iphone-md {
+  @media screen and (device-aspect-ratio: 375/667) {
+    @content;
+  }
+}
+
+// iPhone 6+, 7+, 8+
+@mixin iphone-lg {
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (-webkit-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+// iPhone X
+@mixin iphone-x {
+  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+// iPad
+@mixin ipad {
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+// iPadlandscape
+@mixin ipad-landscape {
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// Retina display
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+@function contains($list, $values...) {
+  @each $value in $values {
+    @if type-of(index($list, $value)) != 'number' {
+      @return false;
+    }
+  }
+
+  @return true;
+}
+
+@function unpack($shorthand) {
+  @if length($shorthand) == 1 {
+    @return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1);
+  } @else if length($shorthand) == 2 {
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1) nth($shorthand, 2);
+  } @else if length($shorthand) == 3 {
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3) nth($shorthand, 2);
+  } @else {
+    @return $shorthand;
+  }
+}
+
+@function is-length($value) {
+  @return type-of($value) != 'null' and (str-slice($value + '', 1, 4) == 'calc' or index(auto inherit initial 0, $value) or (type-of($value) == 'number' and not(unitless($value))));
+}
+
+@function is-size($value) {
+  @return is-length($value) or contains('fill' 'fit-content' 'min-content' 'max-content', $value);
+}
+
+@mixin absolute($sides: null null null null) {
+  position: absolute;
+
+  $exact-size: (
+    top: nth($sides, 1),
+    right: nth($sides, 2),
+    bottom: nth($sides, 3),
+    left: nth($sides, 4),
+  );
+
+  @each $side, $value in $exact-size {
+    @if is-length($value) {
+      #{$side}: $value;
+    }
+  }
+}
+// @include absolute(0 null null 0);
+
+@mixin size-reset {
+  margin: 0;
+  padding: 0;
+}
+// @include size-reset;
+
+@mixin bg-center {
+  background: {
+    position: 50% 50%;
+    size: cover;
+    repeat: no-repeat;
+  }
+}
+// @include bg-center;
+
+@mixin center-absolute {
+  @include absolute(50% null null 50%);
+  transform: translate(-50%, -50%);
+}
+// @include  center-absolute;
+
+@mixin size($value) {
+  $width: nth($value, 1);
+  $height: $width;
+
+  @if length($value) > 1 {
+    $height: nth($value, 2);
+  }
+
+  @if is-size($height) {
+    height: $height;
+  } @else {
+    @warn "`#{$height}` is not a valid length for the `$height` parameter in the `size` mixin.";
+  }
+
+  @if is-size($width) {
+    width: $width;
+  } @else {
+    @warn "`#{$width}` is not a valid length for the `$width` parameter in the `size` mixin.";
+  }
+}
+// @include size(20px 10px);
+
+@mixin img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+// @include img-responsive;
+
+@mixin placeholder() {
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+// @include placeholder {color: red;}
+
+@mixin placeholder-animation-opacity($class, $transition: 0.5s, $text-indent: 250px) {
+  .#{$class}::-webkit-input-placeholder {
+    will-change: opacity;
+    opacity: 1;
+    transition: opacity $transition;
+  }
+  .#{$class}:focus::-webkit-input-placeholder {
+    opacity: 0;
+  }
+
+  .#{$class}::-moz-placeholder {
+    will-change: opacity;
+    opacity: 1;
+    transition: opacity $transition;
+
+    &:focus {
+      opacity: 0;
+    }
+  }
+  .#{$class}:-moz-placeholder {
+    will-change: opacity;
+    opacity: 1;
+    transition: opacity $transition;
+
+    &:focus {
+      opacity: 0;
+    }
+  }
+  .#{$class}:-ms-input-placeholder {
+    will-change: opacity;
+    opacity: 1;
+    transition: opacity $transition;
+
+    &:focus {
+      opacity: 0;
+    }
+  }
+}
+// @include placeholder-animation-opacity(your classname);
+
+@mixin placeholder-animation-left($class, $transition: $a-transition-long, $text-indent: -200px) {
+  .#{$class}::-webkit-input-placeholder {
+    will-change: text-indent;
+    text-indent: 0;
+    transition: text-indent $transition;
+  }
+  .#{$class}:focus::-webkit-input-placeholder {
+    text-indent: $text-indent;
+  }
+
+  .#{$class}::-moz-placeholder {
+    will-change: text-indent;
+    text-indent: 0;
+    transition: text-indent $transition;
+  }
+
+  .#{$class}:focus::-moz-placeholder {
+    text-indent: $text-indent;
+  }
+
+  .#{$class}:-moz-placeholder {
+    will-change: text-indent;
+    text-indent: 0;
+    transition: text-indent $transition;
+  }
+
+  .#{$class}:focus:-moz-placeholder {
+    text-indent: $text-indent;
+  }
+
+  .#{$class}:-ms-input-placeholder {
+    will-change: text-indent;
+    text-indent: 0;
+    transition: text-indent $transition;
+  }
+
+  .#{$class}:focus:-ms-input-placeholder {
+    text-indent: $text-indent;
+  }
+}
+// @include placeholder-animation-left(input, $transition: .25s, $text-indent: -200px);
+
+@mixin scrollbar-style($width, $height, $foreground-color, $border-radius, $background-color: mix($foreground-color, white, 30%)) {
+  ::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: $border-radius;
+    background: $background-color;
+  }
+
+  // ie
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+// @include scrollbar-style($width: 4px, $height: 10px, $foreground-color: red, $border-radius: 5px, $background-color: mix(red, white,  30%));
+
+@mixin selection-style($bg-color, $color) {
+  ::selection {
+    background-color: $bg-color;
+    color: $color;
+  }
+}
+// @include selection-style(#fff, $000);
+
+@mixin object-fit($fit: cover) {
+  object-fit: $fit;
+  object-position: center;
+}
+
+@mixin remove-FOUC {
+  visibility: hidden;
+
+  &.slick-initialized {
+    visibility: visible;
+  }
+}
+// @include remove-FOUC;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+//@include flex-center;
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+//@include flex-column;
+
+@mixin reset-btn-styles {
+  @include size-reset;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+//@include reset-btn-styles;
