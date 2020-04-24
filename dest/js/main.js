@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function () {
   var $body = $('body');
   var $header = $('.is-header');
@@ -6,7 +8,6 @@ $(document).ready(function () {
   var isChrome = /Chrome/i.test(navigator.userAgent);
   var mq = $(window).width() < 1023;
   var $main = $('.main');
-
   $navBtn.click(function () {
     if ($header.hasClass('is-closing') && !$header.hasClass('is-active')) {
       return;
@@ -33,18 +34,20 @@ $(document).ready(function () {
       $body.addClass('isChrome');
     }
   }
+
   detectBrowser();
 
   function fullHeightBanner() {
     if ($body.hasClass('isChrome')) {
-      $main.css({ height: window.innerHeight });
+      $main.css({
+        height: window.innerHeight
+      });
     }
   }
-  fullHeightBanner();
 
+  fullHeightBanner();
   var figure = $('.with-video-bg ');
   var vid = figure.find('video');
-
   [].forEach.call(figure, function (item, index) {
     item.addEventListener('mouseover', hoverVideo.bind(item, index), false);
     item.addEventListener('mouseout', hideVideo.bind(item, index), false);
@@ -62,32 +65,21 @@ $(document).ready(function () {
     vid[index].currentTime = 0;
   }
 });
-
 $(document).on('click', 'a[href^="#"]', function (event) {
   event.preventDefault();
-
-  $('html, body').animate(
-    {
-      scrollTop: $($.attr(this, 'href')).offset().top,
-    },
-    500
-  );
+  $('html, body').animate({
+    scrollTop: $($.attr(this, 'href')).offset().top
+  }, 500);
 });
-
 var body = document.body;
 var timer;
+window.addEventListener('scroll', function () {
+  clearTimeout(timer);
 
-window.addEventListener(
-  'scroll',
-  function () {
-    clearTimeout(timer);
-    if (window.innerWidth >= 1100 && !body.classList.contains('disable-hover')) {
-      // body.classList.add('disable-hover');
-    }
+  if (window.innerWidth >= 1100 && !body.classList.contains('disable-hover')) {// body.classList.add('disable-hover');
+  }
 
-    timer = setTimeout(function () {
-      body.classList.remove('disable-hover');
-    }, 100);
-  },
-  false
-);
+  timer = setTimeout(function () {
+    body.classList.remove('disable-hover');
+  }, 100);
+}, false);

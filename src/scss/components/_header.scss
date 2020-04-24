@@ -1,55 +1,112 @@
-.is-logo {
-  display: block;
-  width: 120px;
-  padding: $unit;
+$translation: 10vw;
 
-  img {
-    @include img-responsive;
+.is-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.is-logo {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  padding: 24px 23px;
+  align-items: center;
+  justify-content: center;
+
+  @include laptop {
+    &:hover {
+      .is-logo__icon {
+        filter: $filter-primary;
+      }
+    }
   }
 }
 
-.is-navigation {
-  @include tablet-max {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba($grey-base,.75);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity $a-transition-base;
+.is-logo__svg {
+  transition: filter 0.25s ease-in-out;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.is-logo__name {
+  margin-left: 10px;
+  transition: filter 0.3s ease-out;
+}
+
+.is-logo__short {
+  .is-logo__icon {
+    margin-right: 0;
   }
+
+  .is-logo__name {
+    display: none;
+  }
+}
+
+.is-logo__white {
+  .is-logo__svg {
+    filter: $filter-white;
+  }
+}
+
+.navigation-btn__wrapper {
+  position: relative;
+  z-index: 3;
+  padding: 30px 25px;
+}
+
+.is-navigation {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  padding-left: 94px;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
 
   ul {
     @include flex-column;
-    width: 100%;
+    height: 100%;
+    padding: 65px 0;
 
-    @include laptop {
-      flex-direction: row;
-      height: 100%;
+    @media screen and (max-height: 720px) {
+      padding: 10px 0;
+    }
+  }
+
+  li {
+    flex: 0 1 100%;
+    display: flex;
+    align-items: center;
+    will-change: transform;
+
+    &:hover,
+    &.is-active {
+      .navigation-link {
+        color: $primary-color;
+      }
     }
   }
 }
 
 .navigation-link {
   display: block;
-  padding: $unit;
-  text-align: center;
+  width: 100%;
+  padding: 0 0 0 5vw;
+  padding: 0 0 0 clamp(25px, 3vw, 3vw);
+
+  @include title();
   color: $global-color;
-
-  @include laptop {
-    color: $grey-base;
-    transition: $a-transition-base;
-
-    &:hover {
-      color: red;
-    }
-  }
+  transition: color $a;
 }
 
 .navigation-btn {
@@ -58,66 +115,187 @@
   position: relative;
   z-index: 1;
   @include flex-center;
-  @include size(40px 24px);
+  @include size(32px 33px);
 
-  @include laptop {
-    display: none;
-  }
+  cursor: pointer;
 
   &:before,
-  &:after,
-  span:before,
-  span:after {
+  &:after {
     content: '';
     @include size(100% 4px);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     transform-origin: 50% 50%;
-    background-color: $navigation-btn-color;
-    border-radius: 2px;
-  }
+    background-color: $primary-color;
 
-  &:before,
-  &:after {
-    transition: width $navigation-transition;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    transition: transform $a, background-color $a;
+    will-change: transform;
   }
 
   &:before {
-    top: 0;
+    top: 9px;
   }
 
   &:after {
-    top: 100%;
-    transform: translate(-50%,-50%);
+    top: 24px;
+    transform: translate(-50%, -50%);
   }
 
-  span:before,
-  span:after {
-    top: 50%;
-    transform: translate(-50%,-25%);
-    transition: transform $navigation-transition;
+  &:hover {
+    &:before,
+    &:after {
+      background-color: $global-color;
+    }
   }
 }
 
-header.is-open {
-  .navigation-btn {
-    &:before,
+// nav animations
+@mixin header-active {
+  .is-active & {
+    @content;
+  }
+}
+
+@mixin header-closing {
+  .is-closing:not(.is-active) & {
+    @content;
+  }
+}
+
+.navigation-btn__wrapper {
+  @include header-closing() {
+    pointer-events: none;
+  }
+}
+
+.navigation-btn {
+  @include header-active() {
+    &:before {
+      transform: translate(-50%, -34%) rotate(30deg);
+    }
+
     &:after {
-      width: 0;
+      transform: translate(-50%, -48%) rotate(-31deg);
+    }
+  }
+}
+
+.is-logo__icon {
+  @include header-active() {
+    transition: filter $nav-overlay-transition;
+    filter: $filter-white;
+  }
+
+  @include header-closing() {
+    transition: filter $nav-overlay-transition $nav-overlay-transition/2;
+  }
+}
+
+.is-logo__name {
+  @include header-active() {
+    transition: opacity $nav-overlay-transition;
+    opacity: 0;
+  }
+
+  @include header-closing() {
+    transition: opacity $nav-overlay-transition $nav-overlay-transition/2;
+  }
+}
+
+.is-navigation {
+  // visibility: hidden;
+
+  @include header-active() {
+    visibility: visible;
+    z-index: 2;
+  }
+
+  @include header-closing() {
+    transition: visibility 0s 1s;
+    z-index: 2;
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background-color: $grey-base;
+
+    @include header-active {
+      transition: opacity $nav-overlay-transition ease-in-out;
+      opacity: 1;
     }
 
-    span:before {
-      transform: translate(-50%,-25%) rotate(.125turn);
-    }
-
-    span:after {
-      transform: translate(-50%,-25%) rotate(-.125turn);
+    @include header-closing() {
+      transition: $nav-overlay-transition ease-in-out;
     }
   }
 
-  .is-navigation {
-    opacity: 1;
-    visibility: visible;
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(100%);
+    will-change: transform;
+    background-color: $grey-base;
+    z-index: -1;
+
+    @include header-active() {
+      transition: $nav-overlay-transition * 0.75 ease-in-out;
+      transform: translateX(0);
+    }
+
+    @include header-closing() {
+      transition: $nav-overlay-transition 0.25s ease-in-out;
+    }
+  }
+}
+
+.is-navigation ul {
+  li {
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        transform: translateX($translation * $i);
+      }
+    }
+    opacity: 0;
+
+    @include header-active() {
+      transform: translateX(0);
+      opacity: 1;
+
+      &:nth-of-type(1) {
+        transition: transform 0.5s 0.25s ease-out, opacity 0.8s 0.25s ease-out;
+      }
+
+      @for $i from 2 through 5 {
+        &:nth-child(#{$i}) {
+          transition: transform 0.5s + $i * 0.05 0.25s ease-out, opacity 0.35s + $i * 0.05 0.25s ease-out;
+        }
+      }
+    }
+
+    @include header-closing() {
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          transform: translateX($translation * 6 - ($i * 10));
+          transition: transform 0.5s + $i * 0.05 0.15s ease-out, opacity 0.35s + $i * 0.05 0.15s ease-out;
+        }
+      }
+    }
   }
 }

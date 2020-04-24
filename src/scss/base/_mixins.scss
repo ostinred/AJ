@@ -155,7 +155,11 @@ $desktop-2k: 2400px !default;
 }
 
 @function is-length($value) {
-  @return type-of($value) != 'null' and (str-slice($value + '', 1, 4) == 'calc' or index(auto inherit initial 0, $value) or (type-of($value) == 'number' and not(unitless($value))));
+  @return type-of($value) != 'null' and
+    (
+      str-slice($value + '', 1, 4) == 'calc' or index(auto inherit initial 0, $value) or
+        (type-of($value) == 'number' and not(unitless($value)))
+    );
 }
 
 @function is-size($value) {
@@ -283,7 +287,7 @@ $desktop-2k: 2400px !default;
 }
 // @include placeholder-animation-opacity(your classname);
 
-@mixin placeholder-animation-left($class, $transition: $a-transition-long, $text-indent: -200px) {
+@mixin placeholder-animation-left($class, $transition: 0.25s, $text-indent: -200px) {
   .#{$class}::-webkit-input-placeholder {
     will-change: text-indent;
     text-indent: 0;
@@ -325,7 +329,13 @@ $desktop-2k: 2400px !default;
 }
 // @include placeholder-animation-left(input, $transition: .25s, $text-indent: -200px);
 
-@mixin scrollbar-style($width, $height, $foreground-color, $border-radius, $background-color: mix($foreground-color, white, 30%)) {
+@mixin scrollbar-style(
+  $width,
+  $height,
+  $foreground-color,
+  $border-radius,
+  $background-color: mix($foreground-color, white, 30%)
+) {
   ::-webkit-scrollbar {
     width: $width;
     height: $height;
@@ -391,3 +401,20 @@ $desktop-2k: 2400px !default;
   -webkit-appearance: none;
 }
 //@include reset-btn-styles;
+
+@mixin title {
+  font-size: 4em;
+  font-size: clamp(32px, 10vw, 3.5em);
+}
+
+@mixin container {
+  min-width: 920px;
+  width: 100%;
+  max-width: 70vw;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.is-container {
+  @include container();
+}

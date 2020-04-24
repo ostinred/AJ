@@ -1,0 +1,49 @@
+$quote-padding: 32px;
+
+.is-main {
+  position: relative;
+  display: flex;
+  height: $main-block-height;
+}
+
+.main-side {
+  display: flex;
+  align-items: center;
+
+  width: 50%;
+  height: 100%;
+}
+
+.main-side__left {
+  justify-content: flex-end;
+  background-color: $global-color;
+
+  .main-link {
+    padding-right: 10px;
+
+    img {
+      margin-right: $quote-padding;
+    }
+  }
+}
+
+.main-side__right {
+  background-color: $grey-base;
+
+  .main-link {
+    padding-left: 10px;
+    color: $global-color;
+
+    img {
+      margin-left: $quote-padding;
+    }
+  }
+}
+
+.main-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include title();
+}

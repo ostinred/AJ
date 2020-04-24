@@ -1,16 +1,16 @@
 .is-container {
-  padding: 0 $unit;
+  padding: 0 15px;
 
   @include tablet {
-    padding: 0 $unit * 3;
+    padding: 0 15px;
   }
 
   @include laptop {
-    padding: 0 $unit * 2;
+    padding: 0 30px;
   }
 
   @include desktop {
-    padding: 0 $unit * 2;
+    padding: 0 30px;
   }
 }
 

@@ -10,14 +10,15 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: $transparent-color;
+  -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: calc(1em + 1vw);
 }
 
 body {
   font-family: $font-family-base;
-  font-size: $font-size-base;
+
   color: $grey-base;
   background-color: $global-color;
   -webkit-overflow-scrolling: touch;
@@ -41,7 +42,7 @@ body {
 }
 
 a {
-  background-color: $transparent-color;
+  background-color: transparent;
   -webkit-text-decoration-skip: objects;
   text-decoration: none;
   color: $grey-base;
@@ -50,15 +51,15 @@ a {
   &:hover,
   &:focus,
   &:active {
-    outline:none;
+    outline: none;
   }
 }
 
 a,
 area,
 button,
-[role="button"],
-input:not([type="range"]),
+[role='button'],
+input:not([type='range']),
 label,
 select,
 summary,
@@ -73,7 +74,7 @@ img {
   &.object-fit {
     @include object-fit;
   }
-  
+
   &.ir {
     @include img-responsive;
   }
@@ -81,11 +82,11 @@ img {
 
 a,
 button,
-html [type="button"],
-[type="reset"],
-[type="submit"],
-[role=button],
-[role=link] {
+html [type='button'],
+[type='reset'],
+[type='submit'],
+[role='button'],
+[role='link'] {
   appearance: none;
   -webkit-appearance: none;
   box-shadow: none;
@@ -96,4 +97,8 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.disable-hover {
+  pointer-events: none;
 }

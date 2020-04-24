@@ -1,0 +1,15 @@
+.is-homepage {
+  position: relative;
+  min-height: 3000px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $grey-base;
+    width: 50%;
+    z-index: -1;
+  }
+}
