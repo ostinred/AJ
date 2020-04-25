@@ -206,7 +206,7 @@ $translation: 10vw;
 }
 
 .is-navigation {
-  // visibility: hidden;
+  z-index: -1;
 
   @include header-active() {
     visibility: visible;

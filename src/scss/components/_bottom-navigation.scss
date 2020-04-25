@@ -1,12 +1,12 @@
 .bottom-navigation {
   display: flex;
-  justify-content: space-around;
   border-top: 1px solid $primary-color;
 }
 
 .bottom-navigation__link {
   display: block;
-  padding: 0.75em;
+  width: 50%;
+  padding: 0.75em 9vw;
   font-size: 0.8em;
 
   &:hover {
@@ -15,20 +15,21 @@
     }
   }
 
-  &-white {
-    color: $global-color;
-
-    &:hover {
-      img {
-        transform: translateX(0.5em);
-      }
-    }
-  }
-
   img {
     height: 10px;
     margin: 0 3px;
     will-change: transform;
     transition: transform $a;
+  }
+}
+
+.bottom-navigation__director {
+  color: $global-color;
+  text-align: right;
+
+  &:hover {
+    img {
+      transform: translateX(0.5em);
+    }
   }
 }

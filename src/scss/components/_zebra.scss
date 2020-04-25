@@ -3,11 +3,11 @@
   display: flex;
   min-height: 80vh;
   background-color: $global-color;
+  overflow: hidden;
 }
 
 .is-zebra__wrapper {
   @include container;
-  // height: 100%;
   display: flex;
 }
 
@@ -103,31 +103,66 @@
 
     .zebra-l1 {
       margin-left: 4.5vw;
+      margin-right: 0;
     }
 
     .zebra-l2 {
       margin-left: 3px;
+      margin-right: 0;
     }
 
     .zebra-l3 {
       margin-left: 5.25vw;
+      margin-right: 0;
     }
 
     .zebra-l4 {
       margin-left: 3.65vw;
+      margin-right: 0;
     }
 
     .zebra-l5 {
       margin-left: 2.85vw;
+      margin-right: 0;
     }
 
     .zebra-l6 {
       margin-left: 1.6vw;
+      margin-right: 0;
     }
 
     .zebra-l7 {
       margin-left: 0.85vw;
+      margin-right: 0;
     }
+  }
+}
+
+.is-zebra__cite {
+  &:before,
+  &:after {
+    position: absolute;
+    font-size: 15em;
+    line-height: 1;
+    color: $grey-base;
+    font-weight: bold;
+  }
+
+  &:before {
+    content: open-quote;
+    top: -0.07em;
+    left: -0.03em;
+  }
+
+  &:after {
+    content: '”';
+    bottom: -0.07em;
+    right: -0.03em;
+    transform: scale(1, -1);
+  }
+
+  h2 {
+    padding-top: 1em;
   }
 }
 
@@ -146,10 +181,10 @@
 .is-zebra__bg-black {
   background-color: $grey-base;
 
-  .is-zebra__cite {
+  &.is-zebra__cite {
     &:before,
     &:after {
-      filter: invert(1);
+      color: $global-color;
     }
   }
 
@@ -159,35 +194,6 @@
 
   .zebra-line {
     background-color: $global-color;
-  }
-}
-
-.is-zebra__cite {
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    width: 12vw;
-    height: 12vw;
-    // background-color: red;
-  }
-
-  &:before {
-    top: 0;
-    left: 0;
-    background-image: url('./../img/icon-quote-up.svg');
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-image: url('./../img/icon-quote-down.svg');
-  }
-
-  h2 {
-    padding-top: 1em;
   }
 }
 

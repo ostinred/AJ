@@ -1,12 +1,40 @@
-$quote-padding: 32px;
+$quote-padding: 0.2em;
 
 .is-main {
   position: relative;
   display: flex;
   height: $main-block-height;
+  transition: height $a-nav;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+  }
+
+  &:before {
+    left: 0;
+    background-color: $global-color;
+  }
+
+  &:after {
+    right: 0;
+    background-color: $grey-base;
+  }
+}
+
+.is-main__wrapper {
+  display: flex;
+  width: 100%;
+  height: $main-block-height;
 }
 
 .main-side {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
 
@@ -19,7 +47,7 @@ $quote-padding: 32px;
   background-color: $global-color;
 
   .main-link {
-    padding-right: 10px;
+    padding-right: 0.15em;
 
     img {
       margin-right: $quote-padding;
@@ -31,7 +59,7 @@ $quote-padding: 32px;
   background-color: $grey-base;
 
   .main-link {
-    padding-left: 10px;
+    padding-left: 0.15em;
     color: $global-color;
 
     img {
@@ -44,6 +72,45 @@ $quote-padding: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity $a-nav;
 
   @include title();
+
+  img {
+    padding-top: 0.1em;
+    transition: transform $a-nav;
+  }
+}
+
+.is-main {
+  &.main-hovered {
+    height: 100vh;
+  }
+  &.dir-hovered {
+    .main-side__left .main-link {
+      opacity: 0;
+    }
+  }
+
+  &.creative-hovered {
+    .main-side__right .main-link {
+      opacity: 0;
+    }
+  }
+}
+
+.main-side__left {
+  .main-link:hover {
+    img {
+      transform: translateX(-0.3em);
+    }
+  }
+}
+
+.main-side__right {
+  .main-link:hover {
+    img {
+      transform: translateX(0.3em);
+    }
+  }
 }
