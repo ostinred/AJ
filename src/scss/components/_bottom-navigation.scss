@@ -1,3 +1,11 @@
+@mixin hover-right {
+  &:hover {
+    img {
+      transform: translateX(0.5em);
+    }
+  }
+}
+
 .bottom-navigation {
   display: flex;
   border-top: 1px solid $primary-color;
@@ -8,6 +16,12 @@
   width: 50%;
   padding: 0.75em 9vw;
   font-size: 0.8em;
+
+  &:last-child:not(:only-child) {
+    text-align: right;
+    color: $global-color;
+    @include hover-right();
+  }
 
   &:hover {
     img {
@@ -24,12 +38,20 @@
 }
 
 .bottom-navigation__director {
-  color: $global-color;
+  background-color: $grey-base;
+
+  .bottom-navigation__link {
+    color: $global-color;
+  }
+}
+
+.bottom-navigation__creative {
+  justify-content: flex-end;
+  background-color: $global-color;
   text-align: right;
 
-  &:hover {
-    img {
-      transform: translateX(0.5em);
-    }
+  .bottom-navigation__link {
+    color: $grey-base;
+    @include hover-right();
   }
 }

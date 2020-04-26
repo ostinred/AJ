@@ -101,39 +101,36 @@
   &.is-zebra__lines-reversed {
     flex-direction: row-reverse;
 
+    .zebra-line {
+      margin-right: 0;
+    }
+
     .zebra-l1 {
       margin-left: 4.5vw;
-      margin-right: 0;
     }
 
     .zebra-l2 {
       margin-left: 3px;
-      margin-right: 0;
     }
 
     .zebra-l3 {
       margin-left: 5.25vw;
-      margin-right: 0;
     }
 
     .zebra-l4 {
       margin-left: 3.65vw;
-      margin-right: 0;
     }
 
     .zebra-l5 {
       margin-left: 2.85vw;
-      margin-right: 0;
     }
 
     .zebra-l6 {
       margin-left: 1.6vw;
-      margin-right: 0;
     }
 
     .zebra-l7 {
       margin-left: 0.85vw;
-      margin-right: 0;
     }
   }
 }
@@ -163,6 +160,7 @@
 
   h2 {
     padding-top: 1em;
+    padding-bottom: 0.5em;
   }
 }
 

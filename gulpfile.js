@@ -17,7 +17,7 @@ var babel = require('gulp-babel');
 var config = {
   path: {
     styles: './src/scss/**/*.scss',
-    html: './src/index.html',
+    html: './src/**/*.html',
     img: './src/img/**/*',
     js: './src/js/**/*.js',
     homeDir: './',
@@ -62,6 +62,7 @@ gulp.task('serve', function () {
 
   gulp.watch(config.path.styles, ['scss']);
   gulp.watch(config.path.js, ['jsWatch']);
+  gulp.watch(config.path.img, ['copyImages']);
   gulp.watch(config.path.html, ['copyHTML']);
   gulp.watch(config.path.video, ['copyVideo']);
   gulp.watch(config.path.html).on('change', browserSync.reload);
@@ -75,25 +76,29 @@ gulp.task('copyVideo', function () {
   gulp.src(config.path.video).pipe(gulp.dest(config.output.video));
 });
 
-gulp.task('imageMin', function () {
-  return gulp
-    .src(config.path.img)
-    .pipe(
-      imagemin(
-        [
-          pngquant(),
-          jpegtran(),
-          gifsicle(),
-          imageminSvgo({
-            plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
-          }),
-        ],
-        { verbose: true }
-      )
-    )
-
-    .pipe(gulp.dest(config.output.img));
+gulp.task('copyImages', function () {
+  gulp.src(config.path.img).pipe(gulp.dest(config.output.img));
 });
+
+// gulp.task('imageMin', function () {
+//   return gulp
+//     .src(config.path.img)
+//     .pipe(
+//       imagemin(
+//         [
+//           pngquant(),
+//           jpegtran(),
+//           gifsicle(),
+//           imageminSvgo({
+//             plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+//           }),
+//         ],
+//         { verbose: true }
+//       )
+//     )
+
+//     .pipe(gulp.dest(config.output.img));
+// });
 
 gulp.task('jsWatch', function () {
   return gulp
@@ -107,4 +112,4 @@ gulp.task('jsWatch', function () {
     .pipe(gulp.dest(config.output.jsDest));
 });
 
-gulp.task('default', ['copyHTML', 'copyVideo', 'scss', 'jsWatch', 'serve']);
+gulp.task('default', ['copyHTML', 'copyImages', 'copyVideo', 'scss', 'jsWatch', 'serve']);

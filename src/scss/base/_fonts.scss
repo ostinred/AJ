@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
 
@@ -8,5 +9,5 @@ $font-secondary: 'CantataOne';
 
 body {
   font-family: $font-base;
-  font-weight: 400;
+  // font-weight: 400;
 }

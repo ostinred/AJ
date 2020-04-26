@@ -1,13 +1,20 @@
 $translation: 10vw;
 
 .is-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 111;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &.is-scrolled {
+    .is-logo img {
+      filter: $filter-primary;
+    }
+  }
 }
 
 .is-logo {
@@ -28,7 +35,7 @@ $translation: 10vw;
 }
 
 .is-logo__svg {
-  transition: filter 0.25s ease-in-out;
+  // transition: filter 0.1s ease-in-out;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -36,6 +43,7 @@ $translation: 10vw;
 .is-logo__name {
   margin-left: 10px;
   transition: filter 0.3s ease-out;
+  display: none;
 }
 
 .is-logo__short {
@@ -185,12 +193,11 @@ $translation: 10vw;
 
 .is-logo__icon {
   @include header-active() {
-    transition: filter $nav-overlay-transition;
-    filter: $filter-white;
+    filter: $filter-white !important;
   }
 
   @include header-closing() {
-    transition: filter $nav-overlay-transition $nav-overlay-transition/2;
+    // transition: filter $nav-overlay-transition $nav-overlay-transition/2;
   }
 }
 
@@ -207,6 +214,7 @@ $translation: 10vw;
 
 .is-navigation {
   z-index: -1;
+  visibility: hidden;
 
   @include header-active() {
     visibility: visible;

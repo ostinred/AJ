@@ -59,3 +59,42 @@
     min-height: 470px;
   }
 }
+
+.is-creative__page,
+.is-director__page {
+  .right-aligned {
+    .project-text {
+      text-align: left;
+      margin-left: auto;
+    }
+
+    .project-heading {
+      color: $grey-base;
+    }
+
+    &.is-project,
+    &.is-project__medium {
+      .project-text {
+        width: 75%;
+      }
+    }
+
+    &.is-project__small {
+      .project-text {
+        width: 46%;
+      }
+    }
+
+    &.is-project__large {
+      .project-text {
+        width: 90%;
+      }
+    }
+  }
+}
+
+.is-director__page {
+  .project-heading {
+    color: $global-color;
+  }
+}

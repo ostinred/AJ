@@ -12,4 +12,12 @@
     width: 50%;
     z-index: -1;
   }
+
+  .is-logo__name {
+    display: block;
+  }
+}
+
+.is-director__page {
+  background-color: $grey-base;
 }

@@ -32,11 +32,11 @@
     <link rel="stylesheet" href="./css/app.min.css" />
   </head>
   <body>
-    <main role="main" class="is-main">
+    <div class="is-homepage">
       <!-- header -->
       <header role="header" class="is-header">
         <!-- logo -->
-        <a role="link" href="#" class="is-logo">
+        <a role="link" href="index.html" class="is-logo">
           <img class="is-logo__svg is-logo__icon" src="./img/logo-icon.svg" alt="AJ Rivvers logo icon" />
           <img class="is-logo__svg is-logo__name" src="./img/logo-name.svg" alt="AJ Rivvers logo name" />
         </a>
@@ -52,7 +52,7 @@
         <nav role="navigation" class="is-navigation">
           <ul role="list">
             <li role="listitem" class="is-active">
-              <a href="#" role="link" class="navigation-link">Featured</a>
+              <a href="index.html" role="link" class="navigation-link">Featured</a>
             </li>
             <li role="listitem">
               <a href="#" role="link" class="navigation-link">Catalog</a>
@@ -68,37 +68,34 @@
             </li>
           </ul>
         </nav>
-
         <!-- end of navigation -->
       </header>
-
       <!-- end of header -->
 
       <!-- main block -->
-      <div class="is-main__wrapper">
-        <div class="main-side main-side__left">
-          <a class="main-link" href="#">
-            <img src="./img/arrow-left.svg" />
-            Creative
-          </a>
+      <main role="main" class="is-main">
+        <div class="is-main__wrapper">
+          <div class="main-side main-side__left">
+            <a class="main-link" href="creative.html">
+              <img src="./img/arrow-left.svg" />
+              Creative
+            </a>
+          </div>
+
+          <div class="main-side main-side__right">
+            <a class="main-link" href="director.html">
+              Director
+              <img src="./img/arrow-right.svg" class="image-scaled" />
+            </a>
+          </div>
         </div>
 
-        <div class="main-side main-side__right">
-          <a class="main-link" href="#">
-            Director
-            <img src="./img/arrow-right.svg" class="image-scaled" />
-          </a>
-        </div>
-      </div>
+        <!-- end of main block -->
+      </main>
 
-      <!-- end of main block -->
-    </main>
-
-    <!-- homepage -->
-    <section class="is-homepage">
       <!-- banner -->
       <div class="is-banner with-video-bg">
-        <img class="project-image" src="./img/homepage/project0.jpg" alt="" />
+        <img class="project-image" src="./img/homepage/project-1.jpg" alt="" />
         <video class="project-video" loop preload="metadata" muted>
           <source src="./video/1.mp4" type="video/mp4" />
         </video>
@@ -141,7 +138,7 @@
         <!-- project -->
         <a class="is-project" role="link" href="#">
           <div class="is-project-media with-video-bg">
-            <img class="project-image" src="./img/homepage/project1.jpg" />
+            <img class="project-image" src="./img/homepage/project-2.jpg" />
 
             <video class="project-video" loop preload="metadata" muted>
               <source src="./video/1.mp4" type="video/mp4" />
@@ -158,7 +155,7 @@
         <!-- project -->
         <a class="is-project is-project__small right-aligned" role="link" href="#">
           <div class="is-project-media with-video-bg">
-            <img class="project-image" src="./img/homepage/project2.jpg" />
+            <img class="project-image" src="./img/homepage/project-3.jpg" />
 
             <video class="project-video" loop preload="metadata" muted>
               <source src="./video/1.mp4" type="video/mp4" />
@@ -175,7 +172,7 @@
         <!-- project -->
         <a class="is-project is-project__large" role="link" href="#">
           <div class="is-project-media with-video-bg">
-            <img class="project-image" src="./img/homepage/project1.jpg" />
+            <img class="project-image" src="./img/homepage/project-4.jpg" />
 
             <video class="project-video" loop preload="metadata" muted>
               <source src="./video/1.mp4" type="video/mp4" />
@@ -223,7 +220,7 @@
         <!-- project -->
         <a class="is-project is-project__medium right-aligned" role="link" href="#">
           <div class="is-project-media with-video-bg">
-            <img class="project-image" src="./img/homepage/project4.jpg" />
+            <img class="project-image" src="./img/homepage/project-5.jpg" />
 
             <video class="project-video" loop preload="metadata" muted>
               <source src="./video/1.mp4" type="video/mp4" />
@@ -240,7 +237,7 @@
         <!-- project -->
         <a class="is-project is-project__small" role="link" href="#">
           <div class="is-project-media with-video-bg">
-            <img class="project-image" src="./img/homepage/project5.jpg" />
+            <img class="project-image" src="./img/homepage/project-6.jpg" />
 
             <video class="project-video" loop preload="metadata" muted>
               <source src="./video/1.mp4" type="video/mp4" />
@@ -257,7 +254,7 @@
 
       <!-- banner -->
       <div class="is-banner with-video-bg">
-        <img class="project-image" src="./img/homepage/project6.jpg" alt="" />
+        <img class="project-image" src="./img/homepage/project-7.jpg" alt="" />
         <video class="project-video" loop preload="metadata" muted>
           <source src="./video/1.mp4" type="video/mp4" />
         </video>
@@ -281,7 +278,7 @@
         <!-- project -->
         <a class="is-project" role="link" href="#">
           <div class="is-project-media with-video-bg">
-            <img class="project-image" src="./img/homepage/project8.jpg" />
+            <img class="project-image" src="./img/homepage/project-8.jpg" />
 
             <video class="project-video" loop preload="metadata" muted>
               <source src="./video/1.mp4" type="video/mp4" />
@@ -298,7 +295,7 @@
         <!-- project -->
         <a class="is-project is-project__large right-aligned" role="link" href="#">
           <div class="is-project-media with-video-bg">
-            <img class="project-image" src="./img/homepage/project9.jpg" />
+            <img class="project-image" src="./img/homepage/project-9.jpg" />
 
             <video class="project-video" loop preload="metadata" muted>
               <source src="./video/1.mp4" type="video/mp4" />
@@ -314,53 +311,51 @@
       </div>
 
       <div class="bottom-navigation">
-        <a href="#" role="link" class="bottom-navigation__link">
+        <a href="creative.html" role="link" class="bottom-navigation__link">
           <img src="./img/arrow-left.svg" />
           <span>Creative</span>
         </a>
-        <a href="#" role="link" class="bottom-navigation__link bottom-navigation__director">
+        <a href="director.html" role="link" class="bottom-navigation__link bottom-navigation__director">
           <span>
             Director
           </span>
           <img src="./img/arrow-right.svg" />
         </a>
       </div>
-    </section>
-    <!-- end of homepage -->
 
-    <footer role="contentinfo" class="is-footer">
-      <div class="is-footer__container">
-        <div class="is-footer__logo">
-          <a href="#" role="link">
-            <img src="./img/footer-logo.svg" alt="AJ logo" />
-          </a>
-        </div>
-
-        <div class="is-footer__info">
-          <div class="is-footer__text">
-            <h3 class="is-footer__info-title">AJ Rivvers</h3>
-            <p>
-              Creative director by day, cinephile by dusk, “athlete” by dawn, husband and father by always.
-            </p>
-            <a class="is-footer__info-link" href="#" role="link">
-              Read more
-              <img src="./img/arrow-right.svg" />
+      <footer role="contentinfo" class="is-footer">
+        <div class="is-footer__container">
+          <div class="is-footer__logo">
+            <a href="index.html" role="link">
+              <img src="./img/footer-logo.svg" alt="AJ logo" />
             </a>
           </div>
 
-          <div class="is-footer__text">
-            <h3 class="is-footer__info-title">Contact</h3>
-            <p><a href="mailto:aj@creativeish.com" role="link">aj@creativeish.com</a></p>
+          <div class="is-footer__info">
+            <div class="is-footer__text">
+              <h3 class="is-footer__info-title">AJ Rivvers</h3>
+              <p>
+                Creative director by day, cinephile by dusk, “athlete” by dawn, husband and father by always.
+              </p>
+              <a class="is-footer__info-link" href="#" role="link">
+                Read more
+                <img src="./img/arrow-right.svg" />
+              </a>
+            </div>
 
-            <a class="is-footer__info-link" href="#" role="link">
-              Read more
-              <img src="./img/arrow-right.svg" />
-            </a>
+            <div class="is-footer__text">
+              <h3 class="is-footer__info-title">Contact</h3>
+              <p><a href="mailto:aj@creativeish.com" role="link">aj@creativeish.com</a></p>
+
+              <a class="is-footer__info-link" href="#" role="link">
+                Read more
+                <img src="./img/arrow-right.svg" />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
-
+      </footer>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="

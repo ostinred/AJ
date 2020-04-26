@@ -1,6 +1,7 @@
 .is-footer {
-  padding: 2em 0 3em;
+  padding: 2em 0 3.1em;
   background-color: $footer-grey;
+  border-top: 1px solid $primary-color;
 }
 
 .is-footer__container {
@@ -78,4 +79,22 @@
     will-change: transform;
     transition: transform $a;
   }
+}
+
+.is-footer__black {
+  background-color: $grey-base;
+
+  .is-footer__logo img {
+    filter: invert(1);
+  }
+
+  .is-footer__info-title,
+  .is-footer__text p,
+  .is-footer__text p a {
+    color: $global-color;
+  }
+}
+
+.is-footer__white {
+  background-color: $global-color;
 }
