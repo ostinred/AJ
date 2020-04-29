@@ -418,3 +418,29 @@ $desktop-2k: 2400px !default;
 .is-container {
   @include container();
 }
+
+@mixin link-with-arrow {
+  display: flex;
+  align-items: center;
+  font-family: $font-primary;
+  font-size: 0.5em;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $primary-color;
+
+  &:hover {
+    img {
+      transform: translateX(10px);
+    }
+  }
+
+  img {
+    display: block;
+    height: 10px;
+    object-fit: contain;
+    object-position: center;
+    margin-left: 5px;
+    will-change: transform;
+    transition: transform $a;
+  }
+}

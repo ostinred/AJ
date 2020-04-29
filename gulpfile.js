@@ -22,6 +22,7 @@ var config = {
     js: './src/js/**/*.js',
     homeDir: './',
     video: './src/video/**/*',
+    pdf: './src/pdf/**/*',
   },
   output: {
     html: './dest/',
@@ -31,6 +32,7 @@ var config = {
     img: './dest/img',
     jsDest: './dest/js',
     video: './dest/video',
+    pdf: './dest/pdf',
   },
 };
 
@@ -80,6 +82,10 @@ gulp.task('copyImages', function () {
   gulp.src(config.path.img).pipe(gulp.dest(config.output.img));
 });
 
+gulp.task('copyPDF', function () {
+  gulp.src(config.path.pdf).pipe(gulp.dest(config.output.pdf));
+});
+
 // gulp.task('imageMin', function () {
 //   return gulp
 //     .src(config.path.img)
@@ -112,4 +118,4 @@ gulp.task('jsWatch', function () {
     .pipe(gulp.dest(config.output.jsDest));
 });
 
-gulp.task('default', ['copyHTML', 'copyImages', 'copyVideo', 'scss', 'jsWatch', 'serve']);
+gulp.task('default', ['copyHTML', 'copyImages', 'copyPDF', 'copyVideo', 'scss', 'jsWatch', 'serve']);

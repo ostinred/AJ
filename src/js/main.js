@@ -13,12 +13,21 @@ $(document).ready(function () {
   }
 
   $(window).scroll(function () {
-    if ($(document).scrollTop() > $main.height() - $header.height()) {
+    if ($(document).scrollTop() > $(window).height() / 5 - $header.height()) {
       $header.addClass('is-scrolled');
     } else {
       $header.removeClass('is-scrolled');
     }
   });
+
+  function closeNavigation() {
+    $header.removeClass('is-active');
+    $body.removeClass('is-nav-opened');
+    clearTimeout(s);
+    var s = setTimeout(function () {
+      $header.removeClass('is-closing');
+    }, 1000);
+  }
 
   // open navigation
   $navBtn.click(function () {
@@ -27,17 +36,16 @@ $(document).ready(function () {
     }
 
     if ($header.hasClass('is-active')) {
-      $header.removeClass('is-active');
-      $body.removeClass('is-nav-opened');
-      clearTimeout(s);
-      var s = setTimeout(function () {
-        $header.removeClass('is-closing');
-      }, 1000);
+      closeNavigation();
     } else {
       $header.addClass('is-active');
       $header.addClass('is-closing');
       $body.addClass('is-nav-opened');
     }
+  });
+
+  $('.navigation-link__footer').click(function () {
+    closeNavigation();
   });
 
   // function detectBrowser() {
@@ -94,7 +102,75 @@ $(document).ready(function () {
 
   mainLinksHover($('.is-homepage .main-side__right a.main-link'), 'dir-hovered');
   mainLinksHover($('.is-homepage .main-side__left a.main-link'), 'creative-hovered');
+
+  // catalog page
+
+  var allMods = $('.is-catalog__project');
+
+  // Already visible modules
+  allMods.each(function (i, el) {
+    var el = $(el);
+    if (el.visible(true)) {
+      el.addClass('already-visible');
+    }
+  });
+
+  $(window).scroll(function (event) {
+    allMods.each(function (i, el) {
+      var el = $(el);
+      if (el.visible(true)) {
+        el.addClass('come-in');
+      }
+    });
+  });
+
+  function expandText() {
+    if ($('.is-about__description > *').length <= 2) {
+      $('.about-expand-toggler').hide();
+    } else {
+      var aboutFirstHeight = $('.is-about__description p:nth-child(1)').outerHeight();
+      var aboutSecondHeight = $('.is-about__description p:nth-child(2)').outerHeight();
+      var aboutExpandedHeight = aboutFirstHeight + aboutSecondHeight;
+
+      $('.is-about__description').css('maxHeight', aboutExpandedHeight);
+
+      var totalHeight = 0;
+
+      $('.is-about__description')
+        .children()
+        .each(function () {
+          totalHeight = totalHeight + $(this).outerHeight(true);
+        });
+
+      $('.about-expand-toggler').click(function () {
+        if ($('.is-about__description').hasClass('is-expanded')) {
+          $('.is-about__description').css('maxHeight', aboutExpandedHeight);
+        } else {
+          $('.is-about__description').css('maxHeight', totalHeight);
+        }
+
+        $('.is-about__description').toggleClass('is-expanded');
+      });
+    }
+  }
+
+  expandText();
 });
+
+(function ($) {
+  $.fn.visible = function (partial) {
+    var $t = $(this),
+      $w = $(window),
+      viewTop = $w.scrollTop(),
+      viewBottom = viewTop + $w.height(),
+      _top = $t.offset().top,
+      _bottom = _top + $t.height(),
+      compareTop = partial === true ? _bottom : _top,
+      compareBottom = partial === true ? _top : _bottom;
+
+    return compareBottom <= viewBottom && compareTop >= viewTop;
+  };
+})(jQuery);
 
 $(document).on('click', 'a[href^="#"]', function (event) {
   event.preventDefault();
@@ -103,24 +179,24 @@ $(document).on('click', 'a[href^="#"]', function (event) {
     {
       scrollTop: $($.attr(this, 'href')).offset().top,
     },
-    500
+    1500
   );
 });
 
-// var body = document.body;
-// var timer;
+var body = document.body;
+var timer;
 
-// window.addEventListener(
-//   'scroll',
-//   function () {
-//     clearTimeout(timer);
-//     if (window.innerWidth >= 1100 && !body.classList.contains('disable-hover')) {
-//       body.classList.add('disable-hover');
-//     }
+window.addEventListener(
+  'scroll',
+  function () {
+    clearTimeout(timer);
+    if (window.innerWidth >= 1100 && !body.classList.contains('disable-hover')) {
+      body.classList.add('disable-hover');
+    }
 
-//     timer = setTimeout(function () {
-//       body.classList.remove('disable-hover');
-//     }, 100);
-//   },
-//   false
-// );
+    timer = setTimeout(function () {
+      body.classList.remove('disable-hover');
+    }, 50);
+  },
+  false
+);

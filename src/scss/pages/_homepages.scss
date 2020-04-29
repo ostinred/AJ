@@ -21,3 +21,17 @@
 .is-director__page {
   background-color: $grey-base;
 }
+.is-homepage,
+.is-director__page,
+.is-creative__page {
+  .is-header {
+    background-color: transparent;
+  }
+}
+
+.is-director__page,
+.is-creative__page {
+  .is-logo__name {
+    display: none;
+  }
+}

@@ -97,6 +97,10 @@ html [type='button'],
   -webkit-appearance: none;
   box-shadow: none;
   outline: none !important;
+
+  @include laptop {
+    cursor: pointer;
+  }
 }
 
 ul {

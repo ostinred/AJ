@@ -1,0 +1,43 @@
+.is-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2em;
+  row-gap: 2em;
+}
+
+.is-catalog__project {
+  img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .project-text {
+    width: auto;
+    padding-top: 0.75em;
+  }
+
+  .project-heading {
+    margin-bottom: 0.4em;
+  }
+
+  // animation on scroll
+
+  & {
+    will-change: transform, opacity;
+    transform: translateY(3em);
+    opacity: 0;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  }
+
+  &.come-in {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.already-visible {
+    transform: translateY(0);
+    opacity: 1;
+    transition: none;
+  }
+}

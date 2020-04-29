@@ -56,29 +56,7 @@
 }
 
 .is-footer__info-link {
-  display: flex;
-  align-items: center;
-  font-family: $font-primary;
-  font-size: 0.5em;
-  letter-spacing: 1.5px;
-  color: $primary-color;
-  text-transform: uppercase;
-
-  &:hover {
-    img {
-      transform: translateX(10px);
-    }
-  }
-
-  img {
-    display: block;
-    height: 10px;
-    object-fit: contain;
-    object-position: center;
-    margin-left: 5px;
-    will-change: transform;
-    transition: transform $a;
-  }
+  @include link-with-arrow;
 }
 
 .is-footer__black {
@@ -97,4 +75,16 @@
 
 .is-footer__white {
   background-color: $global-color;
+}
+
+.is-footer__gold {
+  background-color: $primary-color;
+
+  .is-footer__logo:after {
+    background-color: $grey-base;
+  }
+
+  .is-footer__info-link {
+    color: $global-color;
+  }
 }

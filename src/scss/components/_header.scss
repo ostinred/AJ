@@ -11,8 +11,23 @@ $translation: 10vw;
   align-items: center;
 
   &.is-scrolled {
+    background-color: $global-color;
+
+    @include desktop {
+      background-color: transparent;
+    }
+
     .is-logo img {
       filter: $filter-primary;
+    }
+
+    .navigation-btn {
+      &:hover {
+        &:before,
+        &:after {
+          background-color: $primary-color;
+        }
+      }
     }
   }
 }
@@ -43,7 +58,6 @@ $translation: 10vw;
 .is-logo__name {
   margin-left: 10px;
   transition: filter 0.3s ease-out;
-  display: none;
 }
 
 .is-logo__short {
