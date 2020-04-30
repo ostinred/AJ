@@ -13,6 +13,7 @@ var jpegtran = require('imagemin-jpegtran');
 var gifsicle = require('imagemin-gifsicle');
 var imageminSvgo = require('imagemin-svgo');
 var babel = require('gulp-babel');
+var clean = require('gulp-clean');
 
 var config = {
   path: {
@@ -78,6 +79,10 @@ gulp.task('copyVideo', function () {
   gulp.src(config.path.video).pipe(gulp.dest(config.output.video));
 });
 
+gulp.task('cleanImages', function () {
+  gulp.src(config.output.img, { read: false }).pipe(clean());
+});
+
 gulp.task('copyImages', function () {
   gulp.src(config.path.img).pipe(gulp.dest(config.output.img));
 });
@@ -118,4 +123,12 @@ gulp.task('jsWatch', function () {
     .pipe(gulp.dest(config.output.jsDest));
 });
 
-gulp.task('default', ['copyHTML', 'copyImages', 'copyPDF', 'copyVideo', 'scss', 'jsWatch', 'serve']);
+gulp.task('default', [
+  'copyHTML',
+  'copyImages',
+  'copyPDF',
+  'copyVideo',
+  'scss',
+  'jsWatch',
+  'serve',
+]);

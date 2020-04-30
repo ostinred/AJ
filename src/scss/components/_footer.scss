@@ -21,6 +21,17 @@
     margin: 0 5px;
     margin-top: 0.7em;
   }
+
+  a:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+
+  img {
+    will-change: transform;
+    transition: transform $as;
+  }
 }
 
 .is-footer__info {
@@ -48,10 +59,7 @@
   line-height: 1.25;
 
   a {
-    transition: color $as;
-    &:hover {
-      color: $primary-color;
-    }
+    @include hover-underlined;
   }
 }
 

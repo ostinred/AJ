@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "images": "gulp imageMin"
+    "images": "gulp copyImages",
+    "clean": "gulp cleanImages"
   },
   "author": "ostinred",
   "license": "MIT",
@@ -16,6 +17,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^4.1.0",
     "gulp-plumber": "^1.1.0",

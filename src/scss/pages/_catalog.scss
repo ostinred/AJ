@@ -22,7 +22,6 @@
   }
 
   // animation on scroll
-
   & {
     will-change: transform, opacity;
     transform: translateY(3em);
@@ -30,14 +29,8 @@
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
   }
 
-  &.come-in {
+  &.is-visible {
     transform: translateY(0);
     opacity: 1;
-  }
-
-  &.already-visible {
-    transform: translateY(0);
-    opacity: 1;
-    transition: none;
   }
 }

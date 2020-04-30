@@ -97,6 +97,25 @@
   width: 9.75vw;
 }
 
+.zebra-line {
+  transform: scaleX(0);
+  transition: transform 1s 0.5s;
+  transform-origin: center left;
+}
+
+.is-visible {
+  .zebra-line {
+    transform: scaleX(1);
+    transform-origin: center right;
+  }
+
+  &.is-zebra__lines-reversed {
+    .zebra-line {
+      transform-origin: center left;
+    }
+  }
+}
+
 .is-zebra__lines {
   &.is-zebra__lines-reversed {
     flex-direction: row-reverse;
