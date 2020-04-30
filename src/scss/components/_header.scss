@@ -9,6 +9,7 @@ $translation: 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background-color $a;
 
   &.is-scrolled {
     background-color: $global-color;
@@ -306,7 +307,8 @@ $translation: 10vw;
 
       @for $i from 2 through 5 {
         &:nth-child(#{$i}) {
-          transition: transform 0.5s + $i * 0.05 0.25s ease-out, opacity 0.35s + $i * 0.05 0.25s ease-out;
+          transition: transform 0.5s + $i * 0.05 0.25s ease-out,
+            opacity 0.35s + $i * 0.05 0.25s ease-out;
         }
       }
     }
@@ -315,9 +317,17 @@ $translation: 10vw;
       @for $i from 1 through 5 {
         &:nth-child(#{$i}) {
           transform: translateX($translation * 6 - ($i * 10));
-          transition: transform 0.5s + $i * 0.05 0.15s ease-out, opacity 0.35s + $i * 0.05 0.15s ease-out;
+          transition: transform 0.5s + $i * 0.05 0.15s ease-out,
+            opacity 0.35s + $i * 0.05 0.15s ease-out;
         }
       }
     }
   }
+}
+
+.is-homepage,
+.is-director__page,
+.is-creative__page,
+.is-post__page {
+  @include header-transparent;
 }

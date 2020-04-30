@@ -27,11 +27,11 @@
   transition: transform $a;
 }
 
-.project-image {
-  z-index: 1;
-}
-
 .with-video-bg {
+  .project-image {
+    z-index: 1;
+  }
+
   &:hover {
     .project-image {
       transform: translateX(-100%);
@@ -76,8 +76,45 @@
 .project-company {
   margin: 0;
   font-family: $font-sub;
-  font-size: 14px;
+  @include small-text;
   letter-spacing: 1.5px;
   color: $primary-color;
   text-transform: uppercase;
+}
+
+.is-banner__post {
+  justify-content: center;
+
+  .is-banner__copies {
+    figcaption {
+      width: 75%;
+    }
+
+    .project-heading {
+      @include title;
+    }
+  }
+}
+
+.is-post {
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    @include subtitle;
+  }
+
+  h1 {
+    font-weight: bold;
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+}
+
+.is-post__title {
+  @include subtitle;
 }

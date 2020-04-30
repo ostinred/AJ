@@ -46,8 +46,7 @@
 }
 
 .is-footer__info-title {
-  font-size: 0.9em;
-  font-weight: normal;
+  @include medium-text;
   margin: 0 0 20px;
 }
 
@@ -55,7 +54,7 @@
   margin-top: 0;
   margin-bottom: 1em;
   font-family: $font-primary;
-  font-size: 0.6em;
+  @include regular-text;
   line-height: 1.25;
 
   a {

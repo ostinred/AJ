@@ -418,6 +418,26 @@ $desktop-2k: 2400px !default;
 @mixin title {
   font-size: 4em;
   font-size: clamp(32px, 10vw, 3.5em);
+  font-weight: normal;
+}
+
+@mixin subtitle {
+  font-size: 1.7em;
+  font-weight: normal;
+  line-height: 1;
+}
+
+@mixin medium-text {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+@mixin regular-text {
+  font-size: 0.65em;
+}
+
+@mixin small-text {
+  font-size: 0.5em;
 }
 
 @mixin container {
@@ -478,5 +498,11 @@ $desktop-2k: 2400px !default;
         width: 100%;
       }
     }
+  }
+}
+
+@mixin header-transparent {
+  .is-header {
+    background-color: transparent;
   }
 }
