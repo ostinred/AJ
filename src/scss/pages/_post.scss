@@ -1,3 +1,5 @@
+$em: 3em;
+
 .is-post__page {
   .is-logo__icon {
     filter: $filter-white;
@@ -9,8 +11,7 @@
 }
 
 .is-post {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: $em;
   text-align: center;
 
   h1,
@@ -20,7 +21,7 @@
   }
 
   p {
-    margin: 0 0 3em;
+    margin: 0 0 $em;
 
     font-family: $font-sub;
     @include regular-text;
@@ -28,28 +29,91 @@
   }
 }
 
-.is-post__text-image {
+.is-post__row {
   display: flex;
-  padding: 2em 0;
-  text-align: left;
+  justify-content: space-between;
 
-  figure {
-    flex: 0 0 47.5%;
-    margin-left: 5%;
+  & > * {
+    flex: 0 1 47.5%;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    &:only-child {
+      flex: 0 1 100%;
+      margin-bottom: $em;
+
+      img {
+        max-width: 100%;
+        width: auto;
+      }
     }
   }
 
-  &.reversed {
-    flex-direction: row-reverse;
+  p {
+    margin: 0 0 0.25em;
+    text-align: left;
+  }
 
-    figure {
-      margin-left: 0;
-      margin-right: 5%;
+  .is-post__image:not(:only-child) {
+    display: flex;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.is-post__image {
+  margin: 0 0 $em;
+
+  & > img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+.is-post__image-copied {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $grey-base;
+  z-index: -1;
+  opacity: 0;
+
+  transition: z-index 0.1s 0.25s, opacity $a;
+
+  img {
+    transform: scale(0.75);
+    opacity: 0;
+    transition: transform 0.25s 0.25s, opacity 0.25s 0.25s;
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
+  }
+}
+
+.is-post__image {
+  @include laptop {
+    cursor: url(./../img/cursors/cursor-plus.png) 32 32, auto;
+  }
+
+  &.is-active {
+    .is-post__image-copied {
+      z-index: 112;
+      opacity: 1;
+      transition: opacity $a;
+
+      @include laptop {
+        cursor: url(./../img/cursors/cursor-close.png) 32 32, auto;
+      }
+
+      img {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   }
 }

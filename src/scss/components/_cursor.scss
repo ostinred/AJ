@@ -1,0 +1,48 @@
+$border: 4px;
+$size: 40px;
+$color: $primary-color;
+
+.is-cursor {
+  width: $size;
+  height: $size;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  // border: $border solid $primary-color;
+  box-shadow: inset 0 0 10px 3px $color;
+  z-index: 9999999;
+  cursor: none;
+}
+
+.bounce::after {
+  content: '';
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  border: $border * 2 solid $color;
+  animation: flow 1.4s ease infinite;
+}
+
+.inactive {
+  margin-top: 40px;
+  width: 10px;
+  height: 10px;
+  transition: all 0.7s ease;
+}
+
+@keyframes flow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+    border-color: transparentize($color: $color, $amount: 0.75);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

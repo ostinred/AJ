@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "images": "gulp copyImages",
-    "clean": "gulp cleanImages"
+    "images": "gulp cleanImages && gulp copyImages"
   },
   "author": "ostinred",
   "license": "MIT",
