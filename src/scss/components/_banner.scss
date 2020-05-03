@@ -28,6 +28,10 @@
 }
 
 .with-video-bg {
+  @include laptop {
+    cursor: url(./../img/cursors/cursor-eye.png) 16 16, auto;
+  }
+
   .project-image {
     z-index: 1;
   }
