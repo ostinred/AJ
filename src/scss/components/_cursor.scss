@@ -1,6 +1,12 @@
-$border: 4px;
-$size: 40px;
+$size: 44px;
 $color: $primary-color;
+
+body {
+  @include laptop {
+    cursor: url(./../img/cursors/cursor-dot.svg) -4 -4, auto;
+    // cursor: url(./../img/cursors/cursor-dot.svg), default;
+  }
+}
 
 .is-cursor {
   width: $size;
@@ -9,40 +15,45 @@ $color: $primary-color;
   top: 0;
   left: 0;
   border-radius: 50%;
-  // border: $border solid $primary-color;
-  box-shadow: inset 0 0 10px 3px $color;
+  border: 1px solid $primary-color;
   z-index: 9999999;
-  cursor: none;
-}
+  pointer-events: none;
+  // transition: opacity $as, transform 0.1s ease-out;
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.bounce::after {
-  content: '';
-  width: $size;
-  height: $size;
-  border-radius: 50%;
-  left: 0;
-  top: 0;
-  position: absolute;
-  border: $border * 2 solid $color;
-  animation: flow 1.4s ease infinite;
-}
-
-.inactive {
-  margin-top: 40px;
-  width: 10px;
-  height: 10px;
-  transition: all 0.7s ease;
-}
-
-@keyframes flow {
-  0% {
-    transform: scale(1);
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    border-radius: 50%;
+    // opacity: 0;
+    visibility: hidden;
   }
-  50% {
-    transform: scale(0.8);
-    border-color: transparentize($color: $color, $amount: 0.75);
+
+  &.inactive {
+    opacity: 0;
   }
-  100% {
-    transform: scale(1);
+
+  &.pointer {
+    &:after {
+      visibility: visible;
+      animation: scaling 1s ease-in-out 0s infinite alternate backwards;
+      animation: name duration timing-function delay iteration-count direction fill-mode;
+    }
+  }
+}
+
+@keyframes scaling {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
   }
 }

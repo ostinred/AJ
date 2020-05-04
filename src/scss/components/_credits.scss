@@ -1,0 +1,70 @@
+.is-credit {
+  background-color: $primary-color;
+}
+
+.is-credit__toggler {
+  margin: 0 auto;
+  @include link-with-arrow;
+  align-items: baseline;
+  padding: 1.25em;
+  border: 0;
+  text-align: center;
+  color: $global-color;
+  background-color: $primary-color;
+
+  &:hover {
+    img {
+      transform: none;
+    }
+  }
+}
+
+.is-credit__content {
+  color: $global-color;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+
+  p {
+    margin: 0;
+    font-family: $font-sub;
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  br {
+    display: block;
+  }
+}
+
+.is-credit__wrapper {
+  display: flex;
+  padding-top: 2.5em;
+  padding-bottom: 3.5em;
+
+  & > * {
+    flex: 1 1 0;
+    padding-right: 1em;
+  }
+}
+
+p.is-credit__title,
+.is-credit__title {
+  margin-bottom: 1.5em;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.is-credit {
+  &.is-expanded {
+    .is-credit__toggler {
+      img {
+        transform: rotate(0.5turn);
+      }
+    }
+
+    .is-credit__content {
+      max-height: 100vh;
+    }
+  }
+}

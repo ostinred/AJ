@@ -1,0 +1,58 @@
+.is-slider__wrapper {
+  position: relative;
+  padding: 4em 0;
+}
+
+.is-slide {
+  position: relative;
+  height: 60vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: $global-color;
+
+  h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include subtitle;
+    width: 60%;
+    line-height: 1.25;
+  }
+}
+
+.slider-nav {
+  -webkit-appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  @include laptop {
+    transition: $a;
+  }
+}
+
+.slider-prev {
+  left: 0;
+
+  @include laptop {
+    &:hover {
+      left: -10px;
+    }
+  }
+}
+
+.slider-next {
+  right: 0;
+
+  @include laptop {
+    &:hover {
+      right: -10px;
+    }
+  }
+}

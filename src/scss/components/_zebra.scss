@@ -99,57 +99,56 @@
 .zebra-line {
   transform: scaleX(0);
   transition: transform 1s ease-in-out;
-  transform-origin: center left;
+  transform-origin: center right;
 }
 
 .is-visible {
   .zebra-line {
     transform: scaleX(1);
-    transform-origin: center right;
-  }
-
-  &.is-zebra__lines-reversed {
-    .zebra-line {
-      transform-origin: center left;
-    }
   }
 }
 
-.is-zebra__lines {
-  &.is-zebra__lines-reversed {
+.is-zebra__lines-reversed {
+  .is-zebra__lines {
     flex-direction: row-reverse;
+  }
 
-    .zebra-line {
-      margin-right: 0;
-    }
+  .zebra-line {
+    margin-right: 0;
+  }
 
-    .zebra-l1 {
-      margin-left: 4.5vw;
-    }
+  .zebra-l1 {
+    margin-left: 4.5vw;
+  }
 
-    .zebra-l2 {
-      margin-left: 3px;
-    }
+  .zebra-l2 {
+    margin-left: 3px;
+  }
 
-    .zebra-l3 {
-      margin-left: 5.25vw;
-    }
+  .zebra-l3 {
+    margin-left: 5.25vw;
+  }
 
-    .zebra-l4 {
-      margin-left: 3.65vw;
-    }
+  .zebra-l4 {
+    margin-left: 3.65vw;
+  }
 
-    .zebra-l5 {
-      margin-left: 2.85vw;
-    }
+  .zebra-l5 {
+    margin-left: 2.85vw;
+  }
 
-    .zebra-l6 {
-      margin-left: 1.6vw;
-    }
+  .zebra-l6 {
+    margin-left: 1.6vw;
+  }
 
-    .zebra-l7 {
-      margin-left: 0.85vw;
-    }
+  .zebra-l7 {
+    margin-left: 0.85vw;
+  }
+}
+
+.is-zebra__lines-reversed {
+  .zebra-line {
+    transform-origin: center left;
   }
 }
 
@@ -224,9 +223,5 @@
   .is-zebra__lines {
     right: 0;
     left: auto;
-
-    .zebra-line {
-      transform-origin: center left;
-    }
   }
 }

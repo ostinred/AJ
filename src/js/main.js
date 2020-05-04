@@ -79,8 +79,14 @@ $(document).ready(function () {
     );
   }
 
-  mainLinksHover($('.is-homepage .main-side__right a.main-link'), 'dir-hovered');
-  mainLinksHover($('.is-homepage .main-side__left a.main-link'), 'creative-hovered');
+  mainLinksHover(
+    $('.is-homepage .main-side__right a.main-link'),
+    'dir-hovered'
+  );
+  mainLinksHover(
+    $('.is-homepage .main-side__left a.main-link'),
+    'creative-hovered'
+  );
 
   // animations in viewport
   var catalogProjects = $('.is-catalog__project');
@@ -116,17 +122,18 @@ $(document).ready(function () {
     });
   }
 
-  // expand text in about page
-  var aboutTextDescription = $('.is-about__description');
-  var aboutExpandToggler = $('.about-expand-toggler');
+  // expand text
+  var aboutTextDescription = $('.is-block__expanded-description');
+  var aboutExpandToggler = $('.is-block__expanded-toggler');
 
   function expandText() {
-    if ($('.is-about__description > *').length <= 2) {
+    if ($('.is-block__expanded-description > *').length <= 1) {
       aboutExpandToggler.hide();
     } else {
-      var aboutFirstHeight = $('.is-about__description p:nth-child(1)').outerHeight();
-      var aboutSecondHeight = $('.is-about__description p:nth-child(2)').outerHeight();
-      var aboutExpandedHeight = aboutFirstHeight + aboutSecondHeight;
+      var aboutFirstHeight = $(
+        '.is-block__expanded-description p:nth-child(1)'
+      ).outerHeight();
+      var aboutExpandedHeight = aboutFirstHeight;
 
       aboutTextDescription.css('maxHeight', aboutExpandedHeight);
 
@@ -150,16 +157,24 @@ $(document).ready(function () {
 
   expandText();
 
-  // gallery view of images in post page
-  var postImages = $('.is-post__image');
+  // expand credits
+  var creditWrapper = $('.is-credit');
+  var creditToggler = $('.is-credit__toggler');
 
-  postImages.click(function () {
+  creditToggler.click(function () {
+    creditWrapper.toggleClass('is-expanded');
+  });
+
+  // gallery view of images in post page
+  var blockImages = $('.is-block__image');
+
+  blockImages.click(function () {
     $(this).addClass('is-active');
     $(body).addClass('overflow-hidden');
   });
 
-  var postImageGallery = $('.is-post__image-copied');
-  postImageGallery.click(function (e) {
+  var blockImageGallery = $('.is-block__image-copied');
+  blockImageGallery.click(function (e) {
     e.stopPropagation();
     var _this = $(this).parent('.is-active');
     _this.removeClass('is-active');
@@ -167,19 +182,35 @@ $(document).ready(function () {
   });
 
   // cursor
-  // var cursor = $('.is-cursor');
+  var cursor = $('.is-cursor');
 
-  // function moveCursor(e) {
-  //   var x = e.clientX - 16;
-  //   var y = e.clientY - 16;
+  function moveCursor(e) {
+    var x = e.clientX - 16;
+    var y = e.clientY - 16;
 
-  //   cursor.css('transform', 'translate(' + x + 'px,' + y + 'px)');
-  // }
-  // if (cursor) {
-  //   $(document).mousemove(function (e) {
-  //     moveCursor(e);
-  //   });
-  // }
+    cursor.css({ top: '' + y + 'px', left: '' + x + 'px' });
+  }
+
+  function pointerStyles(el) {
+    el.hover(
+      function () {
+        cursor.addClass('pointer');
+      },
+      function () {
+        cursor.removeClass('pointer');
+      }
+    );
+  }
+
+  if (cursor) {
+    $(document).mousemove(function (e) {
+      moveCursor(e);
+
+      pointerStyles($('a'));
+      pointerStyles($('button'));
+      pointerStyles($('.is-block__video'));
+    });
+  }
 
   // video in modal
   var videoModal = $('.is-block__video');
@@ -201,6 +232,16 @@ $(document).ready(function () {
       var el_src = $(this).attr('src');
       $(this).attr('src', el_src);
     });
+  });
+
+  // carousel
+  $('.is-slider').slick({
+    infinite: true,
+    speed: 1000,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    prevArrow: $('.slider-prev'),
+    nextArrow: $('.slider-next'),
   });
 });
 
@@ -224,7 +265,10 @@ window.addEventListener(
   'scroll',
   function () {
     clearTimeout(timer);
-    if (window.innerWidth >= 1100 && !body.classList.contains('disable-hover')) {
+    if (
+      window.innerWidth >= 1100 &&
+      !body.classList.contains('disable-hover')
+    ) {
       body.classList.add('disable-hover');
     }
 

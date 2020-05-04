@@ -21,75 +21,16 @@
       text-align: right;
     }
   }
-}
 
-.is-about__text {
-  text-align: center;
-  border-bottom: 1px solid $primary-color;
-  padding-bottom: 2em;
-
-  h2 {
-    margin: 0;
-    padding: 1.25em 0;
-    @include subtitle;
-  }
-
-  p {
-    margin: 0;
-    padding: 0 0 1.5em;
-    font-family: $font-sub;
-    @include regular-text;
-    line-height: 1.5;
-  }
-}
-
-.is-about__description {
-  overflow: hidden;
-  transition: max-height 0.75s ease-in-out;
-}
-
-.about-expand-toggler {
-  @include link-with-arrow;
-  padding: 0.5em;
-  border: 0;
-  margin: 3em auto 0.5em;
-
-  &:hover {
-    img {
-      transform: none;
-    }
-  }
-
-  span {
-    margin-left: 5px;
-  }
-
-  .less {
-    display: none;
-  }
-}
-
-.is-about__description {
-  &.is-expanded {
-    & + .about-expand-toggler {
-      .more {
-        display: none;
-      }
-
-      .less {
-        display: block;
-      }
-
-      img {
-        transform: rotate(0.5turn);
-      }
-    }
+  .is-block__expanded-toggler {
+    margin-bottom: 2em;
   }
 }
 
 .about-principles {
   padding: 3em 0;
   background-color: $grey-base;
+  border-top: 1px solid $primary-color;
 }
 
 .about-principles__heading {

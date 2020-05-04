@@ -144,14 +144,11 @@ $desktop-2k: 2400px !default;
 
 @function unpack($shorthand) {
   @if length($shorthand) == 1 {
-    @return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1)
-      nth($shorthand, 1);
+    @return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1);
   } @else if length($shorthand) == 2 {
-    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1)
-      nth($shorthand, 2);
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1) nth($shorthand, 2);
   } @else if length($shorthand) == 3 {
-    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3)
-      nth($shorthand, 2);
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3) nth($shorthand, 2);
   } @else {
     @return $shorthand;
   }
@@ -160,15 +157,13 @@ $desktop-2k: 2400px !default;
 @function is-length($value) {
   @return type-of($value) != 'null' and
     (
-      str-slice($value + '', 1, 4) == 'calc' or
-        index(auto inherit initial 0, $value) or
+      str-slice($value + '', 1, 4) == 'calc' or index(auto inherit initial 0, $value) or
         (type-of($value) == 'number' and not(unitless($value)))
     );
 }
 
 @function is-size($value) {
-  @return is-length($value) or
-    contains('fill' 'fit-content' 'min-content' 'max-content', $value);
+  @return is-length($value) or contains('fill' 'fit-content' 'min-content' 'max-content', $value);
 }
 
 @mixin absolute($sides: null null null null) {
@@ -252,11 +247,7 @@ $desktop-2k: 2400px !default;
 }
 // @include placeholder {color: red;}
 
-@mixin placeholder-animation-opacity(
-  $class,
-  $transition: 0.5s,
-  $text-indent: 250px
-) {
+@mixin placeholder-animation-opacity($class, $transition: 0.5s, $text-indent: 250px) {
   .#{$class}::-webkit-input-placeholder {
     will-change: opacity;
     opacity: 1;
@@ -296,11 +287,7 @@ $desktop-2k: 2400px !default;
 }
 // @include placeholder-animation-opacity(your classname);
 
-@mixin placeholder-animation-left(
-  $class,
-  $transition: 0.25s,
-  $text-indent: -200px
-) {
+@mixin placeholder-animation-left($class, $transition: 0.25s, $text-indent: -200px) {
   .#{$class}::-webkit-input-placeholder {
     will-change: text-indent;
     text-indent: 0;
@@ -505,4 +492,10 @@ $desktop-2k: 2400px !default;
   .is-header {
     background-color: transparent;
   }
+}
+
+@mixin block-title {
+  margin: 0;
+  padding: 1.25em 0;
+  @include subtitle;
 }

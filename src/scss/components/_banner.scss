@@ -29,7 +29,7 @@
 
 .with-video-bg {
   @include laptop {
-    cursor: url(./../img/cursors/cursor-eye.png) 16 16, auto;
+    // cursor: url(./../img/cursors/cursor-eye.png) 16 16, auto;
   }
 
   .project-image {
@@ -98,27 +98,4 @@
       @include title;
     }
   }
-}
-
-.is-post {
-  h1,
-  h2,
-  h3 {
-    margin: 0;
-    padding: 0;
-    font-weight: 500;
-    @include subtitle;
-  }
-
-  h1 {
-    font-weight: bold;
-  }
-
-  h2 {
-    font-weight: 500;
-  }
-}
-
-.is-post__title {
-  @include subtitle;
 }

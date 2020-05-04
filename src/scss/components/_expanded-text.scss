@@ -1,0 +1,60 @@
+.is-block__expanded {
+  text-align: center;
+  padding-bottom: 2em;
+
+  h2 {
+    @include block-title;
+  }
+
+  p {
+    margin: 0;
+    padding: 0 0 1.5em;
+    font-family: $font-sub;
+    @include regular-text;
+    line-height: 1.5;
+  }
+}
+
+.is-block__expanded-description {
+  overflow: hidden;
+  transition: max-height 0.75s ease-in-out;
+}
+
+.is-block__expanded-toggler {
+  @include link-with-arrow;
+  padding: 0.5em;
+  border: 0;
+  margin: 2em auto 0;
+
+  &:hover {
+    img {
+      transform: none;
+    }
+  }
+
+  span {
+    margin-left: 5px;
+  }
+
+  .less {
+    display: none;
+  }
+}
+
+.is-block__expanded-description {
+  &.is-expanded {
+    & + .is-block__expanded-toggler {
+      .more {
+        display: none;
+      }
+
+      .less {
+        display: block;
+      }
+
+      img {
+        transform: rotate(0.5turn);
+      }
+    }
+  }
+}

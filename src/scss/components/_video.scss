@@ -16,7 +16,7 @@
     margin: auto;
     width: 56px;
     height: 56px;
-    background-image: url('./../img/icon-play.svg');
+    background-image: url('./../img/icons/icon-play.svg');
   }
 
   @include laptop {
@@ -24,12 +24,13 @@
   }
 
   & > img {
-    max-width: 100%;
+    // max-width: 100%;
+    width: 100%;
     object-fit: contain;
   }
 }
 
-.is-post__row {
+.is-block__row {
   .is-block__video:not(:only-child) {
     img {
       width: 100%;
@@ -47,13 +48,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000;
+  background-color: $grey-dark;
   opacity: 0;
   z-index: -1;
   transition: z-index 0.1s 0.25s, opacity $a;
 
   iframe {
-    // width: 90%;
     width: 80% !important;
     height: 80% !important;
   }
