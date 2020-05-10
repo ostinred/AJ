@@ -1,4 +1,5 @@
 .is-footer {
+  position: relative;
   padding: 2em 0 3.1em;
   background-color: $footer-grey;
   border-top: 1px solid $primary-color;
@@ -75,7 +76,8 @@
 
   .is-footer__info-title,
   .is-footer__text p,
-  .is-footer__text p a {
+  .is-footer__text p a,
+  .is-copyright {
     color: $global-color;
   }
 }
@@ -94,4 +96,12 @@
   .is-footer__info-link {
     color: $global-color;
   }
+}
+
+.is-copyright {
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+  font-family: $font-sub;
+  font-size: 0.5em;
 }

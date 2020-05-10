@@ -243,6 +243,9 @@ $(document).ready(function () {
     prevArrow: $('.slider-prev'),
     nextArrow: $('.slider-next'),
   });
+
+  // add coyright year
+  $('.is-copyright span').text(new Date().getFullYear());
 });
 
 // smooth scrolling to anchors
