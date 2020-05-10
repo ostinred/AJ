@@ -5,7 +5,7 @@ $font-sub: 'IBM Plex Sans';
 $global-color: #fff !global;
 $transparent-color: transparent !global;
 
-$primary-color: #ad8637 !global;
+$primary-color: red !global;
 $grey-base: #191919 !global;
 $grey-dark: #000 !global;
 $grey-light: #ccc !global;
@@ -23,8 +23,10 @@ $al: 0.5s ease-out;
 
 $main-block-height: 90vh;
 
-$filter-primary: invert(53%) sepia(10%) saturate(2548%) hue-rotate(2deg) brightness(99%) contrast(88%);
-$filter-white: invert(100%) sepia(0%) saturate(7500%) hue-rotate(268deg) brightness(102%) contrast(102%);
+$filter-primary: invert(53%) sepia(10%) saturate(2548%) hue-rotate(2deg)
+  brightness(99%) contrast(88%);
+$filter-white: invert(100%) sepia(0%) saturate(7500%) hue-rotate(268deg)
+  brightness(102%) contrast(102%);
 
 // menu hover transitions
 $nav-overlay-transition: 0.7s;
