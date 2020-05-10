@@ -1,0 +1,22 @@
+.socials {
+  display: flex;
+  padding: 0 0 0 clamp(25px, 3vw, 3vw);
+
+  a {
+    padding: 0.25em;
+
+    @include laptop {
+      transition: transform $a;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:hover {
+      @include laptop {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

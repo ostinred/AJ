@@ -51,7 +51,6 @@ $translation: 10vw;
 }
 
 .is-logo__svg {
-  // transition: filter 0.1s ease-in-out;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -96,7 +95,7 @@ $translation: 10vw;
   right: 0;
   bottom: 0;
 
-  ul {
+  > ul {
     @include flex-column;
     height: 100%;
     padding: 65px 0;
@@ -288,7 +287,7 @@ $translation: 10vw;
   }
 }
 
-.is-navigation ul {
+.is-navigation > ul {
   li {
     @for $i from 1 through 5 {
       &:nth-child(#{$i}) {
