@@ -12,19 +12,349 @@
     width: 50%;
     z-index: -1;
   }
+}
 
-  .is-logo__name {
+.is-creative__content,
+.is-director__content {
+  display: none;
+}
+
+.is-director__content {
+  display: none;
+}
+
+.is-creative__page {
+  .is-creative__content {
     display: block;
+  }
+
+  .is-homepage__content {
+    display: none;
   }
 }
 
 .is-director__page {
-  background-color: $grey-base;
+  .is-director__content {
+    display: block;
+  }
+
+  .is-homepage__content {
+    display: none;
+  }
 }
 
-.is-director__page,
 .is-creative__page {
-  .is-logo__name {
-    display: none;
+  .is-main__dark-link {
+    animation: showHomepageArrowCreative 0.25s 1.25s forwards;
+    pointer-events: unset;
+  }
+
+  .main-link__director {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .is-main__dark {
+    animation: moveDarkBg 0.6s 0.3s forwards;
+  }
+
+  .main-link__creative {
+    pointer-events: none;
+    animation: moveCreativeLink 0.5s 0.7s forwards;
+
+    img {
+      transform: none;
+      animation: moveCreativeLinkArrow 0.25s 0.5s forwards;
+    }
+  }
+
+  .is-main-lines__wrapper div {
+    animation-name: moveDarkLinesToLeft;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+
+    &:nth-child(1) {
+      animation-duration: 0.175s;
+      animation-delay: 0.2s;
+    }
+
+    @for $i from 2 through 12 {
+      &:nth-child(#{$i}) {
+        animation-duration: 0.2s;
+        animation-delay: 0s + $i * 0.1;
+      }
+    }
+  }
+}
+
+@keyframes showHomepageArrowCreative {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveDarkBg {
+  to {
+    width: 100px;
+  }
+}
+
+@keyframes moveCreativeLink {
+  to {
+    right: 100px;
+  }
+}
+
+@keyframes moveCreativeLinkArrow {
+  to {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+}
+
+@keyframes moveDarkLinesToLeft {
+  to {
+    transform: scaleX(0) translateX(15px);
+  }
+}
+
+.is-homepage-from-creative {
+  .main-link__creative {
+    opacity: 0;
+    animation: showCreativeLinkHomepage 0.5s 1.6s forwards;
+    transition: none;
+  }
+
+  .is-main-lines__wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .is-main-lines__wrapper div {
+    transform: scaleX(0);
+
+    animation-name: moveDarkLinesToRight;
+    animation-duration: 0.15s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    flex-direction: row-reverse;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: 0.07s + ($i * 0.07);
+      }
+    }
+  }
+
+  .is-main__dark {
+    width: 100px;
+    animation: moveDarkBgHomepage 0.5s 0.9s forwards;
+  }
+
+  .is-main__dark-link {
+    opacity: 0;
+  }
+
+  .main-link__director {
+    opacity: 0;
+    transform: translateX(20%) translateY(-10vh);
+    animation: showMoveDirectorLink 0.5s 1.3s forwards;
+  }
+}
+
+@keyframes moveDarkLinesToRight {
+  to {
+    transform: scaleX(1) translateX(-15px);
+  }
+}
+
+@keyframes moveDarkBgHomepage {
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes showCreativeLinkHomepage {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showMoveDirectorLink {
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(-10vh);
+  }
+}
+
+.is-director__page {
+  .main-link__creative {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .main-link__director {
+    opacity: 0;
+    pointer-events: none;
+    animation: moveShowDirectorLinkDirectorPage 0.75s 1.15s forwards;
+
+    img {
+      opacity: 0;
+    }
+  }
+
+  .is-main__dark {
+    animation: moveDarkBgDirector 0.7s 0.5s forwards;
+  }
+
+  .is-main__white-link {
+    pointer-events: unset;
+    animation: showHomepageArrowDirector 0.5s 1.25s forwards;
+  }
+
+  .is-main-lines {
+    display: flex;
+    flex-direction: row-reverse;
+    animation: moveDarkBgDirector 0.6s 0.15s forwards;
+  }
+
+  .is-main-lines__wrapper {
+    flex-direction: row-reverse;
+    animation: scaleLinesWrapperDirector 0.4s 0.15s forwards;
+    width: 0;
+  }
+
+  .is-main-lines__wrapper div {
+    background-color: $global-color;
+    animation-name: moveWhiteLinesToLeft;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-duration: 0.2s;
+        animation-delay: 0.15s + $i * 0.1;
+      }
+    }
+  }
+}
+
+@keyframes moveDarkBgDirector {
+  to {
+    width: calc(100vw - 100px);
+  }
+}
+
+@keyframes showHomepageArrowDirector {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveShowDirectorLinkDirectorPage {
+  to {
+    opacity: 1;
+    left: 100px;
+  }
+}
+
+@keyframes moveWhiteLinesToLeft {
+  100% {
+    transform: scaleX(0) translateX(0px);
+  }
+}
+
+@keyframes scaleLinesWrapperDirector {
+  100% {
+    width: 100%;
+  }
+}
+
+.is-homepage-from-director {
+  .is-main__white-link {
+    pointer-events: none;
+    opacity: 1;
+    animation: hideWhiteLinkDirectortoHomepage 0.25s forwards;
+  }
+
+  .main-link__creative {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10vh);
+    animation: moveCreativeLinkDirectortoHomepage 0.6s 1s forwards;
+  }
+
+  .main-link__director {
+    opacity: 0;
+    animation: showDirectorLinkDirectortoHomepage 0.35s 1.35s forwards;
+  }
+
+  .is-main__dark {
+    width: calc(100vw - 100px);
+    animation: moveDarkBgDirectortoHomepage 0.7s 0.35s ease-in-out forwards;
+  }
+
+  .is-main-lines {
+    width: calc(100vw - 100px);
+    display: flex;
+    animation: moveDarkBgDirectortoHomepage 0.6s 0.25s ease-in-out forwards;
+  }
+
+  .is-main-lines__wrapper {
+    display: flex;
+    width: 0;
+    transform: scaleX(0);
+    animation: scaleLinesWrapperDirectortoHomepage 0.6s 0.15s forwards;
+  }
+
+  .is-main-lines__wrapper div {
+    background-color: $global-color;
+    animation-name: moveWhiteLinesToRight;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-duration: 0.2s;
+        animation-delay: 0.15s + $i * 0.1;
+      }
+    }
+  }
+}
+
+@keyframes moveDarkBgDirectortoHomepage {
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes hideWhiteLinkDirectortoHomepage {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showDirectorLinkDirectortoHomepage {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveCreativeLinkDirectortoHomepage {
+  to {
+    transform: translateX(0) translateY(-10vh);
+    opacity: 1;
+  }
+}
+
+@keyframes moveWhiteLinesToRight {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes scaleLinesWrapperDirectortoHomepage {
+  to {
+    transform: scaleX(1);
+    width: 100%;
   }
 }

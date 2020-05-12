@@ -70,7 +70,7 @@ $translation: 10vw;
   }
 }
 
-.is-logo__white {
+.is-logo__icon {
   .is-logo__svg {
     filter: $filter-white;
   }
@@ -210,8 +210,8 @@ $translation: 10vw;
     filter: $filter-white !important;
   }
 
-  @include header-closing() {
-    // transition: filter $nav-overlay-transition $nav-overlay-transition/2;
+  &.is-white {
+    filter: $filter-white;
   }
 }
 
@@ -324,9 +324,6 @@ $translation: 10vw;
   }
 }
 
-.is-homepage,
-.is-director__page,
-.is-creative__page,
-.is-post__page {
+.header-transparent {
   @include header-transparent;
 }

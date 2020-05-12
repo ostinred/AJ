@@ -125,3 +125,7 @@ ul {
 }
 
 @include selection-style($primary-color, $global-color);
+
+.is-hidden {
+  display: none !important;
+}

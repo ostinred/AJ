@@ -12,9 +12,6 @@
 
 .project-image,
 .project-video {
-  width: 100%;
-  height: 100%;
-
   position: absolute;
   top: 0;
   left: 0;
@@ -25,6 +22,17 @@
   object-position: center;
   will-change: transform;
   transition: transform $a;
+}
+
+.project-image {
+  width: 101%;
+  height: 101%;
+}
+
+.project-video {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  margin: auto;
 }
 
 .with-video-bg {

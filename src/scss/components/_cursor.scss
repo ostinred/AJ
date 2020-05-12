@@ -2,13 +2,14 @@ $size: 44px;
 $color: $primary-color;
 
 body {
-  @include laptop {
-    cursor: url(./../img/cursors/cursor-dot.svg) -4 -4, auto;
-    // cursor: url(./../img/cursors/cursor-dot.svg), default;
-  }
+  // @include laptop {
+  //   cursor: url(./../img/cursors/cursor-dot.svg) -4 -4, auto;
+  // }
 }
 
 .is-cursor {
+  display: none !important;
+
   width: $size;
   height: $size;
   position: fixed;
@@ -42,7 +43,8 @@ body {
     &:after {
       visibility: visible;
       animation: scaling 1s ease-in-out 0s infinite alternate backwards;
-      animation: name duration timing-function delay iteration-count direction fill-mode;
+      animation: name duration timing-function delay iteration-count direction
+        fill-mode;
     }
   }
 }
