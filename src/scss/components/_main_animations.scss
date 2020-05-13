@@ -1,0 +1,305 @@
+.is-creative__page {
+  .is-main__dark-link {
+    pointer-events: unset;
+    animation: showHomepageArrow_Creative 0.25s 1.25s forwards;
+  }
+
+  .main-link__director {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .is-main__dark {
+    animation: moveDarkBg_Creative 0.6s 0.3s forwards;
+  }
+
+  .main-link__creative {
+    pointer-events: none;
+    animation: moveCreativeLink_Creative 0.5s 0.7s forwards;
+
+    img {
+      transform: none;
+      animation: moveCreativeLinkArrow_Creative 0.25s 0.5s forwards;
+    }
+  }
+
+  .is-main-lines__wrapper div {
+    animation: moveDarkLinesToLeft_Creative 0.2s ease-out forwards;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: 0s + $i * 0.1;
+      }
+    }
+  }
+}
+
+@keyframes showHomepageArrow_Creative {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveDarkBg_Creative {
+  to {
+    width: 100px;
+  }
+}
+
+@keyframes moveCreativeLink_Creative {
+  to {
+    right: 100px;
+  }
+}
+
+@keyframes moveCreativeLinkArrow_Creative {
+  to {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+}
+
+@keyframes moveDarkLinesToLeft_Creative {
+  to {
+    transform: scaleX(0) translateX(15px);
+  }
+}
+
+.is-homepage-from-creative {
+  .main-link__creative {
+    opacity: 0;
+    animation: showCreativeLink_CreativeToHomepage 0.5s 1.6s forwards;
+    transition: none;
+  }
+
+  .is-main-lines__wrapper {
+    flex-direction: row-reverse;
+  }
+
+  .is-main-lines__wrapper div {
+    transform: scaleX(0);
+    animation: moveDarkLinesToRight_CreativeToHomepage 0.15s ease-out forwards;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: 0.07s + ($i * 0.07);
+      }
+    }
+  }
+
+  .is-main__dark {
+    width: 100px;
+    animation: moveDarkBgHomepage_CreativeToHomepage 0.5s 0.9s forwards;
+  }
+
+  .is-main__dark-link {
+    pointer-events: none;
+    opacity: 1;
+    animation: hideDarkLink_DirectorToHomepage 0.25s ease-in-out forwards;
+  }
+
+  .main-link__director {
+    opacity: 0;
+    transform: translateX(20%) translateY(-10vh);
+    animation: showMoveDirectorLink_CreativeToHomepage 0.5s 1.3s forwards;
+  }
+}
+
+@keyframes hideDarkLink_DirectorToHomepage {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes moveDarkLinesToRight_CreativeToHomepage {
+  to {
+    transform: scaleX(1) translateX(-15px);
+  }
+}
+
+@keyframes moveDarkBgHomepage_CreativeToHomepage {
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes showCreativeLink_CreativeToHomepage {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showMoveDirectorLink_CreativeToHomepage {
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(-10vh);
+  }
+}
+
+.is-director__page {
+  .main-link__creative {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .main-link__director {
+    opacity: 0;
+    pointer-events: none;
+    animation: moveShowDirectorLink_Director 0.75s 1.15s forwards;
+
+    img {
+      opacity: 0;
+    }
+  }
+
+  .is-main__dark {
+    animation: moveDarkBg_Director 0.7s 0.5s forwards;
+  }
+
+  .is-main__white-link {
+    pointer-events: unset;
+    animation: showHomepageArrow_Director 0.5s 1.25s forwards;
+  }
+
+  .is-main-lines {
+    display: flex;
+    flex-direction: row-reverse;
+    animation: moveDarkBg_Director 0.6s 0.15s forwards;
+  }
+
+  .is-main-lines__wrapper {
+    flex-direction: row-reverse;
+    animation: scaleLinesWrapper_Director 0.4s 0.15s forwards;
+    width: 0;
+  }
+
+  .is-main-lines__wrapper div {
+    background-color: $global-color;
+    animation: moveWhiteLinesToLeft_Director 0.2s ease-out forwards;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: 0.15s + $i * 0.1;
+      }
+    }
+  }
+}
+
+@keyframes moveDarkBg_Director {
+  to {
+    width: calc(100vw - 100px);
+  }
+}
+
+@keyframes showHomepageArrow_Director {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveShowDirectorLink_Director {
+  to {
+    opacity: 1;
+    left: 100px;
+  }
+}
+
+@keyframes moveWhiteLinesToLeft_Director {
+  100% {
+    transform: scaleX(0) translateX(0px);
+  }
+}
+
+@keyframes scaleLinesWrapper_Director {
+  100% {
+    width: 100%;
+  }
+}
+
+.is-homepage-from-director {
+  .is-main__white-link {
+    pointer-events: none;
+    opacity: 1;
+    animation: hideWhiteLink_DirectorToHomepage 0.25s ease-in-out forwards;
+  }
+
+  .main-link__creative {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10vh);
+    animation: moveCreativeLink_DirectorToHomepage 0.6s 1s ease-in-out forwards;
+  }
+
+  .main-link__director {
+    opacity: 0;
+    animation: showDirectorLink_DirectorToHomepage 0.35s 1.35s ease-in-out
+      forwards;
+  }
+
+  .is-main__dark {
+    width: calc(100vw - 100px);
+    animation: moveDarkBg_DirectorToHomepage 0.7s 0.35s ease-in-out forwards;
+  }
+
+  .is-main-lines {
+    display: flex;
+    width: calc(100vw - 100px);
+    animation: moveDarkBg_DirectorToHomepage 0.6s 0.25s ease-in-out forwards;
+  }
+
+  .is-main-lines__wrapper {
+    width: 0;
+    transform: scaleX(0);
+    animation: scaleLinesWrapper_DirectorToHomepage 0.6s 0.15s ease-in-out
+      forwards;
+  }
+
+  .is-main-lines__wrapper div {
+    background-color: $global-color;
+    animation: moveWhiteLinesToRight_DirectorToHomepage 0.2s ease-in-out
+      forwards;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: 0.15s + $i * 0.1;
+      }
+    }
+  }
+}
+
+@keyframes moveDarkBg_DirectorToHomepage {
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes hideWhiteLink_DirectorToHomepage {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showDirectorLink_DirectorToHomepage {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveCreativeLink_DirectorToHomepage {
+  to {
+    transform: translateX(0) translateY(-10vh);
+    opacity: 1;
+  }
+}
+
+@keyframes moveWhiteLinesToRight_DirectorToHomepage {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes scaleLinesWrapper_DirectorToHomepage {
+  to {
+    transform: scaleX(1);
+    width: 100%;
+  }
+}

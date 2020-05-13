@@ -22,6 +22,12 @@ $translation: 10vw;
       filter: $filter-primary;
     }
 
+    .is-logo__icon {
+      g {
+        fill: $primary-color;
+      }
+    }
+
     .navigation-btn {
       &:hover {
         &:before,
@@ -41,10 +47,15 @@ $translation: 10vw;
   align-items: center;
   justify-content: center;
 
+  svg g {
+    transition: fill $a;
+    fill: $grey-dark;
+  }
+
   @include laptop {
     &:hover {
-      .is-logo__icon {
-        filter: $filter-primary;
+      svg g {
+        fill: $primary-color;
       }
     }
   }
@@ -57,23 +68,7 @@ $translation: 10vw;
 
 .is-logo__name {
   margin-left: 10px;
-  transition: filter 0.3s ease-out;
-}
-
-.is-logo__short {
-  .is-logo__icon {
-    margin-right: 0;
-  }
-
-  .is-logo__name {
-    display: none;
-  }
-}
-
-.is-logo__icon {
-  .is-logo__svg {
-    filter: $filter-white;
-  }
+  transition: filter $a;
 }
 
 .navigation-btn__wrapper {
@@ -207,11 +202,15 @@ $translation: 10vw;
 
 .is-logo__icon {
   @include header-active() {
-    filter: $filter-white !important;
+    g {
+      fill: $global-color;
+    }
   }
 
   &.is-white {
-    filter: $filter-white;
+    g {
+      fill: $global-color;
+    }
   }
 }
 

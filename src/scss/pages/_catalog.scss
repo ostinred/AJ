@@ -1,15 +1,26 @@
 .is-catalog__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 2em;
-  row-gap: 2em;
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
+  // column-gap: 2em;
+  // row-gap: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .is-catalog__project {
+  display: block;
+  flex-basis: 48%;
+  margin-bottom: 2em;
+
   img {
     width: 100%;
     object-fit: cover;
     object-position: center;
+
+    @include laptop {
+      height: 17vw;
+    }
   }
 
   .project-text {
@@ -22,15 +33,30 @@
   }
 
   // animation on scroll
-  & {
-    will-change: transform, opacity;
-    transform: translateY(3em);
+  &:not(.already-visible) {
+    transform: translate3d(0, 100px, 0);
     opacity: 0;
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
   }
 
   &.is-visible {
-    transform: translateY(0);
+    animation: isVisibleAnim 0.75s ease-in-out forwards;
+
+    @for $i from 1 through 30 {
+      &:nth-of-type(#{$i}) {
+        animation-delay: 0s + $i * 0.15;
+      }
+    }
+  }
+}
+
+@keyframes isVisibleAnim {
+  from {
+    transform: translate3d(0, 100px, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 }

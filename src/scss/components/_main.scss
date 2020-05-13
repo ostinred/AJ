@@ -137,11 +137,19 @@ $quote-padding: 0.2em;
 }
 
 .is-mainpage__content {
-  transform: translateY(-10vh);
   position: relative;
   z-index: 2;
+  transform: translateY(-10vh);
   will-change: transform;
   transition: transform 0.25s 0.1s ease-in-out;
+
+  @include laptop {
+    pointer-events: none;
+
+    &.unblocked {
+      pointer-events: unset;
+    }
+  }
 }
 
 .is-main-lines {
@@ -211,13 +219,5 @@ $quote-padding: 0.2em;
       width: 2%;
       margin-left: 2%;
     }
-  }
-}
-
-.is-animating {
-  pointer-events: none;
-
-  .is-mainpage__content {
-    transform: translateY(0);
   }
 }
