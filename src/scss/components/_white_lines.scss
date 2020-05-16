@@ -1,0 +1,89 @@
+.white-lines {
+  position: absolute;
+  top: 0;
+  left: 0%;
+
+  height: 100%;
+  width: 50%;
+
+  pointer-events: none;
+}
+
+.white-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $global-color;
+  }
+}
+
+.white-line__12 {
+  left: (145/14.4) + 0vw;
+  width: (15/14.4) + 0vw;
+}
+
+.white-line__11 {
+  left: (170/14.4) + 0vw;
+  width: (15/14.4) + 0vw;
+}
+
+.white-line__10 {
+  left: (193/14.4) + 0vw;
+  width: (8/14.4) + 0vw;
+}
+
+.white-line__9 {
+  left: (235/14.4) + 0vw;
+  width: (7/14.4) + 0vw;
+}
+
+.white-line__8 {
+  left: (270/14.4) + 0vw;
+  width: (15/14.4) + 0vw;
+}
+
+.white-line__7 {
+  left: (288/14.4) + 0vw;
+  width: (15/14.4) + 0vw;
+}
+
+.white-line__6 {
+  left: (345/14.4) + 0vw;
+  width: (30/14.4) + 0vw;
+}
+
+.white-line__5 {
+  left: (395/14.4) + 0vw;
+  width: (6/14.4) + 0vw;
+}
+
+.white-line__4 {
+  left: (447/14.4) + 0vw;
+  width: (28/14.4) + 0vw;
+}
+
+.white-line__3 {
+  left: (490/14.4) + 0vw;
+  width: (38/14.4) + 0vw;
+}
+
+.white-line__2 {
+  left: (567/14.4) + 0vw;
+  width: (31/14.4) + 0vw;
+}
+
+.white-line__1 {
+  left: (646/14.4) + 0vw;
+  width: (24/14.4) + 0vw;
+}

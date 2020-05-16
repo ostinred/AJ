@@ -68,7 +68,7 @@ $translation: 10vw;
 
 .is-logo__name {
   margin-left: 10px;
-  transition: filter $a;
+  transition: filter $a, opacity 0.5s 0.5s ease-in-out;
 }
 
 .navigation-btn__wrapper {

@@ -23,7 +23,7 @@ $quote-padding: 0.2em;
   justify-content: center;
   transition: opacity $a-nav;
   padding: $arrow-padding;
-  transform: translateY(-10vh);
+  transform: translateY(-$mainpageOffset);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -38,7 +38,7 @@ $quote-padding: 0.2em;
 
   img {
     padding-top: 0.1em;
-    transition: transform $a-nav, opacity 0.3s;
+    transition: transform 0.5s ease-out, opacity 0.3s;
   }
 }
 
@@ -86,7 +86,7 @@ $quote-padding: 0.2em;
 
 .main-link__creative {
   right: 50%;
-  transition: opacity 0.35s ease-out;
+  transition: opacity 0.5s ease-out;
 
   img {
     margin-right: $arrow-padding * 3;
@@ -139,9 +139,9 @@ $quote-padding: 0.2em;
 .is-mainpage__content {
   position: relative;
   z-index: 2;
-  transform: translateY(-10vh);
+  transform: translateY(-$mainpageOffset);
   will-change: transform;
-  transition: transform 0.25s 0.1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 
   @include laptop {
     pointer-events: none;
