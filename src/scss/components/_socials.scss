@@ -1,11 +1,26 @@
 .socials {
   display: flex;
-  padding: 0 0 0 clamp(25px, 3vw, 3vw);
+
+  @include mobile-max {
+    padding: 1em 0;
+  }
+
+  @include laptop {
+    padding: 0 0 0 clamp(25px, 3vw, 3vw);
+  }
 
   a {
-    padding: 0.25em;
+    padding: 0.5em;
+
+    @include mobile-max {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
 
     @include laptop {
+      padding: 0.25em;
       transition: transform $a;
     }
 
@@ -13,10 +28,8 @@
       padding-left: 0;
     }
 
-    &:hover {
-      @include laptop {
-        transform: scale(1.1);
-      }
+    @include hover {
+      transform: scale(1.1);
     }
   }
 }

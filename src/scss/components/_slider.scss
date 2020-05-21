@@ -1,6 +1,10 @@
 .is-slider__wrapper {
   position: relative;
-  padding: 4em 0;
+  padding: 1em 0;
+
+  @include tablet {
+    padding: 4em 0;
+  }
 }
 
 .is-slide {
@@ -17,8 +21,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     @include subtitle;
-    width: 60%;
-    line-height: 1.25;
+    width: 75%;
+    line-height: 1.1;
+    text-align: center;
+
+    @include tablet {
+      width: 60%;
+      line-height: 1.25;
+    }
   }
 }
 
@@ -26,33 +36,40 @@
   -webkit-appearance: none;
   border: none;
   background-color: transparent;
-  padding: 1em;
+  padding: 0.5em;
   position: absolute;
   top: 50%;
   z-index: 1;
   transform: translateY(-50%);
 
+  @include tablet {
+    padding: 1em;
+  }
+
   @include laptop {
     transition: $a;
+  }
+
+  img {
+    @include mobile-max {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 
 .slider-prev {
   left: 0;
 
-  @include laptop {
-    &:hover {
-      left: -10px;
-    }
+  @include hover {
+    left: -10px;
   }
 }
 
 .slider-next {
   right: 0;
 
-  @include laptop {
-    &:hover {
-      right: -10px;
-    }
+  @include hover {
+    right: -10px;
   }
 }

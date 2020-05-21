@@ -1,0 +1,39 @@
+.is-blog__page {
+  .is-banner {
+    @include mobile-max {
+      padding-bottom: 3em;
+    }
+  }
+
+  .is-project.right-aligned .project-text {
+    @include mobile-max {
+      text-align: left !important;
+    }
+  }
+
+  .is-banner__copies,
+  .project-text {
+    @include mobile-max {
+      width: auto;
+      padding-top: 0.75em;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .is-banner__copies {
+    @include mobile-max {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  .project-heading {
+    @include mobile-max {
+      font-size: 1.25em;
+      line-height: 1.25;
+      color: $grey-base;
+      margin-bottom: 0.2em;
+    }
+  }
+}

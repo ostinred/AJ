@@ -1,16 +1,44 @@
 .relative__block {
-  padding-top: 2em;
-  padding-bottom: 4em;
+  padding-top: 1em;
+  padding-bottom: 2em;
+
+  @include tablet {
+    padding-top: 1em;
+    padding-bottom: 2em;
+  }
+
+  @include laptop {
+    padding-top: 2em;
+    padding-bottom: 4em;
+  }
 }
 
 .relative_content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 2em;
-  row-gap: 2em;
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2em;
+    row-gap: 2em;
+  }
+
+  .is-catalog__project {
+    @include mobile-max {
+      margin-bottom: 1em;
+    }
+  }
+
+  .project-heading {
+    @include mobile-max {
+      line-height: 1.1;
+    }
+  }
 }
 
 .relative__title {
   @include subtitle;
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
+
+  @include tablet {
+    padding-bottom: 1.5em;
+  }
 }

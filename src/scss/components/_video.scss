@@ -1,10 +1,14 @@
 .is-block__video {
   position: relative;
   width: 100%;
-  margin: 0 0 3em;
+  margin: 0 0 1em;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include tablet {
+    margin: 0 0 3em;
+  }
 
   &:after {
     content: '';
@@ -14,9 +18,15 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    width: 56px;
-    height: 56px;
+    width: 40px;
+    height: 40px;
     background-image: url('./../img/icons/icon-play.svg');
+    background-size: contain;
+
+    @include tablet {
+      width: 48px;
+      height: 48px;
+    }
   }
 
   @include laptop {
@@ -54,8 +64,33 @@
   transition: z-index 0.1s 0.25s, opacity $a;
 
   iframe {
-    width: 80% !important;
+    width: 100% !important;
     height: 80% !important;
+
+    @include laptop {
+      width: 80% !important;
+    }
+  }
+
+  .close-modal-btn {
+    @include mobile-max {
+      width: 40px;
+      height: 40px;
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    @include laptop {
+      display: none;
+    }
   }
 }
 

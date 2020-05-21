@@ -1,5 +1,9 @@
 .is-credit {
   background-color: $primary-color;
+
+  @include tablet-max {
+    margin-bottom: 2em;
+  }
 }
 
 .is-credit__toggler {
@@ -12,7 +16,15 @@
   color: $global-color;
   background-color: $primary-color;
 
-  &:hover {
+  @include mobile-max {
+    pointer-events: none;
+
+    img {
+      display: none;
+    }
+  }
+
+  @include hover {
     img {
       transform: none;
     }
@@ -21,8 +33,11 @@
 
 .is-credit__content {
   color: $global-color;
-  max-height: 0;
-  transition: max-height 0.3s ease-in-out;
+
+  @include tablet {
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+  }
 
   p {
     margin: 0;
@@ -37,9 +52,14 @@
 }
 
 .is-credit__wrapper {
-  display: flex;
-  padding-top: 2.5em;
-  padding-bottom: 3.5em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+
+  @include tablet {
+    display: flex;
+    padding-top: 2.5em;
+    padding-bottom: 3.5em;
+  }
 
   & > * {
     flex: 1 1 0;

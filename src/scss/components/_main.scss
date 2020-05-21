@@ -22,8 +22,8 @@ $quote-padding: 0.2em;
   align-items: center;
   justify-content: center;
   transition: opacity $a-nav;
-  padding: $arrow-padding;
-  transform: translateY(-$mainpageOffset);
+  padding: $arrow-padding * 2;
+  transform: translateY(-$mainpageOffsetMobile);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -36,9 +36,22 @@ $quote-padding: 0.2em;
 
   @include title();
 
+  @include tablet {
+    padding: $arrow-padding;
+  }
+
+  @include tablet {
+    transform: translateY(-$mainpageOffset);
+  }
+
   img {
     padding-top: 0.1em;
     transition: transform 0.5s ease-out, opacity 0.3s;
+
+    @include mobile-max {
+      width: 12px;
+      height: 14px;
+    }
   }
 }
 
@@ -67,7 +80,7 @@ $quote-padding: 0.2em;
 .is-main__dark-link {
   padding-right: 40px;
 
-  &:hover {
+  @include hover {
     img {
       transform: translateX(50%);
     }
@@ -77,7 +90,7 @@ $quote-padding: 0.2em;
 .is-main__white-link {
   padding-left: 40px;
 
-  &:hover {
+  @include hover {
     img {
       transform: translateX(-50%);
     }
@@ -90,10 +103,14 @@ $quote-padding: 0.2em;
 
   img {
     margin-right: $arrow-padding * 3;
-    transform: translateX($arrow-padding * 2);
+    transform: translateX($arrow-padding * 1.5);
+
+    @include tablet {
+      transform: translateX($arrow-padding * 2);
+    }
   }
 
-  &:hover {
+  @include hover {
     img {
       transform: none;
     }
@@ -106,10 +123,14 @@ $quote-padding: 0.2em;
 
   img {
     margin-left: $arrow-padding * 3;
-    transform: translateX(-$arrow-padding * 2);
+    transform: translateX(-$arrow-padding * 1.5);
+
+    @include tablet {
+      transform: translateX(-$arrow-padding * 2);
+    }
   }
 
-  &:hover {
+  @include hover {
     img {
       transform: none;
     }
@@ -139,12 +160,13 @@ $quote-padding: 0.2em;
 .is-mainpage__content {
   position: relative;
   z-index: 2;
-  transform: translateY(-$mainpageOffset);
+  transform: translateY(-$mainpageOffsetMobile);
   will-change: transform;
   transition: transform 0.5s ease-in-out;
 
-  @include laptop {
+  @include tablet {
     pointer-events: none;
+    transform: translateY(-$mainpageOffset);
 
     &.unblocked {
       pointer-events: unset;

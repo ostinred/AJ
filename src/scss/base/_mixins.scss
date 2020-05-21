@@ -422,9 +422,12 @@ $desktop-2k: 2400px !default;
 }
 
 @mixin subtitle {
-  font-size: 1.7em;
+  font-size: 1.3em;
   font-weight: normal;
-  line-height: 1;
+
+  @include tablet() {
+    font-size: 1.7em;
+  }
 }
 
 @mixin medium-text {
@@ -433,35 +436,62 @@ $desktop-2k: 2400px !default;
 }
 
 @mixin regular-text {
-  font-size: 0.65em;
+  font-size: 0.75em;
+
+  @include tablet() {
+    font-size: 0.65em;
+  }
 }
 
 @mixin small-text {
-  font-size: 0.5em;
+  font-size: clamp(12px, 0.5em, 15px);
 }
 
 @mixin container {
-  min-width: 920px;
-  width: 100%;
-  max-width: 70vw;
   padding: 0 15px;
   margin: 0 auto;
+
+  @include laptop() {
+    min-width: 920px;
+    width: 100%;
+    max-width: 70vw;
+  }
 }
 
 .is-container {
   @include container();
+
+  @include laptop() {
+    padding: 0 30px;
+  }
+}
+
+.is-container-fluid {
+  @include container();
+
+  @include mobile-max() {
+    padding: 0;
+  }
+
+  @include laptop() {
+    padding: 0 30px;
+  }
 }
 
 @mixin link-with-arrow {
   display: flex;
   align-items: center;
   font-family: $font-primary;
-  font-size: 0.5em;
+  font-size: 0.75em;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: $primary-color;
 
-  &:hover {
+  @include tablet() {
+    font-size: 0.5em;
+  }
+
+  @include hover {
     img {
       transform: translateX(10px);
     }
@@ -509,4 +539,20 @@ $desktop-2k: 2400px !default;
   margin: 0;
   padding: 1.25em 0;
   @include subtitle;
+}
+
+@mixin mobile-project-text {
+  @include mobile-max() {
+    padding: 0.5em;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    @include laptop() {
+      &:hover {
+        @content;
+      }
+    }
+  }
 }

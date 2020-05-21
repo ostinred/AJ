@@ -1,15 +1,28 @@
-.is-about_page {
-  .is-header {
-    .is-logo__svg {
-      filter: $filter-white;
-    }
-
-    .is-logo__name {
-      display: none;
-    }
-  }
-
+.is-about__page {
   .is-banner {
+    @include mobile-max {
+      & {
+        padding-bottom: 0;
+        margin-bottom: 1em;
+      }
+
+      &,
+      figure {
+        height: 100vh;
+      }
+
+      .project-image {
+        transform: scale(1);
+        object-position: 70%;
+      }
+
+      .is-banner__copies {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+
     h3 {
       width: 100%;
       margin: 0;
@@ -18,12 +31,25 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      text-align: right;
+
+      @include tablet {
+        text-align: right;
+      }
     }
   }
 
   .is-block__expanded-toggler {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+
+    @include tablet {
+      margin-bottom: 2em;
+    }
+  }
+
+  .is-zebra {
+    @include mobile-max {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -40,10 +66,12 @@
 }
 
 .about-principles__content {
-  display: grid;
-  column-gap: 1em;
-  grid-template-columns: repeat(3, 1fr);
-  padding-bottom: 8em;
+  @include tablet {
+    display: grid;
+    column-gap: 1em;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 8em;
+  }
 }
 
 .about-principle {
@@ -54,12 +82,19 @@
   border-bottom-right-radius: 50px 50px;
   padding: 2.5em 0.5em;
 
-  &:nth-of-type(2) {
-    transform: translateY(5.5em);
+  @include mobile-max {
+    height: 260px;
+    margin: 0 auto 30px;
   }
 
-  &:nth-of-type(3) {
-    transform: translateY(11em);
+  @include tablet {
+    &:nth-of-type(2) {
+      transform: translateY(5.5em);
+    }
+
+    &:nth-of-type(3) {
+      transform: translateY(11em);
+    }
   }
 
   p {
@@ -75,22 +110,34 @@
 }
 
 .about-principles__text {
-  margin-bottom: 2em;
-  width: 50%;
+  margin-bottom: 0;
   font-family: $font-sub;
   @include regular-text;
   line-height: 1.66;
   color: $global-color;
+
+  @include tablet {
+    width: 50%;
+    margin-bottom: 2em;
+  }
 }
 
 .about-companies {
   text-align: center;
-  padding: 5em 0 7em;
+  padding: 2em 0 4em;
+
+  @include tablet {
+    padding: 5em 0 7em;
+  }
 }
 
 .about-companies__title {
-  padding-bottom: 3em;
+  padding-bottom: 1em;
   @include subtitle;
+
+  @include tablet {
+    padding-bottom: 3em;
+  }
 }
 
 .about-companies__black {
@@ -103,18 +150,29 @@
 
 .about-companies__images {
   display: grid;
-  row-gap: 3em;
-  column-gap: 4em;
-  grid-template-columns: repeat(4, 1fr);
+  row-gap: 2em;
+  column-gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include tablet {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 3em;
+    column-gap: 4em;
+  }
 
   img {
     display: block;
     object-fit: contain;
     object-position: center;
-    width: 95%;
+    width: 75%;
+    height: 4em;
     margin: 0 auto;
-    height: 3.5em;
     filter: grayscale(1);
+
+    @include tablet {
+      width: 95%;
+      height: 3.5em;
+    }
   }
 }
 
@@ -124,7 +182,9 @@
   background-color: $grey-base;
 
   .is-container {
-    display: flex;
+    @include tablet {
+      display: flex;
+    }
   }
 }
 
@@ -133,9 +193,15 @@
 }
 
 .about-history__resume {
-  width: 50%;
-  padding-left: 5vw;
-  align-self: center;
+  @include mobile-max {
+    padding-bottom: 2em;
+  }
+
+  @include tablet {
+    width: 50%;
+    padding-left: 5vw;
+    align-self: center;
+  }
 
   p {
     margin: 0 0 0.25em;
@@ -146,8 +212,10 @@
 }
 
 .about-history__projects {
-  width: 50%;
-  padding-left: 0.75em;
+  @include tablet {
+    width: 50%;
+    padding-left: 0.75em;
+  }
 
   .project-text {
     padding-bottom: 1.75em;

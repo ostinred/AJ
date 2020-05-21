@@ -9,12 +9,15 @@ $translation: 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color $a;
+
+  @include laptop {
+    transition: background-color $a;
+  }
 
   &.is-scrolled {
     background-color: $global-color;
 
-    @include desktop {
+    @include laptop {
       background-color: transparent;
     }
 
@@ -29,7 +32,7 @@ $translation: 10vw;
     }
 
     .navigation-btn {
-      &:hover {
+      @include hover {
         &:before,
         &:after {
           background-color: $primary-color;
@@ -43,38 +46,57 @@ $translation: 10vw;
   position: relative;
   z-index: 3;
   display: flex;
-  padding: 24px 23px;
+  padding: 6px 12px;
   align-items: center;
-  justify-content: center;
+
+  @include laptop {
+    justify-content: center;
+  }
+
+  @include tablet {
+    padding: 24px 23px;
+  }
 
   svg g {
     transition: fill $a;
     fill: $grey-dark;
   }
 
-  @include laptop {
-    &:hover {
-      svg g {
-        fill: $primary-color;
-      }
+  @include hover {
+    svg g {
+      fill: $primary-color;
     }
   }
 }
 
-.is-logo__svg {
-  transform: translateZ(0);
-  will-change: transform;
+.is-logo__icon {
+  @include mobile-max {
+    width: 23px;
+    height: 23px;
+  }
 }
 
 .is-logo__name {
-  margin-left: 10px;
+  margin-left: 5px;
   transition: filter $a, opacity 0.5s 0.5s ease-in-out;
+
+  @include mobile-max {
+    width: 50%;
+  }
+
+  @include laptop {
+    margin-left: 10px;
+  }
 }
 
 .navigation-btn__wrapper {
   position: relative;
   z-index: 3;
-  padding: 30px 25px;
+  padding: 10px 15px;
+
+  @include laptop {
+    padding: 30px 25px;
+  }
 }
 
 .is-navigation {
@@ -83,31 +105,47 @@ $translation: 10vw;
 
   width: 100%;
   height: 100%;
-  padding-left: 94px;
+  padding-left: 15vw;
 
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
 
+  @include laptop {
+    padding-left: 94px;
+  }
+
   > ul {
     @include flex-column;
-    height: 100%;
+    // height: 100%;
     padding: 65px 0;
 
     @media screen and (max-height: 720px) {
       padding: 10px 0;
     }
+
+    @include laptop {
+      height: 100%;
+    }
   }
 
   li {
-    flex: 0 1 100%;
     display: flex;
     align-items: center;
     will-change: transform;
 
-    &:hover,
+    @include laptop {
+      flex: 0 1 100%;
+    }
+
     &.is-active {
+      .navigation-link {
+        color: $primary-color;
+      }
+    }
+
+    @include hover {
       .navigation-link {
         color: $primary-color;
       }
@@ -118,8 +156,13 @@ $translation: 10vw;
 .navigation-link {
   display: block;
   width: 100%;
-  padding: 0 0 0 5vw;
-  padding: 0 0 0 clamp(25px, 3vw, 3vw);
+
+  padding: 2.5vh 0.5vw;
+
+  @include laptop {
+    padding: 0 0 0 5vw;
+    padding: 0 0 0 clamp(25px, 3vw, 3vw);
+  }
 
   @include title();
   color: $global-color;
@@ -132,14 +175,17 @@ $translation: 10vw;
   position: relative;
   z-index: 1;
   @include flex-center;
-  @include size(32px 33px);
+  @include size(18px 16px);
 
-  cursor: pointer;
+  @include laptop {
+    @include size(32px 33px);
+    cursor: pointer;
+  }
 
   &:before,
   &:after {
     content: '';
-    @include size(100% 4px);
+    @include size(100% 2px);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -150,18 +196,30 @@ $translation: 10vw;
     border-bottom-right-radius: 2px;
     transition: transform $a, background-color $a;
     will-change: transform;
+
+    @include laptop {
+      @include size(100% 4px);
+    }
   }
 
   &:before {
-    top: 9px;
+    top: 3px;
+
+    @include laptop {
+      top: 9px;
+    }
   }
 
   &:after {
-    top: 24px;
+    top: 12px;
     transform: translate(-50%, -50%);
+
+    @include laptop {
+      top: 24px;
+    }
   }
 
-  &:hover {
+  @include hover {
     &:before,
     &:after {
       background-color: $global-color;

@@ -1,11 +1,9 @@
 .is-catalog__grid {
-  // display: grid;
-  // grid-template-columns: repeat(2, 1fr);
-  // column-gap: 2em;
-  // row-gap: 2em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 
 .is-catalog__project {
@@ -29,21 +27,34 @@
   }
 
   .project-heading {
+    @include mobile-max {
+      font-size: 1.25em;
+      line-height: 1.25;
+      margin-bottom: 0.2em;
+    }
+
     margin-bottom: 0.4em;
   }
 
   // animation on scroll
   &:not(.already-visible) {
-    transform: translate3d(0, 100px, 0);
-    opacity: 0;
+    @include tablet {
+      transform: translate3d(0, 100px, 0);
+      opacity: 0;
+    }
   }
 
   &.is-visible {
     animation: isVisibleAnim 0.75s ease-in-out forwards;
+    animation-delay: 0.1s;
 
-    @for $i from 1 through 30 {
+    &:nth-of-type(even) {
+      animation-delay: 0.2s;
+    }
+
+    @for $i from 1 through 4 {
       &:nth-of-type(#{$i}) {
-        animation-delay: 0s + $i * 0.15;
+        animation-delay: 0s + $i * 0.1;
       }
     }
   }

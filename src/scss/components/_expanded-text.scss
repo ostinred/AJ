@@ -1,6 +1,10 @@
 .is-block__expanded {
   text-align: center;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
+
+  @include tablet {
+    padding-bottom: 2em;
+  }
 
   h2 {
     @include block-title;
@@ -25,8 +29,9 @@
   padding: 0.5em;
   border: 0;
   margin: 2em auto 0;
+  background-color: $global-color;
 
-  &:hover {
+  @include hover {
     img {
       transform: none;
     }

@@ -1,16 +1,34 @@
 .is-footer {
   position: relative;
-  padding: 2em 0 3.1em;
+  padding: 2em 0;
   background-color: $footer-grey;
   border-top: 1px solid $primary-color;
+
+  @include tablet {
+    padding: 2em 0 3.1em;
+  }
+}
+
+.is-translated {
+  margin-top: -$mainpageOffsetMobile;
+
+  @include tablet {
+    margin-top: -$mainpageOffset;
+  }
 }
 
 .is-footer__container {
-  @include container;
-  display: flex;
+  @include tablet {
+    @include container;
+    display: flex;
+  }
 }
 
 .is-footer__logo {
+  @include mobile-max {
+    display: none;
+  }
+
   display: flex;
   flex-basis: calc(50% + 0.75em);
 
@@ -37,18 +55,36 @@
 
 .is-footer__info {
   display: flex;
+  flex-direction: column;
   flex-basis: calc(50% - 0.75em);
-  justify-content: space-between;
+
+  @include mobile-max {
+    width: 60%;
+    margin: auto;
+  }
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .is-footer__text {
   flex-basis: 45%;
   padding-top: 0.25em;
+
+  @include mobile-max {
+    padding-bottom: 1em;
+  }
 }
 
 .is-footer__info-title {
   @include medium-text;
-  margin: 0 0 20px;
+  margin: 0 0 10px;
+
+  @include tablet {
+    margin: 0 0 20px;
+  }
 }
 
 .is-footer__text p {
@@ -99,9 +135,17 @@
 }
 
 .is-copyright {
-  position: absolute;
-  right: 2em;
-  bottom: 2em;
   font-family: $font-sub;
-  font-size: 0.5em;
+
+  @include mobile-max {
+    font-size: 0.7em;
+    text-align: center;
+  }
+
+  @include tablet {
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    font-size: 0.5em;
+  }
 }
