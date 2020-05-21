@@ -277,7 +277,6 @@ $(document).ready(function () {
   mainLinksHover(homepageLinkFromDirector, 'creative-hovered');
 
   var logoName = $('.is-logo__name');
-  var url = window.location.href;
 
   if (window.innerWidth >= laptop) {
     $(window).scroll(function () {
@@ -289,8 +288,6 @@ $(document).ready(function () {
     });
   }
 
-  console.log('footer', footer);
-
   if (mainPage.length) {
     footer.addClass('is-translated');
 
@@ -300,10 +297,6 @@ $(document).ready(function () {
       logoName.addClass('is-hidden');
       mainPage.addClass('is-animating');
       footer.addClass('is-footer__white');
-
-      // if (!window.location.href.includes('#creative')) {
-      //   window.location.href += '#creative';
-      // }
 
       clearTimeout(c);
       var c = setTimeout(function () {
@@ -331,7 +324,6 @@ $(document).ready(function () {
     directorLink.click(function () {
       mainPage.addClass('is-director__page');
       mainPage.removeClass('is-homepage-from-creative');
-      // // window.location.href += '#director';
       logoName.addClass('without-opacity');
       mainPage.addClass('is-animating');
       footer.addClass('is-footer__black');

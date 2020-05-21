@@ -214,6 +214,7 @@
     font-size: 12em;
     line-height: 1;
     color: $grey-base;
+    font-family: $font-base;
     font-weight: bold;
 
     @include tablet {
