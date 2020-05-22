@@ -1,160 +1,26 @@
-.is-creative__page {
-  .is-main__dark-link {
-    pointer-events: unset;
-    animation: showHomepageArrow_Creative 0.25s 1.25s forwards;
-  }
-
-  .main-link__director {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .is-main__dark {
-    animation: moveDarkBg_Creative 0.6s 0.3s forwards;
-  }
-
-  .main-link__creative {
-    pointer-events: none;
-    animation: moveCreativeLink_Creative 0.5s 0.7s forwards;
-
-    img {
-      transform: none;
-      animation: moveCreativeLinkArrow_Creative 0.25s 0.5s forwards;
-    }
-  }
-
-  .is-main-lines__wrapper div {
-    animation: moveDarkLinesToLeft_Creative 0.2s ease-out forwards;
-
-    @for $i from 1 through 12 {
-      &:nth-child(#{$i}) {
-        animation-delay: 0s + $i * 0.1;
-      }
-    }
-  }
-}
-
-@keyframes showHomepageArrow_Creative {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes moveDarkBg_Creative {
-  to {
-    width: 100px;
-  }
-}
-
-@keyframes moveCreativeLink_Creative {
-  to {
-    right: 100px;
-  }
-}
-
-@keyframes moveCreativeLinkArrow_Creative {
-  to {
-    transform: translateX(150%);
-    opacity: 0;
-  }
-}
-
-@keyframes moveDarkLinesToLeft_Creative {
-  to {
-    transform: scaleX(0) translateX(15px);
-  }
-}
-
-.is-homepage-from-creative {
-  .main-link__creative {
-    opacity: 0;
-    animation: showCreativeLink_CreativeToHomepage 0.5s 1.6s forwards;
-    transition: none;
-  }
-
-  .is-main-lines__wrapper {
-    flex-direction: row-reverse;
-  }
-
-  .is-main-lines__wrapper div {
-    transform: scaleX(0);
-    animation: moveDarkLinesToRight_CreativeToHomepage 0.15s ease-out forwards;
-
-    @for $i from 1 through 12 {
-      &:nth-child(#{$i}) {
-        animation-delay: 0.07s + ($i * 0.07);
-      }
-    }
-  }
-
-  .is-main__dark {
-    width: 100px;
-    animation: moveDarkBgHomepage_CreativeToHomepage 0.5s 0.9s forwards;
-  }
-
-  .is-main__dark-link {
-    pointer-events: none;
-    opacity: 1;
-    animation: hideDarkLink_DirectorToHomepage 0.25s ease-in-out forwards;
-  }
-
-  .main-link__director {
-    opacity: 0;
-    transform: translateX(20%) translateY(-10vh);
-    animation: showMoveDirectorLink_CreativeToHomepage 0.5s 1.3s forwards;
-  }
-}
-
-@keyframes hideDarkLink_DirectorToHomepage {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes moveDarkLinesToRight_CreativeToHomepage {
-  to {
-    transform: scaleX(1) translateX(-15px);
-  }
-}
-
-@keyframes moveDarkBgHomepage_CreativeToHomepage {
-  to {
-    width: 50%;
-  }
-}
-
-@keyframes showCreativeLink_CreativeToHomepage {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes showMoveDirectorLink_CreativeToHomepage {
-  to {
-    opacity: 1;
-    transform: translateX(0) translateY(-10vh);
-  }
-}
-
 $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 
-.is-director__page {
+.is-creative__page {
   .is-main__dark {
-    animation: moveDarkBg_Director 1s 0.35s ease-in-out forwards;
+    animation: moveDarkBg_Creative__MOBILE 1s 0.35s ease-in-out forwards;
+
+    @include tablet {
+      animation: moveDarkBg_Creative 1s 0.35s ease-in-out forwards;
+    }
   }
 
-  .main-link__creative {
+  .main-link__director {
     opacity: 0;
     pointer-events: none;
   }
 
-  .white-lines {
-    z-index: 1;
-  }
-
-  .main-link__director {
+  .main-link__creative {
     pointer-events: none;
-    animation: moveShowDirectorLink_Director 1.8s 0.5s $cb forwards;
+    animation: moveShowCreativeLink_Creative__MOBILE 1.8s 0.5s $cb forwards;
+
+    @include tablet {
+      animation: moveShowCreativeLink_Creative 1.8s 0.5s $cb forwards;
+    }
 
     @include desktop-hd {
       animation-delay: 0.6s;
@@ -169,37 +35,121 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
     }
   }
 
-  //   .is-main__dark {
-  //     animation: moveDarkBg_Director 0.7s 0.5s forwards;
-  //   }
+  .is-main__dark-link {
+    pointer-events: unset;
+    animation: showHomepageArrow_Creative 0.75s 2.2s forwards;
+  }
+
+  .black-lines {
+    z-index: 1;
+  }
+
+  .black-line {
+    transform-origin: right;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-name: moveBlackLineCreative;
+        animation-duration: 1s;
+        animation-delay: 0.4s + $i * 0.1;
+        animation-fill-mode: forwards;
+
+        &:after {
+          transform-origin: right;
+          animation-name: scaleBlackLineCreative;
+          animation-duration: 0.75s;
+          animation-delay: 0.5s + $i * 0.075;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
+@keyframes moveDarkBg_Creative__MOBILE {
+  to {
+    width: 45px;
+  }
+}
+
+@keyframes moveDarkBg_Creative {
+  to {
+    width: 100px;
+  }
+}
+
+@keyframes moveShowCreativeLink_Creative__MOBILE {
+  to {
+    right: 45px;
+  }
+}
+
+@keyframes moveShowCreativeLink_Creative {
+  to {
+    right: 100px;
+  }
+}
+
+@keyframes showHomepageArrow_Creative {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveBlackLineCreative {
+  to {
+    transform: translateX(300%);
+  }
+}
+
+@keyframes scaleBlackLineCreative {
+  to {
+    width: 0;
+  }
+}
+
+.is-director__page {
+  .is-main__dark {
+    animation: moveDarkBg_Director__MOBILE 1s 0.35s ease-in-out forwards;
+
+    @include tablet {
+      animation: moveDarkBg_Director 1s 0.35s ease-in-out forwards;
+    }
+  }
+
+  .main-link__creative {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .white-lines {
+    z-index: 1;
+  }
+
+  .main-link__director {
+    pointer-events: none;
+    animation: moveShowDirectorLink_Director__MOBILE 1.8s 0.5s $cb forwards;
+
+    @include tablet {
+      animation: moveShowDirectorLink_Director 1.8s 0.5s $cb forwards;
+    }
+
+    @include desktop-hd {
+      animation-delay: 0.6s;
+    }
+
+    @include desktop-2k {
+      animation-delay: 0.7s;
+    }
+
+    img {
+      opacity: 0;
+    }
+  }
 
   .is-main__white-link {
     pointer-events: unset;
     animation: showHomepageArrow_Director 0.75s 2.2s forwards;
   }
-
-  //   .is-main-lines {
-  //     display: flex;
-  //     flex-direction: row-reverse;
-  //     animation: moveDarkBg_Director 0.6s 0.15s forwards;
-  //   }
-
-  //   .is-main-lines__wrapper {
-  //     flex-direction: row-reverse;
-  //     animation: scaleLinesWrapper_Director 0.4s 0.15s forwards;
-  //     width: 0;
-  //   }
-
-  //   .is-main-lines__wrapper div {
-  //     background-color: $global-color;
-  //     animation: moveWhiteLinesToLeft_Director 0.2s ease-out forwards;
-
-  //     @for $i from 1 through 12 {
-  //       &:nth-child(#{$i}) {
-  //         animation-delay: 0.15s + $i * 0.1;
-  //       }
-  //     }
-  //   }
 
   .white-line {
     transform-origin: left;
@@ -223,9 +173,33 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
   }
 }
 
+@keyframes moveDarkBg_Director__MOBILE {
+  to {
+    width: calc(100vw - 45px);
+  }
+}
+
 @keyframes moveDarkBg_Director {
   to {
     width: calc(100vw - 100px);
+  }
+}
+
+@keyframes moveShowDirectorLink_Director__MOBILE {
+  to {
+    left: 45px;
+  }
+}
+
+@keyframes moveShowDirectorLink_Director {
+  to {
+    left: 100px;
+  }
+}
+
+@keyframes showHomepageArrow_Director {
+  to {
+    opacity: 1;
   }
 }
 
@@ -241,222 +215,212 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
   }
 }
 
-// @keyframes moveWhiteLineDirector__1 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((24/14.4) + 0vw) * 5);
-//   }
-// }
+.is-homepage-from-creative {
+  .is-main__dark {
+    width: 45px;
+    animation: moveDarkBg_Creative_to_Homepage 1s 0.6s ease-in-out forwards;
 
-// @keyframes moveWhiteLineDirector__2 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((31/14.4) + 0vw) * 5);
-//   }
-// }
+    @include tablet {
+      width: 100px;
+    }
+  }
 
-// @keyframes moveWhiteLineDirector__3 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((38/14.4) + 0vw) * 5);
-//   }
-// }
+  .is-main__dark-link {
+    opacity: 1;
+    pointer-events: none;
+    animation: hideHomepageArrow_Creative_to_Homepage 0.25s forwards;
+  }
 
-// @keyframes moveWhiteLineDirector__4 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((28/14.4) + 0vw) * 5);
-//   }
-// }
+  .black-lines {
+    z-index: 1;
+  }
 
-// @keyframes moveWhiteLineDirector__5 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((6/14.4) + 0vw) * 5);
-//   }
-// }
+  .main-link__creative {
+    opacity: 0;
+    transition: none;
+    animation: showCreativeLink_Creative_to_Homepage 0.75s 1.75s forwards;
+  }
 
-// @keyframes moveWhiteLineDirector__6 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((30/14.4) + 0vw) * 5);
-//   }
-// }
+  .main-link__director {
+    opacity: 0;
+    transform: translate(50%, -$mainpageOffsetMobile);
+    animation: moveShowDirectorLink_Creative_to_Homepage__MOBILE 1s 1s forwards;
 
-// @keyframes moveWhiteLineDirector__7 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((15/14.4) + 0vw) * 5);
-//   }
-// }
+    @include tablet {
+      transform: translate(50%, -$mainpageOffset);
+      animation: moveShowDirectorLink_Creative_to_Homepage 1s 1s forwards;
+    }
+  }
 
-// @keyframes moveWhiteLineDirector__8 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((15/14.4) + 0vw) * 5);
-//   }
-// }
+  .black-line {
+    transform-origin: right;
 
-// @keyframes moveWhiteLineDirector__9 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((7/14.4) + 0vw) * 5);
-//   }
-// }
+    @for $i from 1 through 12 {
+      &:nth-last-child(#{$i}) {
+        transform: translateX(300%);
+        animation-name: moveBlackLine_Creative_To_Homepage;
+        animation-duration: 1s;
+        animation-delay: 0.1s + $i * 0.06;
+        animation-fill-mode: forwards;
 
-// @keyframes moveWhiteLineDirector__10 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((8/14.4) + 0vw) * 5);
-//   }
-// }
+        &:after {
+          width: 0;
+          transform-origin: right;
+          animation-name: scaleBlackLine_Creative_To_Homepage;
+          animation-duration: 0.75s;
+          animation-delay: 0.1s + $i * 0.06;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
 
-// @keyframes moveWhiteLineDirector__11 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((15/14.4) + 0vw) * 5);
-//   }
-// }
+@keyframes moveDarkBg_Creative_to_Homepage {
+  to {
+    width: 50%;
+  }
+}
 
-// @keyframes moveWhiteLineDirector__12 {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-((15/14.4) + 0vw) * 5);
-//   }
-// }
+@keyframes hideHomepageArrow_Creative_to_Homepage {
+  to {
+    opacity: 0;
+  }
+}
 
-@keyframes showHomepageArrow_Director {
+@keyframes moveBlackLine_Creative_To_Homepage {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleBlackLine_Creative_To_Homepage {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes showCreativeLink_Creative_to_Homepage {
   to {
     opacity: 1;
   }
 }
 
-@keyframes moveShowDirectorLink_Director {
+@keyframes moveShowDirectorLink_Creative_to_Homepage__MOBILE {
   to {
-    left: 100px;
+    opacity: 1;
+    transform: translate(0, -$mainpageOffsetMobile);
   }
 }
 
-// @keyframes moveWhiteLinesToLeft_Director {
-//   100% {
-//     transform: scaleX(0) translateX(0px);
-//   }
-// }
+@keyframes moveShowDirectorLink_Creative_to_Homepage {
+  to {
+    opacity: 1;
+    transform: translate(0, -$mainpageOffset);
+  }
+}
 
-// @keyframes scaleLinesWrapper_Director {
-//   100% {
-//     width: 100%;
-//   }
-// }
+.is-homepage-from-director {
+  .is-main__dark {
+    width: calc(100vw - 45px);
+    animation: moveDarkBg_Director_to_Homepage 1s 0.6s ease-in-out forwards;
 
-// .is-homepage-from-director {
-//   .is-main__white-link {
-//     pointer-events: none;
-//     opacity: 1;
-//     animation: hideWhiteLink_DirectorToHomepage 0.25s ease-in-out forwards;
-//   }
+    @include tablet {
+      width: calc(100vw - 100px);
+    }
+  }
 
-//   .main-link__creative {
-//     opacity: 0;
-//     transform: translateX(-50%) translateY(-10vh);
-//     animation: moveCreativeLink_DirectorToHomepage 0.6s 1s ease-in-out forwards;
-//   }
+  .is-main__white-link {
+    opacity: 1;
+    pointer-events: none;
+    animation: hideHomepageArrow_Director_to_Homepage 0.25s forwards;
+  }
 
-//   .main-link__director {
-//     opacity: 0;
-//     animation: showDirectorLink_DirectorToHomepage 0.35s 1.35s ease-in-out
-//       forwards;
-//   }
+  .white-lines {
+    z-index: 1;
+  }
 
-//   .is-main__dark {
-//     width: calc(100vw - 100px);
-//     animation: moveDarkBg_DirectorToHomepage 0.7s 0.35s ease-in-out forwards;
-//   }
+  .main-link__creative {
+    opacity: 0;
+    transform: translate(-50%, -$mainpageOffsetMobile);
+    animation: moveShowDirectorLink_Director_to_Homepage__MOBILE 1s 1s forwards;
 
-//   .is-main-lines {
-//     display: flex;
-//     width: calc(100vw - 100px);
-//     animation: moveDarkBg_DirectorToHomepage 0.6s 0.25s ease-in-out forwards;
-//   }
+    @include tablet {
+      transform: translate(-50%, -$mainpageOffset);
+      animation: moveShowDirectorLink_Director_to_Homepage 1s 1s forwards;
+    }
+  }
 
-//   .is-main-lines__wrapper {
-//     width: 0;
-//     transform: scaleX(0);
-//     animation: scaleLinesWrapper_DirectorToHomepage 0.6s 0.15s ease-in-out
-//       forwards;
-//   }
+  .main-link__director {
+    opacity: 0;
+    transition: none;
+    animation: showDirectorLink_Director_to_Homepage 0.75s 1.75s forwards;
+  }
 
-//   .is-main-lines__wrapper div {
-//     background-color: $global-color;
-//     animation: moveWhiteLinesToRight_DirectorToHomepage 0.2s ease-in-out
-//       forwards;
+  .white-line {
+    transform-origin: left;
 
-//     @for $i from 1 through 12 {
-//       &:nth-child(#{$i}) {
-//         animation-delay: 0.15s + $i * 0.1;
-//       }
-//     }
-//   }
-// }
+    @for $i from 1 through 12 {
+      &:nth-last-child(#{$i}) {
+        transform: translateX(-300%);
+        animation-name: moveBlackLine_Director_To_Homepage;
+        animation-duration: 1s;
+        animation-delay: 0.1s + $i * 0.06;
+        animation-fill-mode: forwards;
 
-// @keyframes moveDarkBg_DirectorToHomepage {
-//   to {
-//     width: 50%;
-//   }
-// }
+        &:after {
+          width: 0;
+          transform-origin: left;
+          animation-name: scaleBlackLine_Director_To_Homepage;
+          animation-duration: 0.75s;
+          animation-delay: 0.1s + $i * 0.06;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
 
-// @keyframes hideWhiteLink_DirectorToHomepage {
-//   to {
-//     opacity: 0;
-//   }
-// }
+@keyframes moveDarkBg_Director_to_Homepage {
+  to {
+    width: 50%;
+  }
+}
 
-// @keyframes showDirectorLink_DirectorToHomepage {
-//   to {
-//     opacity: 1;
-//   }
-// }
+@keyframes hideHomepageArrow_Director_to_Homepage {
+  to {
+    opacity: 0;
+  }
+}
 
-// @keyframes moveCreativeLink_DirectorToHomepage {
-//   to {
-//     transform: translateX(0) translateY(-10vh);
-//     opacity: 1;
-//   }
-// }
+@keyframes moveShowDirectorLink_Director_to_Homepage__MOBILE {
+  to {
+    opacity: 1;
+    transform: translate(0, -$mainpageOffsetMobile);
+  }
+}
 
-// @keyframes moveWhiteLinesToRight_DirectorToHomepage {
-//   to {
-//     transform: scaleX(0);
-//   }
-// }
+@keyframes moveShowDirectorLink_Director_to_Homepage {
+  to {
+    opacity: 1;
+    transform: translate(0, -$mainpageOffset);
+  }
+}
 
-// @keyframes scaleLinesWrapper_DirectorToHomepage {
-//   to {
-//     transform: scaleX(1);
-//     width: 100%;
-//   }
-// }
+@keyframes showDirectorLink_Director_to_Homepage {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveBlackLine_Director_To_Homepage {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleBlackLine_Director_To_Homepage {
+  to {
+    width: 100%;
+  }
+}

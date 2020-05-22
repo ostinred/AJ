@@ -21,32 +21,9 @@
   }
 }
 
-.is-creative__content,
-.is-director__content {
-  display: none;
-}
-
 .is-creative__page,
 .is-director__page {
   &:after {
     display: none;
-  }
-
-  .is-homepage__content {
-    display: none;
-  }
-}
-
-.is-creative__page {
-  .is-creative__content {
-    display: block;
-  }
-}
-
-.is-director__page {
-  background-color: $grey-base;
-
-  .is-director__content {
-    display: block;
   }
 }

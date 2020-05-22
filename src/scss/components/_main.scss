@@ -52,6 +52,11 @@ $quote-padding: 0.2em;
       width: 12px;
       height: 14px;
     }
+
+    @include tablet-only {
+      width: 0.4em;
+      height: 0.4em;
+    }
   }
 }
 
@@ -78,7 +83,11 @@ $quote-padding: 0.2em;
 }
 
 .is-main__dark-link {
-  padding-right: 40px;
+  padding-right: 23px;
+
+  @include tablet {
+    padding-right: 40px;
+  }
 
   @include hover {
     img {
@@ -88,7 +97,11 @@ $quote-padding: 0.2em;
 }
 
 .is-main__white-link {
-  padding-left: 40px;
+  padding-left: 23px;
+
+  @include tablet {
+    padding-left: 40px;
+  }
 
   @include hover {
     img {

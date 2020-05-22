@@ -210,29 +210,41 @@
 .is-zebra__cite {
   &:before,
   &:after {
+    content: '';
     position: absolute;
-    font-size: 12em;
-    line-height: 1;
-    color: $grey-base;
-    font-family: $font-base;
-    font-weight: bold;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 5em;
+    height: 5em;
 
     @include tablet {
-      font-size: 15em;
+      width: 6em;
+      height: 6em;
+    }
+
+    @include laptop {
+      width: 6.5em;
+      height: 6.5em;
+    }
+
+    @include desktop {
+      width: 6em;
+      height: 6em;
     }
   }
 
   &:before {
-    content: open-quote;
-    top: -0.07em;
-    left: -0.03em;
+    top: 0;
+    left: 0;
+    background-image: url('./../img/quotes/quotes-open-black.png');
   }
 
   &:after {
-    content: '”';
-    bottom: -0.07em;
-    right: -0.03em;
-    transform: scale(1, -1);
+    bottom: 0;
+    right: 0;
+    background-image: url('./../img/quotes/quotes-close-black.png');
+    background-position: center bottom;
 
     @include tablet-max {
       display: none;
@@ -298,9 +310,11 @@
   background-color: $grey-base;
 
   &.is-zebra__cite {
-    &:before,
+    &:before {
+      background-image: url('./../img/quotes/quotes-open-white.png');
+    }
     &:after {
-      color: $global-color;
+      background-image: url('./../img/quotes/quotes-close-white.png');
     }
   }
 
