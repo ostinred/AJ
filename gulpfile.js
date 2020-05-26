@@ -91,35 +91,10 @@ gulp.task('copyPDF', function () {
   gulp.src(config.path.pdf).pipe(gulp.dest(config.output.pdf));
 });
 
-// gulp.task('imageMin', function () {
-//   return gulp
-//     .src(config.path.img)
-//     .pipe(
-//       imagemin(
-//         [
-//           pngquant(),
-//           jpegtran(),
-//           gifsicle(),
-//           imageminSvgo({
-//             plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
-//           }),
-//         ],
-//         { verbose: true }
-//       )
-//     )
-
-//     .pipe(gulp.dest(config.output.img));
-// });
-
 gulp.task('jsWatch', function () {
   return gulp
     .src(config.path.js)
-    .pipe(sourcemaps.init())
-    .pipe(
-      babel({
-        presets: ['@babel/env'],
-      })
-    )
+    .pipe(jsmin())
     .pipe(gulp.dest(config.output.jsDest));
 });
 
