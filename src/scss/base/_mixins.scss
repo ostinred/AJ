@@ -416,8 +416,13 @@ $desktop-2k: 2400px !default;
 //@include reset-btn-styles;
 
 @mixin title {
-  font-size: 4em;
-  font-size: clamp(32px, 10vw, 3.5em);
+  font-size: 32px;
+  font-size: clamp(32px, 10vw, 10vw);
+
+  @include tablet() {
+    font-size: 4em;
+    font-size: clamp(32px, 10vw, 3.5em);
+  }
   font-weight: normal;
 }
 
@@ -444,7 +449,12 @@ $desktop-2k: 2400px !default;
 }
 
 @mixin small-text {
-  font-size: clamp(12px, 0.5em, 15px);
+  font-size: 12px;
+  font-size: clamp(3vw, 12px, 12px);
+
+  @include tablet() {
+    font-size: clamp(12px, 0.5em, 15px);
+  }
 }
 
 @mixin container {
