@@ -58,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $grey-dark;
+  background-color: $grey-base;
   opacity: 0;
   z-index: -1;
   transition: z-index 0.1s 0.25s, opacity $a;

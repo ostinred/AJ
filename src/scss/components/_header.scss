@@ -58,14 +58,7 @@ $translation: 10vw;
   }
 
   svg g {
-    transition: fill $a;
-    fill: $grey-dark;
-  }
-
-  @include hover {
-    svg g {
-      fill: $primary-color;
-    }
+    fill: $grey-base;
   }
 }
 
@@ -76,9 +69,13 @@ $translation: 10vw;
   }
 }
 
+.is-logo__icon g,
+.is-logo__name {
+  transition: opacity 0.5s 0.5s ease-in-out;
+}
+
 .is-logo__name {
   margin-left: 5px;
-  transition: filter $a, opacity 0.5s 0.5s ease-in-out;
 
   @include mobile-max {
     width: 50%;
@@ -94,7 +91,7 @@ $translation: 10vw;
   z-index: 3;
   padding: 10px 15px;
 
-  @include laptop {
+  @include tablet {
     padding: 30px 25px;
   }
 }
@@ -118,11 +115,17 @@ $translation: 10vw;
 
   > ul {
     @include flex-column;
-    // height: 100%;
-    padding: 65px 0;
+    padding: 10vh 0;
 
-    @media screen and (max-height: 720px) {
-      padding: 10px 0;
+    // padding: 65px 0;
+
+    height: 100%;
+
+    li {
+      &:last-child {
+        flex: 1;
+        align-items: flex-end;
+      }
     }
 
     @include laptop {
@@ -135,9 +138,9 @@ $translation: 10vw;
     align-items: center;
     will-change: transform;
 
-    @include laptop {
-      flex: 0 1 100%;
-    }
+    // @include laptop {
+    //   flex: 0 1 100%;
+    // }
 
     &.is-active {
       .navigation-link {
@@ -157,7 +160,11 @@ $translation: 10vw;
   display: block;
   width: 100%;
 
-  padding: 2.5vh 0.5vw;
+  padding: 0.25em 0.5vw;
+
+  @include tablet {
+    padding: 0.15em 0.5vw;
+  }
 
   @include laptop {
     padding: 0 0 0 5vw;
@@ -167,6 +174,10 @@ $translation: 10vw;
   @include title();
   color: $global-color;
   transition: color $a;
+
+  // @include laptop {
+  //   font-size: 90px;
+  // }
 }
 
 .navigation-btn {
@@ -177,8 +188,11 @@ $translation: 10vw;
   @include flex-center;
   @include size(18px 16px);
 
-  @include laptop {
+  @include tablet {
     @include size(32px 33px);
+  }
+
+  @include laptop {
     cursor: pointer;
   }
 
@@ -197,7 +211,7 @@ $translation: 10vw;
     transition: transform $a, background-color $a;
     will-change: transform;
 
-    @include laptop {
+    @include tablet {
       @include size(100% 4px);
     }
   }
@@ -205,7 +219,7 @@ $translation: 10vw;
   &:before {
     top: 3px;
 
-    @include laptop {
+    @include tablet {
       top: 9px;
     }
   }
@@ -214,7 +228,7 @@ $translation: 10vw;
     top: 12px;
     transform: translate(-50%, -50%);
 
-    @include laptop {
+    @include tablet {
       top: 24px;
     }
   }
@@ -381,6 +395,31 @@ $translation: 10vw;
   }
 }
 
+.socials {
+  @include header-active() {
+    transition: opacity $a-nav;
+    transition-delay: 0.9s;
+    opacity: 1;
+    pointer-events: unset;
+  }
+}
+
 .header-transparent {
   @include header-transparent;
+}
+
+.contact-is-active {
+  li {
+    &.is-active {
+      a {
+        color: $global-color !important;
+      }
+    }
+
+    &:nth-of-type(4) {
+      a {
+        color: $primary-color;
+      }
+    }
+  }
 }

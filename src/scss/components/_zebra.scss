@@ -130,20 +130,6 @@
   }
 }
 
-.zebra-line {
-  @include laptop {
-    transform: scaleX(0);
-    transition: transform 1s ease-in-out;
-    transform-origin: center right;
-  }
-}
-
-.is-visible {
-  .zebra-line {
-    transform: scaleX(1);
-  }
-}
-
 .is-zebra__lines-reversed {
   .is-zebra__lines {
     flex-direction: row-reverse;

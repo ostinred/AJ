@@ -1,8 +1,11 @@
 .socials {
   display: flex;
 
+  opacity: 0;
+  pointer-events: none;
+
   @include mobile-max {
-    padding: 1em 0;
+    padding: 1em 0 0;
   }
 
   @include laptop {
@@ -10,18 +13,25 @@
   }
 
   a {
-    padding: 0.5em;
+    position: relative;
+    padding: 0;
+    margin-left: 0.5em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include mobile-max {
       img {
+        border-radius: 15px;
         width: 30px;
         height: 30px;
+        border: 1px solid $global-color;
       }
     }
 
     @include laptop {
-      padding: 0.25em;
-      transition: transform $a;
+      // transition: transform $a;
     }
 
     &:first-child {
@@ -29,7 +39,17 @@
     }
 
     @include hover {
-      transform: scale(1.1);
+      .hover-icon {
+        opacity: 1;
+      }
+    }
+
+    .hover-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity $a;
     }
   }
 }

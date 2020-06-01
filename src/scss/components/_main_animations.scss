@@ -16,10 +16,10 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 
   .main-link__creative {
     pointer-events: none;
-    animation: moveShowCreativeLink_Creative__MOBILE 1.8s 0.5s $cb forwards;
+    animation: moveShowCreativeLink_Creative__MOBILE 1.8s 0.65s $cb forwards;
 
     @include tablet {
-      animation: moveShowCreativeLink_Creative 1.8s 0.5s $cb forwards;
+      animation: moveShowCreativeLink_Creative 1.8s 0.65s $cb forwards;
     }
 
     @include desktop-hd {
@@ -127,10 +127,10 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 
   .main-link__director {
     pointer-events: none;
-    animation: moveShowDirectorLink_Director__MOBILE 1.8s 0.5s $cb forwards;
+    animation: moveShowDirectorLink_Director__MOBILE 1.8s 0.65s $cb forwards;
 
     @include tablet {
-      animation: moveShowDirectorLink_Director 1.8s 0.5s $cb forwards;
+      animation: moveShowDirectorLink_Director 1.8s 0.65s $cb forwards;
     }
 
     @include desktop-hd {

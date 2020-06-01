@@ -42,7 +42,7 @@
   height: 100%;
 
   @include tablet-max {
-    transform: scale(1.05);
+    transform: none;
   }
 
   @include laptop {
@@ -71,6 +71,12 @@
   @include hover {
     .project-image {
       transform: translateX(-100%);
+    }
+
+    & + .project-text {
+      .project-heading {
+        color: $primary-color;
+      }
     }
   }
 }
@@ -124,6 +130,7 @@
   line-height: 1;
   font-weight: normal;
   margin: 0 0 5px;
+  transition: $a;
 }
 
 .project-company {
@@ -146,7 +153,7 @@
 
   figure {
     @include mobile-max {
-      height: 100vh;
+      height: 70vh;
     }
   }
 

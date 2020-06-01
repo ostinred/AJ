@@ -6,10 +6,14 @@
   }
 }
 
-.is-catalog__project {
-  display: block;
-  flex-basis: 48%;
-  margin-bottom: 2em;
+.is-catalog__img {
+  @include laptop {
+    transition: filter $as;
+  }
+
+  @include hover {
+    filter: none !important;
+  }
 
   img {
     width: 100%;
@@ -18,12 +22,41 @@
 
     @include laptop {
       height: 17vw;
+      transition: transform $a;
+    }
+  }
+}
+
+.is-catalog__project {
+  display: block;
+  flex-basis: 48%;
+  margin-bottom: 2em;
+  padding: 0 !important;
+
+  @include hover {
+    .project-heading {
+      color: $primary-color;
+    }
+  }
+
+  .is-project-media {
+    width: auto;
+    height: 38vh;
+    min-height: auto;
+
+    @include laptop {
+      height: 20vw;
+    }
+
+    @include laptop {
+      height: 17vw;
     }
   }
 
   .project-text {
     width: auto;
-    padding-top: 0.75em;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .project-heading {

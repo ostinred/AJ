@@ -23,7 +23,7 @@ $quote-padding: 0.2em;
   justify-content: center;
   transition: opacity $a-nav;
   padding: $arrow-padding * 2;
-  transform: translateY(-$mainpageOffsetMobile);
+  transform: translateY(-$mainpageOffsetMobile / 2);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -38,6 +38,7 @@ $quote-padding: 0.2em;
 
   @include tablet {
     padding: $arrow-padding;
+    height: 10vh;
   }
 
   @include tablet {
@@ -49,8 +50,8 @@ $quote-padding: 0.2em;
     transition: transform 0.5s ease-out, opacity 0.3s;
 
     @include mobile-max {
-      width: 12px;
-      height: 14px;
+      width: 3vw;
+      height: 4vw;
     }
 
     @include tablet-only {
@@ -66,7 +67,7 @@ $quote-padding: 0.2em;
   right: 0;
   height: 100%;
   width: 50%;
-  background-color: $grey-dark;
+  background-color: $grey-base;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -152,7 +153,7 @@ $quote-padding: 0.2em;
 
 .dir-hovered {
   .main-link__creative {
-    opacity: 0;
+    opacity: 0.3;
   }
 
   .is-mainpage__content {
@@ -162,7 +163,7 @@ $quote-padding: 0.2em;
 
 .creative-hovered {
   .main-link__director {
-    opacity: 0;
+    opacity: 0.3;
   }
 
   .is-mainpage__content {
@@ -204,7 +205,7 @@ $quote-padding: 0.2em;
   & > div {
     position: relative;
     height: 100%;
-    background-color: $grey-dark;
+    background-color: $grey-base;
 
     &:nth-of-type(1) {
       width: 2%;

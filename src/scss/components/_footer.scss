@@ -30,26 +30,27 @@
   }
 
   display: flex;
-  flex-basis: calc(50% + 0.75em);
+  flex-basis: 50%;
 
   &:after {
     content: '';
     width: 100%;
     height: 1px;
     background-color: $primary-color;
-    margin: 0 5px;
+    margin-left: 5px;
     margin-top: 0.7em;
   }
 
-  a:hover {
-    img {
-      transform: scale(1.05);
+  figure {
+    @include hover {
+      img {
+        filter: $filter-primary;
+      }
     }
   }
 
   img {
-    will-change: transform;
-    transition: transform $as;
+    transition: filter $as;
   }
 }
 
@@ -76,6 +77,10 @@
   @include mobile-max {
     padding-bottom: 1em;
   }
+
+  @include tablet {
+    padding-left: 0.75em;
+  }
 }
 
 .is-footer__info-title {
@@ -91,11 +96,23 @@
   margin-top: 0;
   margin-bottom: 1em;
   font-family: $font-primary;
-  @include regular-text;
+  // @include regular-text;
   line-height: 1.25;
 
+  font-size: 0.75em;
+
+  @include tablet {
+    font-size: 0.5em;
+  }
+
   a {
-    @include hover-underlined;
+    @include laptop {
+      transition: color $as;
+    }
+
+    @include hover {
+      color: $primary-color;
+    }
   }
 }
 
@@ -125,8 +142,24 @@
 .is-footer__gold {
   background-color: $primary-color;
 
-  .is-footer__logo:after {
-    background-color: $grey-base;
+  .is-footer__logo {
+    &:after {
+      background-color: $grey-base;
+    }
+
+    figure {
+      @include hover {
+        img {
+          filter: invert(1);
+        }
+      }
+    }
+  }
+
+  .is-footer__text p a {
+    @include hover {
+      color: $global-color;
+    }
   }
 
   .is-footer__info-link {

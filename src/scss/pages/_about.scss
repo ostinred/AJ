@@ -66,10 +66,17 @@
 }
 
 .about-principles__content {
-  @include tablet {
-    display: grid;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2em;
+
+  @media screen and (max-width: 325px) {
     column-gap: 1em;
+  }
+
+  @include tablet {
     grid-template-columns: repeat(3, 1fr);
+    column-gap: 1em;
     padding-bottom: 8em;
   }
 }
@@ -83,7 +90,7 @@
   padding: 2.5em 0.5em;
 
   @include mobile-max {
-    height: 260px;
+    height: 200px;
     margin: 0 auto 30px;
   }
 
@@ -136,7 +143,7 @@
   @include subtitle;
 
   @include tablet {
-    padding-bottom: 3em;
+    padding-bottom: 2.5em;
   }
 }
 
@@ -157,7 +164,7 @@
   @include tablet {
     grid-template-columns: repeat(4, 1fr);
     row-gap: 3em;
-    column-gap: 4em;
+    column-gap: 2em;
   }
 
   img {
@@ -170,8 +177,8 @@
     filter: grayscale(1);
 
     @include tablet {
-      width: 95%;
-      height: 3.5em;
+      width: 100%;
+      // height: 3.5em;
     }
   }
 }

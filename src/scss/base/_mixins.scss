@@ -450,7 +450,6 @@ $desktop-2k: 2400px !default;
 
 @mixin small-text {
   font-size: 12px;
-  font-size: clamp(3vw, 12px, 12px);
 
   @include tablet() {
     font-size: clamp(12px, 0.5em, 15px);
