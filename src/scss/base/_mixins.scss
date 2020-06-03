@@ -421,7 +421,7 @@ $desktop-2k: 2400px !default;
 
   @include tablet() {
     font-size: 4em;
-    font-size: clamp(32px, 10vw, 3.5em);
+    font-size: clamp(32px, 10vw, 3.25em);
   }
   font-weight: normal;
 }
@@ -563,5 +563,13 @@ $desktop-2k: 2400px !default;
         @content;
       }
     }
+  }
+}
+
+@mixin copyrightFontStyles {
+  font-size: 0.7em;
+
+  @include tablet {
+    font-size: 0.5em;
   }
 }

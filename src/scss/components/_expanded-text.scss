@@ -28,13 +28,17 @@
   @include link-with-arrow;
   padding: 0.5em;
   border: 0;
-  margin: 2em auto 0;
+  margin: 0.5em auto 0.25em;
   background-color: $global-color;
 
   @include hover {
     img {
       transform: none;
     }
+  }
+
+  @include laptop {
+    margin: 2em auto 0;
   }
 
   span {

@@ -131,3 +131,13 @@
     }
   }
 }
+
+.is-project__fullwidth {
+  padding: 0 !important;
+
+  .is-project-media {
+    width: auto;
+    height: 17vw;
+    min-height: auto;
+  }
+}

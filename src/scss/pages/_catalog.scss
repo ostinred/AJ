@@ -70,27 +70,27 @@
   }
 
   // animation on scroll
-  &:not(.already-visible) {
-    @include tablet {
-      transform: translate3d(0, 100px, 0);
-      opacity: 0;
-    }
-  }
+  // &:not(.already-visible) {
+  //   @include tablet {
+  //     transform: translate3d(0, 100px, 0);
+  //     opacity: 0;
+  //   }
+  // }
 
-  &.is-visible {
-    animation: isVisibleAnim 0.75s ease-in-out forwards;
-    animation-delay: 0.1s;
+  // &.is-visible {
+  //   animation: isVisibleAnim 0.75s ease-in-out forwards;
+  //   animation-delay: 0.1s;
 
-    &:nth-of-type(even) {
-      animation-delay: 0.2s;
-    }
+  //   &:nth-of-type(even) {
+  //     animation-delay: 0.2s;
+  //   }
 
-    @for $i from 1 through 4 {
-      &:nth-of-type(#{$i}) {
-        animation-delay: 0s + $i * 0.1;
-      }
-    }
-  }
+  //   @for $i from 1 through 4 {
+  //     &:nth-of-type(#{$i}) {
+  //       animation-delay: 0s + $i * 0.1;
+  //     }
+  //   }
+  // }
 }
 
 @keyframes isVisibleAnim {

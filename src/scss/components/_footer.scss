@@ -169,9 +169,11 @@
 
 .is-copyright {
   font-family: $font-sub;
+  font-size: 0.7em;
+
+  @include copyrightFontStyles;
 
   @include mobile-max {
-    font-size: 0.7em;
     width: 60%;
     margin: auto;
     text-align: left;
@@ -181,6 +183,5 @@
     position: absolute;
     right: 2em;
     bottom: 2em;
-    font-size: 0.5em;
   }
 }

@@ -24,7 +24,7 @@ body {
   -webkit-overflow-scrolling: touch;
 
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
 
   &.is-fixed {
     position: fixed;

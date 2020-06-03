@@ -54,6 +54,7 @@
 .is-credit__wrapper {
   padding-top: 1.5em;
   padding-bottom: 1.5em;
+  pointer-events: none;
 
   @include tablet {
     display: flex;
