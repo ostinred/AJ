@@ -8,7 +8,15 @@
 
       &,
       figure {
-        height: 100vh;
+        height: 60vh;
+
+        @include tablet {
+          height: 70vh;
+        }
+
+        @include laptop {
+          height: 100vh;
+        }
       }
 
       .project-image {

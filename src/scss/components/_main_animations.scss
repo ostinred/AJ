@@ -2,7 +2,8 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 
 .is-creative__page {
   .is-main__dark {
-    animation: moveDarkBg_Creative__MOBILE 1s 0.35s ease-in-out forwards;
+    animation: moveDarkBg_Creative__MOBILE 1s 0.35s ease-in-out
+      forwards;
 
     @include tablet {
       animation: moveDarkBg_Creative 1s 0.35s ease-in-out forwards;
@@ -16,7 +17,8 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 
   .main-link__creative {
     pointer-events: none;
-    animation: moveShowCreativeLink_Creative__MOBILE 1.8s 0.65s $cb forwards;
+    animation: moveShowCreativeLink_Creative__MOBILE 1.8s 0.65s $cb
+      forwards;
 
     @include tablet {
       animation: moveShowCreativeLink_Creative 1.8s 0.65s $cb forwards;
@@ -109,7 +111,8 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 
 .is-director__page {
   .is-main__dark {
-    animation: moveDarkBg_Director__MOBILE 1s 0.35s ease-in-out forwards;
+    animation: moveDarkBg_Director__MOBILE 1s 0.35s ease-in-out
+      forwards;
 
     @include tablet {
       animation: moveDarkBg_Director 1s 0.35s ease-in-out forwards;
@@ -127,7 +130,8 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 
   .main-link__director {
     pointer-events: none;
-    animation: moveShowDirectorLink_Director__MOBILE 1.8s 0.65s $cb forwards;
+    animation: moveShowDirectorLink_Director__MOBILE 1.8s 0.65s $cb
+      forwards;
 
     @include tablet {
       animation: moveShowDirectorLink_Director 1.8s 0.65s $cb forwards;
@@ -218,7 +222,8 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 .is-homepage-from-creative {
   .is-main__dark {
     width: 45px;
-    animation: moveDarkBg_Creative_to_Homepage 1s 0.6s ease-in-out forwards;
+    animation: moveDarkBg_Creative_to_Homepage 1s 0.6s ease-in-out
+      forwards;
 
     @include tablet {
       width: 100px;
@@ -238,17 +243,20 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
   .main-link__creative {
     opacity: 0;
     transition: none;
-    animation: showCreativeLink_Creative_to_Homepage 0.75s 1.75s forwards;
+    animation: showCreativeLink_Creative_to_Homepage 0.75s 1.75s
+      forwards;
   }
 
   .main-link__director {
     opacity: 0;
-    transform: translate(50%, -$mainpageOffsetMobile);
-    animation: moveShowDirectorLink_Creative_to_Homepage__MOBILE 1s 1s forwards;
+    transform: translate(50%, -$mainpageOffsetMobile/2);
+    animation: moveShowDirectorLink_Creative_to_Homepage__MOBILE 1s 1s
+      forwards;
 
     @include tablet {
       transform: translate(50%, -$mainpageOffset);
-      animation: moveShowDirectorLink_Creative_to_Homepage 1s 1s forwards;
+      animation: moveShowDirectorLink_Creative_to_Homepage 1s 1s
+        forwards;
     }
   }
 
@@ -309,7 +317,7 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 @keyframes moveShowDirectorLink_Creative_to_Homepage__MOBILE {
   to {
     opacity: 1;
-    transform: translate(0, -$mainpageOffsetMobile);
+    transform: translate(0, -$mainpageOffsetMobile/2);
   }
 }
 
@@ -323,7 +331,8 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 .is-homepage-from-director {
   .is-main__dark {
     width: calc(100vw - 45px);
-    animation: moveDarkBg_Director_to_Homepage 1s 0.6s ease-in-out forwards;
+    animation: moveDarkBg_Director_to_Homepage 1s 0.6s ease-in-out
+      forwards;
 
     @include tablet {
       width: calc(100vw - 100px);
@@ -342,19 +351,22 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 
   .main-link__creative {
     opacity: 0;
-    transform: translate(-50%, -$mainpageOffsetMobile);
-    animation: moveShowDirectorLink_Director_to_Homepage__MOBILE 1s 1s forwards;
+    transform: translate(-50%, -$mainpageOffsetMobile/2);
+    animation: moveShowDirectorLink_Director_to_Homepage__MOBILE 1s 1s
+      forwards;
 
     @include tablet {
       transform: translate(-50%, -$mainpageOffset);
-      animation: moveShowDirectorLink_Director_to_Homepage 1s 1s forwards;
+      animation: moveShowDirectorLink_Director_to_Homepage 1s 1s
+        forwards;
     }
   }
 
   .main-link__director {
     opacity: 0;
     transition: none;
-    animation: showDirectorLink_Director_to_Homepage 0.75s 1.75s forwards;
+    animation: showDirectorLink_Director_to_Homepage 0.75s 1.75s
+      forwards;
   }
 
   .white-line {
@@ -396,7 +408,7 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
 @keyframes moveShowDirectorLink_Director_to_Homepage__MOBILE {
   to {
     opacity: 1;
-    transform: translate(0, -$mainpageOffsetMobile);
+    transform: translate(0, -$mainpageOffsetMobile/2);
   }
 }
 

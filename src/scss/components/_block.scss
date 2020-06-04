@@ -93,62 +93,6 @@ $em: 3em;
     img {
       width: 100%;
     }
-
-    .is-block__image-copied {
-      display: none;
-    }
-  }
-}
-
-.is-block__image-copied {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $grey-base;
-  z-index: -1;
-  opacity: 0;
-
-  transition: z-index 0.1s 0.25s, opacity $a;
-
-  img {
-    transform: scale(0.75);
-    opacity: 0;
-    transition: transform 0.25s 0.25s, opacity 0.25s 0.25s;
-    max-width: 100vw;
-    max-height: 100vh;
-    object-fit: contain;
-  }
-
-  @include tablet-max {
-    display: none !important;
-  }
-}
-
-.is-block__image {
-  @include laptop {
-    cursor: url(./../img/cursors/cursor-plus.png) 32 32, auto;
-  }
-
-  &.is-active {
-    .is-block__image-copied {
-      z-index: 112;
-      opacity: 1;
-      transition: opacity $a;
-
-      @include laptop {
-        cursor: url(./../img/cursors/cursor-close.png) 32 32, auto;
-      }
-
-      img {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
   }
 }
 

@@ -10,7 +10,7 @@
   position: relative;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -25,5 +25,13 @@
 .is-director__page {
   &:after {
     display: none;
+  }
+}
+
+.is-director__page {
+  .project-text {
+    h3 {
+      color: $grey-base;
+    }
   }
 }

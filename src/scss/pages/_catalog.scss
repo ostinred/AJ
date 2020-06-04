@@ -44,8 +44,8 @@
     height: 38vh;
     min-height: auto;
 
-    @include laptop {
-      height: 20vw;
+    @include tablet {
+      height: 25vw;
     }
 
     @include laptop {

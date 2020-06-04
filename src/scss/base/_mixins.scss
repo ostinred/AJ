@@ -127,14 +127,15 @@ $desktop-2k: 2400px !default;
 
 // Retina display
 @mixin retina {
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
     @content;
   }
 }
 
 @function contains($list, $values...) {
   @each $value in $values {
-    @if type-of(index($list, $value)) != 'number' {
+    @if type-of(index($list, $value)) != "number" {
       @return false;
     }
   }
@@ -158,17 +159,17 @@ $desktop-2k: 2400px !default;
 }
 
 @function is-length($value) {
-  @return type-of($value) != 'null' and
+  @return type-of($value) != "null" and
     (
-      str-slice($value + '', 1, 4) == 'calc' or
+      str-slice($value + "", 1, 4) == "calc" or
         index(auto inherit initial 0, $value) or
-        (type-of($value) == 'number' and not(unitless($value)))
+        (type-of($value) == "number" and not(unitless($value)))
     );
 }
 
 @function is-size($value) {
   @return is-length($value) or
-    contains('fill' 'fit-content' 'min-content' 'max-content', $value);
+    contains("fill" "fit-content" "min-content" "max-content", $value);
 }
 
 @mixin absolute($sides: null null null null) {
@@ -417,7 +418,14 @@ $desktop-2k: 2400px !default;
 
 @mixin title {
   font-size: 32px;
-  font-size: clamp(32px, 10vw, 10vw);
+
+  @media screen and (min-width: 360px) {
+    font-size: 45px;
+  }
+
+  @media screen and (min-width: 400px) {
+    font-size: 50px;
+  }
 
   @include tablet() {
     font-size: 4em;
@@ -522,7 +530,7 @@ $desktop-2k: 2400px !default;
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -2px;
       left: 0;

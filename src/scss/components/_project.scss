@@ -141,3 +141,22 @@
     min-height: auto;
   }
 }
+
+.is-parallax-wrapper {
+  img {
+    width: 100%;
+
+    @include laptop {
+      display: none;
+    }
+  }
+}
+
+.is-parallax-image {
+  display: none;
+  height: 100vh;
+
+  @include laptop {
+    display: block;
+  }
+}
