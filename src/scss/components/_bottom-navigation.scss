@@ -9,6 +9,8 @@
 .bottom-navigation {
   display: flex;
   border-top: 1px solid $primary-color;
+  height: 100vh;
+  max-height: 2.3em;
 }
 
 .bottom-navigation__link {
@@ -25,10 +27,7 @@
     color: $global-color;
     @include hover-right();
   }
-
-  @include laptop {
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   @include hover {
     img {
@@ -40,7 +39,7 @@
     height: 10px;
     margin: 0 3px;
     will-change: transform;
-    transition: transform .3s $t;
+    transition: transform 0.3s $t;
   }
 }
 
@@ -61,4 +60,60 @@
     color: $grey-base;
     @include hover-right();
   }
+}
+
+.bottom-nav-is-animating {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  .bottom-navigation {
+    animation: increaseHeight 0.85s $t forwards;
+
+    border: none;
+
+    & > div {
+      animation: hide 0.15s $t forwards;
+    }
+  }
+
+  .is-mainpage__content {
+    animation: translateUp 0.85s $t forwards;
+  }
+}
+
+@keyframes hide {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes increaseHeight {
+  to {
+    max-height: 100vh;
+  }
+}
+
+@keyframes translateUp {
+  to {
+    transform: translateY(-100vh);
+  }
+}
+
+.from-bottom-director {
+  .main-link__director {
+    opacity: 0 !important;
+  }
+}
+
+.from-bottom-creative {
+  .main-link__creative {
+    opacity: 0 !important;
+  }
+}
+
+.from-bottom-director-to-homepage {
+}
+
+.from-bottom-creative-to-homepage {
 }

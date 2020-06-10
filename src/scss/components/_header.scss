@@ -30,6 +30,16 @@ $translation: 10vw;
   svg g {
     fill: $grey-base;
   }
+
+  @include hover {
+    svg g {
+      fill: $primary-color;
+    }
+
+    .is-logo__name {
+      opacity: 0;
+    }
+  }
 }
 
 .is-logo__icon {

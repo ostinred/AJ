@@ -146,7 +146,7 @@
   img {
     width: 100%;
 
-    @include laptop {
+    @include tablet-max {
       display: none;
     }
   }

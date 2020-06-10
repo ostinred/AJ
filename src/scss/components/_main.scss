@@ -187,13 +187,12 @@ $quote-padding: 0.2em;
   will-change: transform;
   transition: transform 1s $t;
 
-  @include laptop {
-    transition-duration: 0.75s;
+  @include tablet {
+    transform: translateY(-$mainpageOffset);
   }
 
-  @include tablet {
-    pointer-events: none;
-    transform: translateY(-$mainpageOffset);
+  @include laptop {
+    transition-duration: 0.75s;
 
     &.unblocked {
       pointer-events: unset;
