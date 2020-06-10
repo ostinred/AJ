@@ -21,7 +21,7 @@
 
 .is-block__expanded-description {
   overflow: hidden;
-  transition: max-height 0.75s ease-in-out;
+  transition: max-height 0.75s $t;
 }
 
 .is-block__expanded-toggler {

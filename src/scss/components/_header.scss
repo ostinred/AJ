@@ -9,44 +9,14 @@ $translation: 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  @include laptop {
-    transition: background-color $a;
-  }
-
-  &.is-scrolled {
-    background-color: $global-color;
-
-    @include laptop {
-      background-color: transparent;
-    }
-
-    .is-logo img {
-      filter: $filter-primary;
-    }
-
-    .is-logo__icon {
-      g {
-        fill: $primary-color;
-      }
-    }
-
-    .navigation-btn {
-      @include hover {
-        &:before,
-        &:after {
-          background-color: $primary-color;
-        }
-      }
-    }
-  }
+  transition: 0.75s $t;
 }
 
 .is-logo {
   position: relative;
   z-index: 3;
   display: flex;
-  padding: 11px 12px;
+  padding: 16px 15px;
   align-items: center;
 
   @include laptop {
@@ -69,9 +39,9 @@ $translation: 10vw;
   }
 }
 
-.is-logo__icon g,
-.is-logo__name {
-  transition: opacity 0.5s 0.5s ease-in-out;
+.is-logo__name,
+.is-logo__icon g {
+  transition: 0.75s $t;
 }
 
 .is-logo__name {
@@ -89,7 +59,7 @@ $translation: 10vw;
 .navigation-btn__wrapper {
   position: relative;
   z-index: 3;
-  padding: 15px;
+  padding: 20px 15px;
 
   @include tablet {
     padding: 30px 25px;
@@ -112,43 +82,35 @@ $translation: 10vw;
   @include laptop {
     padding-left: 94px;
   }
+}
 
-  > ul {
-    @include flex-column;
-    padding: 10vh 0;
+.is-navigation-list {
+  @include flex-column;
+  padding: 10vh 0 5vh;
+  height: 100%;
 
-    // padding: 65px 0;
-
-    height: 100%;
-
-    li {
-      &:last-child {
-        display: flex;
-        align-items: flex-end;
-        height: 100%;
-      }
-    }
-
-    @include laptop {
+  li {
+    &:last-child {
+      display: flex;
+      align-items: flex-end;
       height: 100%;
     }
   }
 
+  @include laptop {
+    height: 100%;
+  }
+
   li {
-    will-change: transform;
-
-    @include tablet {
-      display: flex;
-      align-items: center;
-    }
-
-    // @include laptop {
-    //   flex: 0 1 100%;
+    // @include tablet {
+    //   display: flex;
+    //   align-items: center;
     // }
 
     &.is-active {
       .navigation-link {
         color: $primary-color;
+        pointer-events: none;
       }
     }
 
@@ -166,14 +128,6 @@ $translation: 10vw;
 
   padding: 10px 0.5vw;
 
-  @media screen and (min-width: 360px) {
-    font-size: 12px;
-  }
-
-  @media screen and (min-width: 400px) {
-    font-size: 13px;
-  }
-
   @include tablet {
     padding: 0.15em 0.5vw;
   }
@@ -185,7 +139,7 @@ $translation: 10vw;
 
   @include title();
   color: $global-color;
-  transition: color $a;
+  transition: color 0.35s $t;
 }
 
 .navigation-btn {
@@ -216,7 +170,7 @@ $translation: 10vw;
 
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
-    transition: transform $a, background-color $a;
+    transition: transform 0.35s $t, background-color 0.35s $t;
     will-change: transform;
 
     @include tablet {
@@ -283,7 +237,22 @@ $translation: 10vw;
 .is-logo__icon {
   @include header-active() {
     g {
+      animation: fill2white 0.75s 0.5s $t forwards;
+
+      @include safari {
+        fill: $global-color;
+      }
+    }
+  }
+
+  @include header-closing() {
+    g {
       fill: $global-color;
+      animation: fill2dark 0.75s 0.5s $t forwards;
+    }
+
+    @include safari {
+      fill: $grey-base;
     }
   }
 
@@ -294,15 +263,25 @@ $translation: 10vw;
   }
 }
 
+@keyframes fill2white {
+  to {
+    fill: $global-color;
+  }
+}
+
+@keyframes fill2dark {
+  to {
+    fill: $grey-base;
+  }
+}
+
 .is-logo__name {
   @include header-active() {
-    transition: opacity $nav-overlay-transition;
     opacity: 0;
   }
 
   @include header-closing() {
-    transition: opacity $nav-overlay-transition
-      $nav-overlay-transition/2;
+    opacity: 1;
   }
 }
 
@@ -316,7 +295,7 @@ $translation: 10vw;
   }
 
   @include header-closing() {
-    transition: visibility 0s 1s;
+    transition: visibility 0s 1.5s;
     z-index: 2;
   }
 
@@ -333,12 +312,12 @@ $translation: 10vw;
     background-color: $grey-base;
 
     @include header-active {
-      transition: opacity $nav-overlay-transition ease-in-out;
-      opacity: 1;
+      animation: showOverlay 1.25s 0.25s linear forwards;
     }
 
     @include header-closing() {
-      transition: $nav-overlay-transition ease-in-out;
+      opacity: 1;
+      animation: hideOverlay 1s 0.475s linear forwards;
     }
   }
 
@@ -357,65 +336,154 @@ $translation: 10vw;
     z-index: -1;
 
     @include header-active() {
-      transition: $nav-overlay-transition * 0.75 ease-in-out;
-      transform: translateX(0);
+      animation: showBackground 1s 0.25s $t forwards;
     }
 
     @include header-closing() {
-      transition: $nav-overlay-transition 0.25s ease-in-out;
+      animation: hideBackground 1s 0.525s $t forwards;
     }
   }
 }
 
-.is-navigation > ul {
-  li {
-    @for $i from 1 through 5 {
-      &:nth-child(#{$i}) {
-        transform: translateX($translation * $i);
-      }
-    }
+@keyframes showOverlay {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hideOverlay {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showBackground {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hideBackground {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+$translatesXOnMobile: 31vw, 35vw, 39vw, 43vw, 47vw;
+
+$translatesXOn: 21vw, 25vw, 29vw, 33vw, 37vw;
+$translatesXOff: 37vw, 33vw, 29vw, 25vw, 21vw;
+
+.is-navigation-list {
+  & > li:not(:last-child) {
     opacity: 0;
 
-    @include header-active() {
-      transform: translateX(0);
-      opacity: 1;
+    @include tablet-max {
+      @for $i from 1 through length($translatesXOnMobile) {
+        $translate: nth($translatesXOnMobile, $i);
 
-      &:nth-of-type(1) {
-        transition: transform 0.5s 0.25s ease-out,
-          opacity 0.8s 0.25s ease-out;
-      }
-
-      @for $i from 2 through 5 {
         &:nth-child(#{$i}) {
-          transition: transform 0.5s + $i * 0.05 0.25s ease-out,
-            opacity 0.35s + $i * 0.05 0.25s ease-out;
+          transform: translateX($translate);
+        }
+      }
+    }
+
+    @include tablet {
+      @for $i from 1 through length($translatesXOn) {
+        $translate: nth($translatesXOn, $i);
+
+        &:nth-child(#{$i}) {
+          @include laptop {
+            transform: translateX($translate);
+          }
+        }
+      }
+    }
+
+    @include header-active() {
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          animation: showLink
+            0.5s +
+            ($i * 0.05)
+            0.8s +
+            ($i * 0.05)
+            ease-out
+            forwards;
         }
       }
     }
 
     @include header-closing() {
+      opacity: 1;
+      transform: translateX(0);
+
       @for $i from 1 through 5 {
         &:nth-child(#{$i}) {
-          transform: translateX($translation * 6 - ($i * 10));
-          transition: transform 0.5s + $i * 0.05 0.15s ease-out,
-            opacity 0.35s + $i * 0.05 0.15s ease-out;
+          animation: hideLink_#{$i}
+            0.45s +
+            ($i * 0.05)
+            0.2s +
+            ($i * 0.05s)
+            ease-in
+            forwards;
         }
       }
+    }
+  }
+}
+
+@keyframes showLink {
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@for $i from 1 through length($translatesXOff) {
+  $translate: nth($translatesXOff, $i);
+
+  @keyframes hideLink_#{$i} {
+    to {
+      opacity: 0;
+      transform: translateX($translate);
     }
   }
 }
 
 .socials {
   @include header-active() {
-    transition: opacity $a-nav;
-    transition-delay: 0.9s;
-    opacity: 1;
+    animation: showSocials 0.25s 1.75s ease-out forwards;
     pointer-events: unset;
+
+    @include mobile-max {
+      animation-duration: 0.2s;
+      animation-delay: 1.55s;
+    }
+  }
+
+  @include header-closing() {
+    opacity: 1;
+    animation: hideSocials 0.5s 0.1s ease-out forwards;
   }
 }
 
-.header-transparent {
-  @include header-transparent;
+@keyframes showSocials {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hideSocials {
+  to {
+    opacity: 0;
+  }
 }
 
 .contact-is-active {
@@ -431,5 +499,22 @@ $translation: 10vw;
         color: $primary-color;
       }
     }
+  }
+}
+
+.is-default__page-wrapper:not(.is-nav-opened) {
+  .navigation-btn {
+    @include hover {
+      &:before,
+      &:after {
+        background-color: $grey-base;
+      }
+    }
+  }
+}
+
+.nav-anim-running {
+  .navigation-btn__wrapper {
+    pointer-events: none;
   }
 }

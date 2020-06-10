@@ -23,9 +23,6 @@ body {
   background-color: $global-color;
   -webkit-overflow-scrolling: touch;
 
-  opacity: 0;
-  transition: opacity 0.35s ease-in-out;
-
   &.is-fixed {
     position: fixed;
     top: 0;
@@ -77,8 +74,8 @@ a {
 a,
 area,
 button,
-[role='button'],
-input:not([type='range']),
+[role="button"],
+input:not([type="range"]),
 label,
 select,
 summary,
@@ -106,11 +103,11 @@ figure {
 
 a,
 button,
-html [type='button'],
-[type='reset'],
-[type='submit'],
-[role='button'],
-[role='link'] {
+html [type="button"],
+[type="reset"],
+[type="submit"],
+[role="button"],
+[role="link"] {
   appearance: none;
   -webkit-appearance: none;
   box-shadow: none;
@@ -142,5 +139,37 @@ ul {
 }
 
 .without-opacity {
-  opacity: 0;
+  opacity: 0 !important;
+}
+
+.custom-scroll {
+  @include scrollbar-style(
+    $width: 4px,
+    $height: 10px,
+    $foreground-color: $primary-color,
+    $border-radius: 5px,
+    $background-color: mix($primary-color, white, 30%)
+  );
+}
+
+.animated {
+  animation-duration: 0.75s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+}
+
+.wow {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
 }

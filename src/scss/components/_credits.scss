@@ -36,7 +36,7 @@
 
   @include tablet {
     max-height: 0;
-    transition: max-height 0.3s ease-in-out;
+    transition: max-height 0.75s $t;
   }
 
   p {

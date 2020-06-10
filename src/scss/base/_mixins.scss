@@ -418,20 +418,20 @@ $desktop-2k: 2400px !default;
 
 @mixin title {
   font-size: 32px;
+  font-weight: normal;
 
   @media screen and (min-width: 360px) {
-    font-size: 45px;
+    font-size: 36px;
   }
 
   @media screen and (min-width: 400px) {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   @include tablet() {
     font-size: 4em;
     font-size: clamp(32px, 10vw, 3.25em);
   }
-  font-weight: normal;
 }
 
 @mixin subtitle {
@@ -579,5 +579,13 @@ $desktop-2k: 2400px !default;
 
   @include tablet {
     font-size: 0.5em;
+  }
+}
+
+@mixin safari {
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      @content;
+    }
   }
 }

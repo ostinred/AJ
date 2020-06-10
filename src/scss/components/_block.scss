@@ -65,6 +65,20 @@ $em: 3em;
       }
     }
   }
+
+  .wow {
+    &:nth-of-type(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: 0.3s;
+    }
+
+    &:nth-of-type(4) {
+      animation-delay: 0.4s;
+    }
+  }
 }
 
 .is-block__title {

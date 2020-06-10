@@ -1,32 +1,30 @@
 // commonly used styles
-@import 'common';
+@import "common";
 
 // browsers detecting
-@import 'isChrome';
-@import 'isIos';
 
-@import 'header';
-@import 'footer';
+@import "header";
+@import "footer";
 
-@import 'main';
-@import 'main_animations';
+@import "main";
+@import "main_animations";
 
-@import 'banner';
-@import 'zebra';
-@import 'project';
-@import 'bottom-navigation';
-@import 'relative-block';
+@import "banner";
+@import "zebra";
+@import "project";
+@import "bottom-navigation";
+@import "relative-block";
 
-@import 'video';
+@import "video";
 
-@import 'block';
-@import 'expanded-text';
+@import "block";
+@import "expanded-text";
 
-@import 'credits';
+@import "credits";
 
-@import 'slick';
-@import 'slider';
-@import 'socials';
+@import "slick";
+@import "slider";
+@import "socials";
 
-@import 'white_lines';
-@import 'black_lines';
+@import "white_lines";
+@import "black_lines";

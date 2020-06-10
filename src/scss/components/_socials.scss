@@ -12,6 +12,15 @@
     padding: 0 0 0 clamp(25px, 3vw, 3vw);
   }
 
+  li {
+    &:first-child {
+      a {
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
   a {
     position: relative;
     padding: 0;
@@ -21,21 +30,20 @@
     align-items: center;
     justify-content: center;
 
-    @include mobile-max {
-      img {
-        border-radius: 15px;
-        width: 30px;
-        height: 30px;
+    img {
+      border-radius: 15px;
+      width: 30px;
+      height: 30px;
+
+      @include mobile-max {
         border: 1px solid $global-color;
       }
-    }
 
-    @include laptop {
-      // transition: transform $a;
-    }
-
-    &:first-child {
-      padding-left: 0;
+      @include laptop {
+        border-radius: 1.5vw;
+        width: 3vw;
+        height: 3vw;
+      }
     }
 
     @include hover {
@@ -46,10 +54,11 @@
 
     .hover-icon {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 50%;
+      left: 50%;
       opacity: 0;
-      transition: opacity $a;
+      transition: opacity 0.35s $t;
+      transform: translate(-50%, -50%);
     }
   }
 }

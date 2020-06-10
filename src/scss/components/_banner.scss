@@ -30,7 +30,7 @@
     bottom: 0;
     right: 0;
     will-change: transform;
-    transition: transform $a;
+    transition: transform 0.75s $t;
   }
 
   object-fit: cover;
@@ -130,7 +130,7 @@
   line-height: 1;
   font-weight: normal;
   margin: 0 0 5px;
-  transition: $a;
+  transition: 0.25s $t;
 }
 
 .project-company {

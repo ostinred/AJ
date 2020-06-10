@@ -47,7 +47,7 @@
   }
 
   @include laptop {
-    transition: $a;
+    transition: 0.35s $t;
   }
 
   img {

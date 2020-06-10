@@ -1,5 +1,5 @@
-$font-title: 'Rozha One';
-$font-sub: 'IBM Plex Sans';
+$font-title: "Rozha One";
+$font-sub: "IBM Plex Sans";
 
 // COLORS
 $global-color: #fff !global;
@@ -22,13 +22,13 @@ $al: 0.5s ease-out;
 
 $main-block-height: 100vh;
 
-$filter-primary: invert(53%) sepia(10%) saturate(2548%) hue-rotate(2deg)
-  brightness(99%) contrast(88%);
-$filter-white: invert(100%) sepia(0%) saturate(7500%) hue-rotate(268deg)
-  brightness(102%) contrast(102%);
+$filter-primary: invert(53%) sepia(10%) saturate(2548%)
+  hue-rotate(2deg) brightness(99%) contrast(88%);
+$filter-white: invert(100%) sepia(0%) saturate(7500%)
+  hue-rotate(268deg) brightness(102%) contrast(102%);
 
 // menu hover transitions
-$nav-overlay-transition: 0.7s;
+$nav-overlay-transition: 1s;
 
 // main
 $flex-main-expanded: 12;
@@ -37,3 +37,5 @@ $arrow-padding: 0.15em;
 $mainpageOffset: 10vh;
 
 $mainpageOffsetMobile: 35vh;
+
+$t: cubic-bezier(0.9, 0.06, 0.68, 0.99);

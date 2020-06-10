@@ -4,7 +4,7 @@ $quote-padding: 0.2em;
   position: relative;
   display: flex;
   height: $main-block-height;
-  transition: height $a-nav;
+  transition: height 0.35s $t;
   overflow-x: hidden;
   background-color: $global-color;
 }
@@ -21,7 +21,7 @@ $quote-padding: 0.2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity $a-nav;
+
   padding: $arrow-padding * 2;
   transform: translateY(-$mainpageOffsetMobile / 2);
   position: absolute;
@@ -30,24 +30,28 @@ $quote-padding: 0.2em;
   margin-top: auto;
   margin-bottom: auto;
   z-index: 2;
-  cursor: pointer;
 
   height: 20vh;
 
   @include title();
 
   @include tablet {
+    transform: translateY(-$mainpageOffset);
     padding: $arrow-padding;
     height: 10vh;
   }
 
-  @include tablet {
-    transform: translateY(-$mainpageOffset);
+  @include laptop {
+    cursor: pointer;
+  }
+
+  span {
+    transition: 0.3s;
   }
 
   img {
     padding-top: 0.1em;
-    transition: transform 0.5s ease-out, opacity 0.3s;
+    transition: transform 0.5s $t, opacity 0.3s;
 
     @include mobile-max {
       width: 3vw;
@@ -79,7 +83,7 @@ $quote-padding: 0.2em;
   opacity: 0;
 
   img {
-    transition: transform $a;
+    transition: transform 0.35s $t;
   }
 }
 
@@ -113,7 +117,6 @@ $quote-padding: 0.2em;
 
 .main-link__creative {
   right: 50%;
-  transition: opacity 0.5s ease-out;
 
   img {
     margin-right: $arrow-padding * 3;
@@ -153,7 +156,10 @@ $quote-padding: 0.2em;
 
 .dir-hovered {
   .main-link__creative {
-    opacity: 0.3;
+    span,
+    img {
+      opacity: 0.3;
+    }
   }
 
   .is-mainpage__content {
@@ -163,7 +169,10 @@ $quote-padding: 0.2em;
 
 .creative-hovered {
   .main-link__director {
-    opacity: 0.3;
+    span,
+    img {
+      opacity: 0.3;
+    }
   }
 
   .is-mainpage__content {
@@ -176,7 +185,11 @@ $quote-padding: 0.2em;
   z-index: 2;
   transform: translateY(-$mainpageOffsetMobile);
   will-change: transform;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 1s $t;
+
+  @include laptop {
+    transition-duration: 0.75s;
+  }
 
   @include tablet {
     pointer-events: none;

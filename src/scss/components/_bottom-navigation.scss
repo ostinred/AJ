@@ -40,7 +40,7 @@
     height: 10px;
     margin: 0 3px;
     will-change: transform;
-    transition: transform $a;
+    transition: transform .3s $t;
   }
 }
 
