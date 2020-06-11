@@ -10,6 +10,20 @@ $translation: 10vw;
   justify-content: space-between;
   align-items: center;
   transition: 0.75s $t;
+
+  &.is-scrolled {
+    .is-logo {
+      svg g {
+        fill: $primary-color;
+      }
+    }
+  }
+
+  &.with-white-logo {
+    .is-logo__icon g {
+      fill: $global-color;
+    }
+  }
 }
 
 .is-logo {
@@ -30,15 +44,12 @@ $translation: 10vw;
   svg g {
     fill: $grey-base;
   }
+}
 
-  @include hover {
-    svg g {
-      fill: $primary-color;
-    }
-
-    .is-logo__name {
-      opacity: 0;
-    }
+.is-header.is-active:not(.is-scrolled):not(.with-white-logo) {
+  .is-logo__icon g {
+    transition: 0.5s 0.5 $t;
+    fill: $global-color;
   }
 }
 
@@ -49,13 +60,13 @@ $translation: 10vw;
   }
 }
 
-.is-logo__name,
-.is-logo__icon g {
-  transition: 0.75s $t;
+.is-logo svg g {
+  transition: 0.35s $t;
 }
 
 .is-logo__name {
   margin-left: 5px;
+  transition: 0.5s 0.25s $t;
 
   @include mobile-max {
     width: 50%;
@@ -63,16 +74,6 @@ $translation: 10vw;
 
   @include laptop {
     margin-left: 10px;
-  }
-}
-
-.navigation-btn__wrapper {
-  position: relative;
-  z-index: 3;
-  padding: 20px 15px;
-
-  @include tablet {
-    padding: 30px 25px;
   }
 }
 
@@ -112,11 +113,6 @@ $translation: 10vw;
   }
 
   li {
-    // @include tablet {
-    //   display: flex;
-    //   align-items: center;
-    // }
-
     &.is-active {
       .navigation-link {
         color: $primary-color;
@@ -152,6 +148,20 @@ $translation: 10vw;
   transition: color 0.35s $t;
 }
 
+.navigation-btn__wrapper {
+  position: relative;
+  z-index: 3;
+  padding: 20px 15px;
+
+  @include tablet {
+    padding: 30px 25px;
+  }
+
+  @include laptop {
+    cursor: pointer;
+  }
+}
+
 .navigation-btn {
   @include reset-btn-styles;
 
@@ -162,10 +172,6 @@ $translation: 10vw;
 
   @include tablet {
     @include size(32px 33px);
-  }
-
-  @include laptop {
-    cursor: pointer;
   }
 
   &:before,
@@ -204,13 +210,6 @@ $translation: 10vw;
       top: 24px;
     }
   }
-
-  @include hover {
-    &:before,
-    &:after {
-      background-color: $global-color;
-    }
-  }
 }
 
 // nav animations
@@ -246,31 +245,25 @@ $translation: 10vw;
 
 .is-logo__icon {
   @include header-active() {
-    g {
-      animation: fill2white 0.75s 0.5s $t forwards;
-
-      @include safari {
-        fill: $global-color;
-      }
-    }
+    // fill: $c
   }
 
-  @include header-closing() {
-    g {
-      fill: $global-color;
-      animation: fill2dark 0.75s 0.5s $t forwards;
-    }
+  // @include header-closing() {
+  //   g {
+  //     fill: $global-color;
+  //     animation: fill2dark 0.75s 0.5s $t forwards;
+  //   }
 
-    @include safari {
-      fill: $grey-base;
-    }
-  }
+  //   @include safari {
+  //     fill: $grey-base;
+  //   }
+  // }
 
-  &.is-white {
-    g {
-      fill: $global-color;
-    }
-  }
+  // &.is-white {
+  //   g {
+  //     fill: $global-color;
+  //   }
+  // }
 }
 
 @keyframes fill2white {
@@ -292,6 +285,7 @@ $translation: 10vw;
 
   @include header-closing() {
     opacity: 1;
+    transition-delay: 0.75s;
   }
 }
 
