@@ -184,7 +184,7 @@ $(document).ready(function () {
   if (slider.length) {
     slider.slick({
       infinite: true,
-      speed: 1200,
+      speed: 750,
       autoplay: true,
       autoplaySpeed: 4000,
       prevArrow: $(".slider-prev"),

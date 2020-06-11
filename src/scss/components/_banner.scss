@@ -19,6 +19,12 @@
   @include laptop {
     height: 100vh;
   }
+
+  @include hover {
+    .project-heading {
+      color: $primary-color;
+    }
+  }
 }
 
 .project-image,
