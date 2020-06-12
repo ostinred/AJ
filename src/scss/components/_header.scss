@@ -69,7 +69,11 @@ $translation: 10vw;
   transition: 0.5s 0.25s $t;
 
   @include mobile-max {
-    width: 50%;
+    width: 35%;
+  }
+
+  @include tablet-only {
+    width: 60%;
   }
 
   @include laptop {

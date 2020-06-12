@@ -41,11 +41,11 @@
 
   .is-project-media {
     width: auto;
-    height: 38vh;
+    height: 26vh;
     min-height: auto;
 
     @include tablet {
-      height: 25vw;
+      height: 20vh;
     }
 
     @include laptop {

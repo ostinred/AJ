@@ -1,10 +1,10 @@
 .relative__block {
   padding-top: 1em;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 
   @include tablet {
     padding-top: 1em;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
   }
 
   @include laptop {
@@ -45,6 +45,22 @@
 
       &:nth-of-type(3) {
         animation-delay: 0.4s;
+      }
+    }
+  }
+
+  .is-project {
+    @include mobile-max {
+      margin-bottom: 2em;
+    }
+
+    .is-project-media {
+      @include mobile-max {
+        height: 26vh;
+      }
+
+      @include tablet-only {
+        height: 20vh;
       }
     }
   }
