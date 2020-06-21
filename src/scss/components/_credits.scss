@@ -7,26 +7,18 @@
 }
 
 .is-credit__toggler {
-  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
   @include link-with-arrow;
   align-items: baseline;
   padding: 1.25em;
   border: 0;
-  text-align: center;
   color: $global-color;
   background-color: $primary-color;
 
-  @include mobile-max {
-    pointer-events: none;
-
-    img {
-      display: none;
-    }
-  }
-
   @include hover {
     img {
-      transform: none;
+      transform: translateY(2px);
     }
   }
 }

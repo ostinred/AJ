@@ -81,8 +81,8 @@
     top: 10px;
     right: 10px;
 
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 
     border: 0;
     background-color: transparent;
@@ -93,15 +93,8 @@
     outline: none;
 
     @include tablet {
-      width: 40px;
-      height: 40px;
-      top: 20px;
-      right: 20px;
-    }
-
-    @include laptop {
-      width: 45px;
-      height: 45px;
+      width: 30px;
+      height: 30px;
       top: 20px;
       right: 20px;
     }

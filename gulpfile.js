@@ -24,6 +24,7 @@ var config = {
     homeDir: "./",
     video: "./src/video/**/*",
     pdf: "./src/pdf/**/*",
+    fonts: "./src/fonts/**/*",
   },
   output: {
     html: "./dest/",
@@ -34,6 +35,7 @@ var config = {
     jsDest: "./dest/js",
     video: "./dest/video",
     pdf: "./dest/pdf",
+    fonts: "./dest/fonts",
   },
 };
 
@@ -93,6 +95,10 @@ gulp.task("copyPDF", function () {
   gulp.src(config.path.pdf).pipe(gulp.dest(config.output.pdf));
 });
 
+gulp.task("copyFonts", function () {
+  gulp.src(config.path.fonts).pipe(gulp.dest(config.output.fonts));
+});
+
 gulp.task("jsWatch", function () {
   return gulp
     .src(config.path.js)
@@ -104,6 +110,7 @@ gulp.task("default", [
   "copyHTML",
   "copyImages",
   "copyPDF",
+  "copyFonts",
   "copyVideo",
   "scss",
   "jsWatch",

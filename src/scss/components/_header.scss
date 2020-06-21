@@ -247,41 +247,6 @@ $translation: 10vw;
   }
 }
 
-.is-logo__icon {
-  @include header-active() {
-    // fill: $c
-  }
-
-  // @include header-closing() {
-  //   g {
-  //     fill: $global-color;
-  //     animation: fill2dark 0.75s 0.5s $t forwards;
-  //   }
-
-  //   @include safari {
-  //     fill: $grey-base;
-  //   }
-  // }
-
-  // &.is-white {
-  //   g {
-  //     fill: $global-color;
-  //   }
-  // }
-}
-
-@keyframes fill2white {
-  to {
-    fill: $global-color;
-  }
-}
-
-@keyframes fill2dark {
-  to {
-    fill: $grey-base;
-  }
-}
-
 .is-logo__name {
   @include header-active() {
     opacity: 0;
@@ -320,7 +285,7 @@ $translation: 10vw;
     background-color: $grey-base;
 
     @include header-active {
-      animation: showOverlay 1.25s 0.25s linear forwards;
+      animation: showOverlay 1.25s linear forwards; // 1.25s .25s
     }
 
     @include header-closing() {
@@ -344,7 +309,7 @@ $translation: 10vw;
     z-index: -1;
 
     @include header-active() {
-      animation: showBackground 1s 0.25s $t forwards;
+      animation: showBackground 1s $t forwards; // 1s .25s
     }
 
     @include header-closing() {
@@ -381,7 +346,6 @@ $translation: 10vw;
 }
 
 $translatesXOnMobile: 31vw, 35vw, 39vw, 43vw, 47vw;
-
 $translatesXOn: 21vw, 25vw, 29vw, 33vw, 37vw;
 $translatesXOff: 37vw, 33vw, 29vw, 25vw, 21vw;
 
@@ -417,7 +381,8 @@ $translatesXOff: 37vw, 33vw, 29vw, 25vw, 21vw;
           animation: showLink
             0.5s +
             ($i * 0.05)
-            0.8s +
+            0.65s +
+            // was .8s
             ($i * 0.05)
             ease-out
             forwards;

@@ -20,45 +20,55 @@
       }
     }
   }
+}
 
-  a {
-    position: relative;
-    padding: 0;
-    margin-left: 0.5em;
+@mixin social-image($s) {
+  width: $s;
+  height: $s;
+  border-radius: $s/2;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  i {
+    font-size: $s/2;
+  }
+}
 
-    img {
-      border-radius: 15px;
-      width: 30px;
-      height: 30px;
+.social-link {
+  margin-left: 0.5em;
 
-      @include mobile-max {
-        border: 1px solid $global-color;
-      }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $global-color;
+  transition: border-color 0.25s;
 
-      @include laptop {
-        border-radius: 1.5vw;
-        width: 3vw;
-        height: 3vw;
-      }
-    }
+  @include social-image(40px);
 
-    @include hover {
-      .hover-icon {
-        opacity: 1;
-      }
-    }
+  @include tablet {
+    @include social-image(45px);
+  }
 
-    .hover-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      opacity: 0;
-      transition: opacity 0.35s $t;
-      transform: translate(-50%, -50%);
+  @include desktop {
+    @include social-image(60px);
+  }
+
+  @include desktop-hd {
+    @include social-image(70px);
+  }
+
+  @include desktop-2k {
+    @include social-image(80px);
+  }
+
+  i {
+    color: $global-color;
+    transition: color 0.25s;
+  }
+
+  @include hover {
+    border-color: $primary-color;
+
+    i {
+      color: $primary-color;
     }
   }
 }
