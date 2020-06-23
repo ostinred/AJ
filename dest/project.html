@@ -272,28 +272,27 @@
     <div class="is-project__page">
       <!-- main -->
       <main role="main">
-        <!-- banner -->
-        <div class="is-banner is-banner__post">
-          <figure role="img">
-            <img
-              class="project-image"
-              src="./img/homepage/project-5.jpg"
-              alt=""
-            />
-
+        <!-- parallax banner -->
+        <div class="is-parallax-wrapper">
+          <div
+            class="is-parallax-image"
+            data-parallax="scroll"
+            data-image-src="./img/homepage/project-5.jpg"
+            data-speed="0.1"
+          >
             <div class="is-banner__copies">
-              <figcaption>
+              <div>
                 <p class="project-company wow">OCULIUS</p>
                 <h1 class="project-heading wow">
                   Launching
                   <br />
                   the Quest
                 </h1>
-              </figcaption>
+              </div>
             </div>
-          </figure>
+          </div>
         </div>
-        <!-- end of banner -->
+        <!-- end of parallax banner -->
 
         <!-- expand text block -->
         <section class="is-block__expanded">
@@ -356,10 +355,8 @@
               <span class="less">
                 less
               </span>
-              <img
-                src="./img/icons/icon-arrow-bottom.svg"
-                alt="arrow"
-              />
+
+              <i class="icon-arrow-bottom"></i>
             </button>
           </div>
         </section>
@@ -514,17 +511,11 @@
         <div class="is-container">
           <div class="is-slider__wrapper">
             <button class="slider-nav slider-prev" type="button">
-              <img
-                src="./img/icons/icon-arrow-left.svg"
-                alt="arrow prev"
-              />
+              <i class="icon-arrow-left"></i>
             </button>
 
             <button class="slider-nav slider-next" type="button">
-              <img
-                src="./img/icons/icon-arrow-right.svg"
-                alt="arrow prev"
-              />
+              <i class="icon-arrow-right"></i>
             </button>
             <div class="is-slider">
               <div
@@ -615,10 +606,8 @@
             class="is-credit__toggler"
           >
             credits
-            <img
-              src="./img/icons/icon-arrow-bottom-white.svg"
-              alt="arrow"
-            />
+
+            <i class="icon-arrow-bottom"></i>
           </button>
           <div class="is-credit__content">
             <div class="is-credit__wrapper">
@@ -771,55 +760,75 @@
         </div>
       </div>
 
-      <!-- related posts -->
+      <!-- related content -->
       <div class="relative__block">
         <div class="is-container">
           <div class="relative__title wow">
-            Related posts
+            Related content
           </div>
 
           <div class="relative_content">
-            <div class="is-project is-project__fullwidth wow">
+            <div class="is-project is-catalog__project wow">
               <a
-                href="project.html"
+                class="is-project-media with-video-bg"
                 role="link"
-                class="is-project-media"
+                href="project.html"
               >
                 <img
                   class="project-image"
-                  src="./img/catalog/project-3.jpg"
-                  alt=""
+                  src="./img/catalog/project-1.jpg"
                 />
+
+                <video
+                  class="project-video"
+                  loop
+                  preload="metadata"
+                  muted
+                >
+                  <source src="./video/1.mp4" type="video/mp4" />
+                </video>
               </a>
 
               <div class="project-text">
-                <h3 class="project-heading">Shazam The Spots</h3>
-                <p class="project-company">1 MAY 2020</p>
+                <h3 class="project-heading">
+                  Drone Light Show at the Winter Olympics
+                </h3>
+                <p class="project-company">1 May 2020</p>
               </div>
             </div>
 
-            <div class="is-project is-project__fullwidth wow">
+            <div class="is-project is-catalog__project wow">
               <a
-                href="project.html"
+                class="is-project-media with-video-bg"
                 role="link"
-                class="is-project-media"
+                href="project.html"
               >
                 <img
                   class="project-image"
-                  src="./img/catalog/project-4.jpg"
-                  alt=""
+                  src="./img/catalog/project-2.jpg"
                 />
+
+                <video
+                  class="project-video"
+                  loop
+                  preload="metadata"
+                  muted
+                >
+                  <source src="./video/1.mp4" type="video/mp4" />
+                </video>
               </a>
 
               <div class="project-text">
-                <h3 class="project-heading">Cinema Takeover</h3>
-                <p class="project-company">1 MAY 2020</p>
+                <h3 class="project-heading">
+                  Cinema Takeover
+                </h3>
+                <p class="project-company">1 May 2020</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- end of  related posts -->
+      <!-- end of related content -->
     </div>
 
     <footer id="footer" role="contentinfo" class="is-footer">
@@ -845,7 +854,7 @@
               role="link"
             >
               Read more
-              <img src="./img/icons/icon-arrow-right-white.svg" />
+              <i class="icon-arrow-right"></i>
             </a>
           </div>
 

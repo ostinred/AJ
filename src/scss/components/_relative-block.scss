@@ -3,13 +3,13 @@
   padding-bottom: 1em;
 
   @include tablet {
-    padding-top: 1em;
+    padding-top: 2em;
     padding-bottom: 1em;
   }
 
   @include laptop {
-    padding-top: 2em;
-    padding-bottom: 4em;
+    padding-top: 3em;
+    padding-bottom: 2em;
   }
 }
 
@@ -55,12 +55,15 @@
     }
 
     .is-project-media {
-      @include mobile-max {
-        height: 26vh;
+      height: 26vh;
+      min-height: auto;
+
+      @include tablet {
+        height: 20vh;
       }
 
-      @include tablet-only {
-        height: 20vh;
+      @include laptop {
+        height: 17vw;
       }
     }
   }

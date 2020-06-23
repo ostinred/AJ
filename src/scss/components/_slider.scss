@@ -50,11 +50,9 @@
     transition: 0.35s $t;
   }
 
-  img {
-    @include mobile-max {
-      width: 20px;
-      height: 20px;
-    }
+  i {
+    color: $primary-color;
+    font-size: 1.2em;
   }
 }
 

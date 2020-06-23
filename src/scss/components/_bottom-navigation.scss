@@ -1,7 +1,7 @@
 @mixin hover-right {
   @include hover {
-    img {
-      transform: translateX(0.5em);
+    i {
+      transform: translateX(10px);
     }
   }
 }
@@ -30,16 +30,19 @@
   cursor: pointer;
 
   @include hover {
-    img {
-      transform: translateX(-0.5em);
+    i {
+      transform: translateX(-10px);
     }
   }
 
-  img {
-    height: 10px;
+  i {
+    display: inline-block;
+    font-size: 11px;
+
     margin: 0 3px;
     will-change: transform;
     transition: transform 0.3s $t;
+    color: $primary-color;
   }
 }
 
@@ -100,6 +103,13 @@
   }
 }
 
+.from-bottom-director,
+.from-bottom-creative {
+  .is-main__dark {
+    animation-delay: 0s !important;
+  }
+}
+
 .from-bottom-director {
   .main-link__director {
     opacity: 0 !important;
@@ -110,10 +120,4 @@
   .main-link__creative {
     opacity: 0 !important;
   }
-}
-
-.from-bottom-director-to-homepage {
-}
-
-.from-bottom-creative-to-homepage {
 }

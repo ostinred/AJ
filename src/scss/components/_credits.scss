@@ -16,8 +16,12 @@
   color: $global-color;
   background-color: $primary-color;
 
+  i {
+    font-size: 12px;
+  }
+
   @include hover {
-    img {
+    i {
       transform: translateY(2px);
     }
   }
@@ -28,7 +32,7 @@
 
   @include tablet {
     max-height: 0;
-    transition: max-height 0.75s $t;
+    transition: max-height 0.5s $t;
   }
 
   p {
@@ -71,13 +75,9 @@ p.is-credit__title,
 .is-credit {
   &.is-expanded {
     .is-credit__toggler {
-      img {
+      i {
         transform: rotate(0.5turn);
       }
-    }
-
-    .is-credit__content {
-      max-height: 100vh;
     }
   }
 }

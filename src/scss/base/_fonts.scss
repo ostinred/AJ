@@ -37,6 +37,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow-right:before {
+  content: "\e904";
+}
+.icon-close-modal:before {
+  content: "\e905";
+}
+.icon-arrow-left:before {
+  content: "\e906";
+}
+.icon-arrow-bottom:before {
+  content: "\e907";
+}
 .icon-instagram:before {
   content: "\e900";
 }

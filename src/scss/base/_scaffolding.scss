@@ -148,3 +148,11 @@ ul {
     transform: translateZ(0);
   }
 }
+
+.is-gold {
+  color: $primary-color;
+}
+
+.is-white {
+  color: $global-color;
+}

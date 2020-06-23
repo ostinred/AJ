@@ -141,11 +141,19 @@ $(document).ready(function () {
   expandText();
 
   // expand credits
-  var creditWrapper = $(".is-credit");
+  var credit = $(".is-credit");
   var creditToggler = $(".is-credit__toggler");
+  var creditWrapper = $(".is-credit__wrapper");
+  var creditContent = $(".is-credit__content");
 
   creditToggler.click(function () {
-    creditWrapper.toggleClass("is-expanded");
+    if (!credit.hasClass("is-expanded")) {
+      creditContent.css("maxHeight", creditWrapper.outerHeight());
+    } else {
+      creditContent.css("maxHeight", 0);
+    }
+
+    credit.toggleClass("is-expanded");
   });
 
   // video in modal
@@ -184,12 +192,13 @@ $(document).ready(function () {
   if (slider.length) {
     slider.slick({
       infinite: true,
-      speed: 750,
+      speed: 1000,
       autoplay: true,
       autoplaySpeed: 4000,
       prevArrow: $(".slider-prev"),
       nextArrow: $(".slider-next"),
-      cssEase: "cubic-bezier(0.050, 0, 0.700, 0.50)",
+      cssEase: "cubic-bezier(0.9, 0.06, 0.68, 0.99)",
+
       // cssEase: "ease-in",
     });
   }
@@ -418,7 +427,7 @@ $(document).ready(function () {
           $(window).scrollTop(0);
           creativeAnimation();
           $body.removeClass("bottom-nav-is-animating");
-        }, 800);
+        }, 700);
 
         clearTimeout(cb2);
         var cb2 = setTimeout(function () {
@@ -449,7 +458,7 @@ $(document).ready(function () {
           $(window).scrollTop(0);
           directorAnimation();
           $body.removeClass("bottom-nav-is-animating");
-        }, 800);
+        }, 700);
 
         clearTimeout(db2);
         var db2 = setTimeout(function () {

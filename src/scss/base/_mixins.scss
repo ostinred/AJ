@@ -509,17 +509,16 @@ $desktop-2k: 2400px !default;
   }
 
   @include hover {
-    img {
+    i {
       transform: translateX(10px);
     }
   }
 
-  img {
+  i {
+    padding-top: 1px;
     display: block;
-    height: 10px;
-    object-fit: contain;
-    object-position: center;
-    margin-left: 5px;
+    font-size: 9px;
+    margin-left: 7px;
     will-change: transform;
     transition: transform $a;
   }

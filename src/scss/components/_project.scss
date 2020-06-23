@@ -156,13 +156,26 @@
       display: none;
     }
   }
+
+  .project-heading {
+    @include title;
+
+    @include mobile-max {
+      line-height: 1.2;
+    }
+  }
 }
 
 .is-parallax-image {
-  display: none;
+  display: block;
   height: 100vh;
+}
 
-  @include laptop {
-    display: block;
+.is-post__page,
+.is-project__page {
+  .is-parallax-wrapper {
+    .is-banner__copies {
+      height: 100%;
+    }
   }
 }

@@ -31,8 +31,12 @@
   margin: 0.5em auto 0.25em;
   background-color: $global-color;
 
+  i {
+    font-size: 11px;
+  }
+
   @include hover {
-    img {
+    i {
       transform: none;
     }
   }
@@ -61,7 +65,7 @@
         display: block;
       }
 
-      img {
+      i {
         transform: rotate(0.5turn);
       }
     }

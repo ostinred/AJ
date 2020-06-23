@@ -49,19 +49,12 @@ $quote-padding: 0.2em;
     transition: 0.3s;
   }
 
-  img {
-    padding-top: 0.1em;
+  i {
+    display: block;
+    color: $primary-color;
+    font-size: 0.375em;
+    padding-top: 0.25em;
     transition: transform 0.5s $t, opacity 0.3s;
-
-    @include mobile-max {
-      width: 3vw;
-      height: 4vw;
-    }
-
-    @include tablet-only {
-      width: 0.4em;
-      height: 0.4em;
-    }
   }
 }
 
@@ -82,8 +75,9 @@ $quote-padding: 0.2em;
   pointer-events: none;
   opacity: 0;
 
-  img {
+  i {
     transition: transform 0.35s $t;
+    color: $primary-color;
   }
 }
 
@@ -95,7 +89,7 @@ $quote-padding: 0.2em;
   }
 
   @include hover {
-    img {
+    i {
       transform: translateX(50%);
     }
   }
@@ -109,7 +103,7 @@ $quote-padding: 0.2em;
   }
 
   @include hover {
-    img {
+    i {
       transform: translateX(-50%);
     }
   }
@@ -118,17 +112,17 @@ $quote-padding: 0.2em;
 .main-link__creative {
   right: 50%;
 
-  img {
-    margin-right: $arrow-padding * 3;
+  i {
+    margin-right: $arrow-padding * 7;
     transform: translateX($arrow-padding * 1.5);
 
     @include tablet {
-      transform: translateX($arrow-padding * 2);
+      transform: translateX($arrow-padding * 5);
     }
   }
 
   @include hover {
-    img {
+    i {
       transform: none;
     }
   }
@@ -138,17 +132,17 @@ $quote-padding: 0.2em;
   color: $global-color;
   left: 50%;
 
-  img {
-    margin-left: $arrow-padding * 3;
+  i {
+    margin-left: $arrow-padding * 7;
     transform: translateX(-$arrow-padding * 1.5);
 
     @include tablet {
-      transform: translateX(-$arrow-padding * 2);
+      transform: translateX(-$arrow-padding * 5);
     }
   }
 
   @include hover {
-    img {
+    i {
       transform: none;
     }
   }
@@ -157,7 +151,7 @@ $quote-padding: 0.2em;
 .dir-hovered {
   .main-link__creative {
     span,
-    img {
+    i {
       opacity: 0.3;
     }
   }
@@ -170,7 +164,7 @@ $quote-padding: 0.2em;
 .creative-hovered {
   .main-link__director {
     span,
-    img {
+    i {
       opacity: 0.3;
     }
   }
