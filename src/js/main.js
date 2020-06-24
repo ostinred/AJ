@@ -18,6 +18,44 @@ $(document).ready(function () {
   var $main = $(".is-main");
   var $footer = $("#footer");
 
+  var startTimeout = 1500;
+
+  function hidePreloader() {
+    var el = document.getElementById("preloading");
+    el.classList.add("is-hidden");
+    document
+      .querySelector("body")
+      .classList.remove("overflow-hidden");
+
+    var fnHide = function () {
+      el.style.display = "none";
+      el.removeEventListener("transitionend", fnHide);
+    };
+    el.addEventListener("transitionend", fnHide);
+  }
+
+  setTimeout(hidePreloader, startTimeout);
+
+  var splash = document.querySelector("#splashVideo video");
+
+  var startVideo = setTimeout(function () {
+    if (splash) {
+      $body.addClass("overflow-hidden");
+      splash.play();
+      setTimeout(function () {
+        splash.hide();
+      }, splash.duration + startTimeout);
+    }
+  }, startTimeout);
+
+  clearTimeout(startVideo);
+
+  var $header = $(".is-header");
+  var $body = $("body");
+  var $navBtn = $("#navBtn");
+  var $main = $(".is-main");
+  var $footer = $("#footer");
+
   if (!laptop) {
     $(".fadeInUp").removeClass("fadeInUp");
     $(".wow").removeClass("wow");
@@ -162,7 +200,15 @@ $(document).ready(function () {
 
   videoModal.click(function () {
     $(this).addClass("is-active");
-    $(body).addClass("overflow-hidden");
+    $body.addClass("overflow-hidden");
+    // console.log("1", $(this).find("iframe"));
+    // $(this).find("iframe").src;
+    console.log("1", $(this).find("iframe").attr("src"));
+
+    var src = $(this).find("iframe").attr("src");
+    var newSrc = src + "&autoplay=1";
+
+    $(this).find("iframe").attr("src", newSrc);
   });
 
   var videoOverlay = $(".is-block__video-overlay");
@@ -171,7 +217,7 @@ $(document).ready(function () {
   function closeModal(e) {
     e.stopPropagation();
     videoModal.removeClass("is-active");
-    $(body).removeClass("overflow-hidden");
+    $body.removeClass("overflow-hidden");
 
     videoIframe.each(function () {
       var el_src = $(this).attr("src");

@@ -45,8 +45,38 @@
     />
     <link href="https://site.com/" rel="canonical" />
     <link rel="stylesheet" href="./css/app.min.css" />
+
+    <style>
+      #preloading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: silver;
+        z-index: 10000;
+        transition: 0.3s ease-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .is-hidden {
+        opacity: 0;
+      }
+    </style>
   </head>
-  <body>
+  <body class="overflow-hidden">
+    <div id="preloading">
+      <img src="./img/loader.gif" alt="" />
+    </div>
+    <div id="splashVideo" class="splash-video">
+      <video type="video/mp4" muted="muted" >
+        <source src="./video/splash.mp4" />
+      </video>
+    </div>
     <header role="header" class="is-header">
       <!-- logo -->
       <a role="link" href="/" class="is-logo">

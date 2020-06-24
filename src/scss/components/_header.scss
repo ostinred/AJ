@@ -149,7 +149,7 @@ $translation: 10vw;
 
   @include title();
   color: $global-color;
-  transition: color 0.35s $t;
+  transition: color 0.3s ease-in-out;
 }
 
 .navigation-btn__wrapper {
@@ -285,7 +285,7 @@ $translation: 10vw;
     background-color: $grey-base;
 
     @include header-active {
-      animation: showOverlay 1.25s linear forwards; // 1.25s .25s
+      animation: showOverlay 1.25s 0.25s linear forwards;
     }
 
     @include header-closing() {
@@ -309,7 +309,7 @@ $translation: 10vw;
     z-index: -1;
 
     @include header-active() {
-      animation: showBackground 1s $t forwards; // 1s .25s
+      animation: showBackground 1s 0.25s $t forwards;
     }
 
     @include header-closing() {
@@ -381,8 +381,7 @@ $translatesXOff: 37vw, 33vw, 29vw, 25vw, 21vw;
           animation: showLink
             0.5s +
             ($i * 0.05)
-            0.65s +
-            // was .8s
+            0.8s +
             ($i * 0.05)
             ease-out
             forwards;
