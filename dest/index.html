@@ -55,12 +55,32 @@
         bottom: 0;
         width: 100%;
         height: 100%;
-        background-color: silver;
+        background-color: #fff;
         z-index: 10000;
         transition: 0.3s ease-out;
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      #preloading img {
+        width: 125px;
+        height: 125px;
+        transform: translateY(-50%);
+      }
+
+      @media screen and (min-width: 760px) {
+        #preloading img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        #preloading img {
+          width: 200px;
+          height: 200px;
+        }
       }
 
       .is-hidden {
