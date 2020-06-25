@@ -87,6 +87,10 @@
   @include medium-text;
   margin: 0 0 10px;
 
+  @include mobile-max {
+    font-size: 1em;
+  }
+
   @include tablet {
     margin: 0 0 20px;
   }

@@ -19,11 +19,16 @@
   flex-direction: column;
   margin-left: auto;
   justify-content: center;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
+  padding-left: 0.65em;
+  padding-right: 0.65em;
   padding-top: 1em;
   padding-bottom: 1em;
   width: calc(100% - 15vw);
+
+  @include tablet {
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+  }
 
   @include tablet {
     width: 50%;
@@ -196,7 +201,7 @@
 .is-zebra__cite {
   &:before,
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
@@ -223,13 +228,13 @@
   &:before {
     top: 0;
     left: 0;
-    background-image: url('./../img/quotes/quotes-open-black.png');
+    background-image: url("./../img/quotes/quotes-open-black.png");
   }
 
   &:after {
     bottom: 0;
     right: 0;
-    background-image: url('./../img/quotes/quotes-close-black.png');
+    background-image: url("./../img/quotes/quotes-close-black.png");
     background-position: center bottom;
 
     @include tablet-max {
@@ -258,9 +263,9 @@
 .is-zebra__cite {
   @include mobile-max {
     &:not(.is-zebra__bg-black) {
-      border-top: 1px solid $primary-color;
-      border-bottom: 1px solid $primary-color;
-      margin-bottom: 1em;
+      // border-top: 1px solid $primary-color;
+      // border-bottom: 1px solid $primary-color;
+      // margin-bottom: 1em;
     }
 
     .is-zebra__lines {
@@ -297,10 +302,10 @@
 
   &.is-zebra__cite {
     &:before {
-      background-image: url('./../img/quotes/quotes-open-white.png');
+      background-image: url("./../img/quotes/quotes-open-white.png");
     }
     &:after {
-      background-image: url('./../img/quotes/quotes-close-white.png');
+      background-image: url("./../img/quotes/quotes-close-white.png");
     }
   }
 

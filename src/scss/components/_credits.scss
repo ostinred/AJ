@@ -29,11 +29,9 @@
 
 .is-credit__content {
   color: $global-color;
-
-  @include tablet {
-    max-height: 0;
-    transition: max-height 0.5s $t;
-  }
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s $t;
 
   p {
     margin: 0;

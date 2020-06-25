@@ -18,6 +18,11 @@
   padding: 0.75em 9vw;
   @include medium-text;
 
+  @include mobile-max {
+    font-size: 1em;
+    padding: 0.55em 9vw;
+  }
+
   &:not(:only-child) {
     width: 50%;
   }
@@ -43,6 +48,15 @@
     will-change: transform;
     transition: transform 0.3s $t;
     color: $primary-color;
+
+    @include laptop {
+      position: relative;
+      top: -1px;
+    }
+
+    @include desktop-hd {
+      top: -2px;
+    }
   }
 }
 

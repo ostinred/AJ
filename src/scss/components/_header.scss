@@ -30,7 +30,7 @@ $translation: 10vw;
   position: relative;
   z-index: 3;
   display: flex;
-  padding: 16px 15px;
+  padding: 15px;
   align-items: center;
 
   @include laptop {
@@ -65,11 +65,11 @@ $translation: 10vw;
 }
 
 .is-logo__name {
-  margin-left: 5px;
+  margin-left: 4px;
   transition: 0.5s 0.25s $t;
 
   @include mobile-max {
-    width: 35%;
+    width: 30%;
   }
 
   @include tablet-only {
@@ -155,7 +155,7 @@ $translation: 10vw;
 .navigation-btn__wrapper {
   position: relative;
   z-index: 3;
-  padding: 20px 15px;
+  padding: 10px 15px;
 
   @include tablet {
     padding: 30px 25px;
@@ -172,11 +172,11 @@ $translation: 10vw;
   position: relative;
   z-index: 1;
   @include flex-center;
-  @include size(18px 16px);
+  @include size(32px 33px);
 
-  @include tablet {
-    @include size(32px 33px);
-  }
+  // @include tablet {
+  //   @include size(32px 33px);
+  // }
 
   &:before,
   &:after {
@@ -199,7 +199,7 @@ $translation: 10vw;
   }
 
   &:before {
-    top: 3px;
+    top: 9px;
 
     @include tablet {
       top: 9px;
@@ -207,7 +207,7 @@ $translation: 10vw;
   }
 
   &:after {
-    top: 12px;
+    top: 24px;
     transform: translate(-50%, -50%);
 
     @include tablet {

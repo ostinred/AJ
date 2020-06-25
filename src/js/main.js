@@ -5,7 +5,7 @@ var _hd = window.innerWidth >= 1700;
 var _2k = window.innerWidth >= 2000;
 
 var wow = new WOW({
-  mobile: false,
+  mobile: true,
   offset: 50,
 });
 
@@ -56,10 +56,10 @@ $(document).ready(function () {
   var $main = $(".is-main");
   var $footer = $("#footer");
 
-  if (!laptop) {
-    $(".fadeInUp").removeClass("fadeInUp");
-    $(".wow").removeClass("wow");
-  }
+  // if (!laptop) {
+  // $(".fadeInUp").removeClass("fadeInUp");
+  // $(".wow").removeClass("wow");
+  // }
 
   // change logo colors
   if ($(document).scrollTop() > 20) {

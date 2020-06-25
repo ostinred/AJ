@@ -114,6 +114,22 @@
 }
 
 .is-director__content {
+  @include mobile-max {
+    content: "";
+    &:before {
+      content: "";
+      width: 45px;
+      background-color: $global-color;
+      position: absolute;
+      top: 0;
+      height: 50vh;
+    }
+
+    .is-zebra__lines {
+      width: 45px;
+    }
+  }
+
   .is-project {
     .project-heading {
       @include tablet {
@@ -168,7 +184,11 @@
 
 .is-parallax-image {
   display: block;
-  height: 100vh;
+  height: 50vh;
+
+  @include laptop {
+    height: 100vh;
+  }
 }
 
 .is-post__page,
