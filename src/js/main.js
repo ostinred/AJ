@@ -38,11 +38,13 @@ $(document).ready(function () {
     // if (localStorage.getItem('video_showed') !== 'true') {
     if (laptop) {
       videoWrapper.show();
+      $body.addClass("overflow-hidden");
       var playVideo = function () {
         video.play();
         localStorage.setItem("video_showed", "true");
         video.addEventListener("ended", function () {
           jQuery("#splashVideo").fadeOut();
+          $body.removeClass("overflow-hidden");
         });
       };
 
