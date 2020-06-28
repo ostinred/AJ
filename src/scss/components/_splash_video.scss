@@ -11,6 +11,10 @@
   overflow: hidden;
 
   video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 100%;
     width: 177.77777778vh; /* 100 * 16 / 9 */
     min-width: 100%;

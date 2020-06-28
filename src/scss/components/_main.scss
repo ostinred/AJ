@@ -194,6 +194,12 @@ $quote-padding: 0.2em;
   }
 }
 
+.video-is-playing {
+  .is-mainpage__content {
+    transform: none;
+  }
+}
+
 .is-main-lines {
   position: absolute;
   top: 0;
