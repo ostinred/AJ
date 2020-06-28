@@ -43,8 +43,14 @@ $(document).ready(function () {
         video.play();
         localStorage.setItem("video_showed", "true");
         video.addEventListener("ended", function () {
-          jQuery("#splashVideo").fadeOut();
-          $body.removeClass("overflow-hidden");
+          var videoInterval = setInterval(function(){
+            if(video.readyState >= 3){
+                jQuery("#splashVideo").fadeOut();
+                $body.removeClass("overflow-hidden");
+                clearInterval(videoInterval);
+            }                   
+          },500);
+
         });
       };
 
