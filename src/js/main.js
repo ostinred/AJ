@@ -48,26 +48,12 @@ $(document).ready(function () {
         });
       };
 
-      el.addEventListener("transitionend", playVideo);
+      el.addEventListener("transitionstart", playVideo);
     }
     // }
   }
 
   setTimeout(hidePreloader, startTimeout);
-
-  var splash = document.querySelector("#splashVideo video");
-
-  var startVideo = setTimeout(function () {
-    if (splash) {
-      $body.addClass("overflow-hidden");
-      splash.play();
-      setTimeout(function () {
-        splash.hide();
-      }, splash.duration + startTimeout);
-    }
-  }, startTimeout);
-
-  clearTimeout(startVideo);
 
   var $header = $(".is-header");
   var $body = $("body");
