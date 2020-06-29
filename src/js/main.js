@@ -41,16 +41,17 @@ $(document).ready(function () {
       $body.addClass("overflow-hidden");
       var playVideo = function () {
         video.play();
+        $body.addClass("video-is-playing");
         localStorage.setItem("video_showed", "true");
         video.addEventListener("ended", function () {
-          var videoInterval = setInterval(function(){
-            if(video.readyState >= 3){
-                jQuery("#splashVideo").fadeOut();
-                $body.removeClass("overflow-hidden");
-                clearInterval(videoInterval);
-            }                   
-          },500);
-
+          var videoInterval = setInterval(function () {
+            if (video.readyState >= 3) {
+              jQuery("#splashVideo").fadeOut();
+              $body.removeClass("overflow-hidden");
+              $body.removeClass("video-is-playing");
+              clearInterval(videoInterval);
+            }
+          }, 500);
         });
       };
 
