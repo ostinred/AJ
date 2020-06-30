@@ -259,6 +259,7 @@
     color: $global-color;
   }
 
-  @include laptop {
+  .project-company {
+    text-transform: uppercase;
   }
 }

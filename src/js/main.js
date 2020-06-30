@@ -36,7 +36,7 @@ $(document).ready(function () {
     el.addEventListener("transitionend", fnHide);
 
     // if (localStorage.getItem('video_showed') !== 'true') {
-    if (laptop && videoWrapper.length) {
+    if (videoWrapper.length) {
       videoWrapper.show();
       $body.addClass("overflow-hidden");
       var playVideo = function () {

@@ -249,6 +249,8 @@
   }
 
   .project-company {
+    text-transform: uppercase;
+
     @include mobile-max {
       padding-left: 2.5vw;
     }

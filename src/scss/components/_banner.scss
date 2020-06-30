@@ -34,7 +34,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    right: 0; 
+    right: 0;
     will-change: transform;
     transition: transform 0.6s $t;
   }
@@ -145,7 +145,7 @@
   @include small-text;
   letter-spacing: 1.5px;
   color: $primary-color;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 .is-banner__post {
