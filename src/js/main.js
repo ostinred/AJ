@@ -581,7 +581,7 @@ $(document).ready(function () {
     })
 
     if (!laptop) {
-      $main.touchwipe({
+      creativeLink.touchwipe({
         wipeRight: function () {
           if ($('.is-creative__page').length) {
             return
@@ -593,6 +593,21 @@ $(document).ready(function () {
             creativeAnimation()
           }
         },
+
+        wipeLeft: function () {
+          if ($(".is-creative__page").length) {
+            fromCreativeAnimation();
+          } else {
+            return;
+          }
+        },
+
+        min_move_x: 20,
+        min_move_y: 20,
+        preventDefaultEvents: true,
+      });
+
+      directorLink.touchwipe({
         wipeLeft: function () {
           if ($('.is-director__page').length) {
             return
@@ -602,6 +617,14 @@ $(document).ready(function () {
             fromCreativeAnimation()
           } else {
             directorAnimation()
+          }
+        },
+
+        wipeRight: function () {
+          if ($(".is-director__page").length) {
+            fromDirectorAnimation();
+          } else {
+            return;
           }
         },
 
