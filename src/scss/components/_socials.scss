@@ -29,6 +29,11 @@
 
   i {
     font-size: $s/2;
+
+    &.icon-500px {
+      margin-top: 3px;
+      font-size: $s/1.75;
+    }
   }
 }
 
@@ -38,7 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid $global-color;
+  // border: 1px solid $global-color;
   transition: border-color 0.25s;
 
   @include social-image(40px);

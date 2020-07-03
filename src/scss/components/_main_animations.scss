@@ -16,7 +16,7 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
   }
 
   .main-link__creative {
-    pointer-events: none;
+    // pointer-events: none;
     animation: moveShowCreativeLink_Creative__MOBILE 1.8s 0.65s $cb
       forwards;
 
@@ -129,7 +129,7 @@ $cb: cubic-bezier(0.66, 0.08, 0.33, 0.98);
   }
 
   .main-link__director {
-    pointer-events: none;
+    // pointer-events: none;
     animation: moveShowDirectorLink_Director__MOBILE 1.8s 0.65s $cb
       forwards;
 
