@@ -20,7 +20,15 @@ $(document).ready(function () {
 
   var startTimeout = 1500
   var videoWrapper = $('#splashVideo')
-  var video = $('#splashVideo video').get(0)
+  // var video = $('#splashVideo video').get(0)
+  var md = new MobileDetect(window.navigator.userAgent)
+  if (!!md.phone()) {
+    var video = $('#splashVideo .splash_phone').get(0)
+  } else if (!!md.tablet()) {
+    var video = $('#splashVideo .splash_tablet').get(0)
+  } else {
+    var video = $('#splashVideo .splash_laptop').get(0)
+  }
 
   function hidePreloader() {
     var el = document.getElementById('preloading')
@@ -33,7 +41,7 @@ $(document).ready(function () {
     }
     el.addEventListener('transitionend', fnHide)
 
-    // if (localStorage.getItem('video_showed') !== 'true') {
+    if (localStorage.getItem('video_showed') !== 'true') {
     if (videoWrapper.length) {
       videoWrapper.show()
       $body.addClass('overflow-hidden')
@@ -48,7 +56,7 @@ $(document).ready(function () {
 
         video.addEventListener('ended', function () {
           $body.addClass('video-is-playing')
-          jQuery('#splashVideo').fadeOut() 
+          jQuery('#splashVideo').fadeOut()
           $body.removeClass('overflow-hidden')
           $body.removeClass('video-is-playing')
         })
@@ -56,8 +64,12 @@ $(document).ready(function () {
 
       el.addEventListener('transitionstart', playVideo)
     }
-    // }
+    }
   }
+  $('.is-logo').click(function (e) {
+    localStorage.removeItem('video_showed')
+    window.location.href = '/';
+  })
 
   setTimeout(hidePreloader, startTimeout)
 
