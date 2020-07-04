@@ -22,6 +22,9 @@ $(document).ready(function () {
   var videoWrapper = $('#splashVideo')
   // var video = $('#splashVideo video').get(0)
   var md = new MobileDetect(window.navigator.userAgent)
+  
+  $('#splashVideo video').hide()
+  
   if (!!md.phone()) {
     var video = $('#splashVideo .splash_phone').get(0)
   } else if (!!md.tablet()) {
@@ -30,6 +33,7 @@ $(document).ready(function () {
     var video = $('#splashVideo .splash_laptop').get(0)
   }
 
+  $(video).show()
   function hidePreloader() {
     var el = document.getElementById('preloading')
     el.classList.add('is-hidden')
@@ -42,33 +46,33 @@ $(document).ready(function () {
     el.addEventListener('transitionend', fnHide)
 
     if (localStorage.getItem('video_showed') !== 'true') {
-    if (videoWrapper.length) {
-      videoWrapper.show()
-      $body.addClass('overflow-hidden')
-      var playVideo = function () {
-        var videoInterval = setInterval(function () {
-          if (video.readyState >= 3) {
-            video.play()
-            localStorage.setItem('video_showed', 'true')
-            clearInterval(videoInterval)
-          }
-        }, 5)
+      if (videoWrapper.length) {
+        videoWrapper.show()
+        $body.addClass('overflow-hidden')
+        var playVideo = function () {
+          var videoInterval = setInterval(function () {
+            if (video.readyState >= 3) {
+              video.play()
+              localStorage.setItem('video_showed', 'true')
+              clearInterval(videoInterval)
+            }
+          }, 5)
 
-        video.addEventListener('ended', function () {
-          $body.addClass('video-is-playing')
-          jQuery('#splashVideo').fadeOut()
-          $body.removeClass('overflow-hidden')
-          $body.removeClass('video-is-playing')
-        })
+          video.addEventListener('ended', function () {
+            $body.addClass('video-is-playing')
+            jQuery('#splashVideo').fadeOut()
+            $body.removeClass('overflow-hidden')
+            $body.removeClass('video-is-playing')
+          })
+        }
+
+        el.addEventListener('transitionstart', playVideo)
       }
-
-      el.addEventListener('transitionstart', playVideo)
-    }
     }
   }
   $('.is-logo').click(function (e) {
     localStorage.removeItem('video_showed')
-    window.location.href = '/';
+    window.location.href = '/'
   })
 
   setTimeout(hidePreloader, startTimeout)
@@ -595,17 +599,17 @@ $(document).ready(function () {
         },
 
         wipeLeft: function () {
-          if ($(".is-creative__page").length) {
-            fromCreativeAnimation();
+          if ($('.is-creative__page').length) {
+            fromCreativeAnimation()
           } else {
-            return;
+            return
           }
         },
 
         min_move_x: 20,
         min_move_y: 20,
-        preventDefaultEvents: true,
-      });
+        preventDefaultEvents: true
+      })
 
       directorLink.touchwipe({
         wipeLeft: function () {
@@ -621,10 +625,10 @@ $(document).ready(function () {
         },
 
         wipeRight: function () {
-          if ($(".is-director__page").length) {
-            fromDirectorAnimation();
+          if ($('.is-director__page').length) {
+            fromDirectorAnimation()
           } else {
-            return;
+            return
           }
         },
 
