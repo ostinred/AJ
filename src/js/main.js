@@ -48,6 +48,7 @@ $(document).ready(function () {
     if (localStorage.getItem('video_showed') !== 'true') {
       if (videoWrapper.length) {
         videoWrapper.show()
+        $body.addClass('video-is-playing')
         $body.addClass('overflow-hidden')
         var playVideo = function () {
           var videoInterval = setInterval(function () {
@@ -59,7 +60,6 @@ $(document).ready(function () {
           }, 5)
 
           video.addEventListener('ended', function () {
-            $body.addClass('video-is-playing')
             jQuery('#splashVideo').fadeOut()
             $body.removeClass('overflow-hidden')
             $body.removeClass('video-is-playing')
