@@ -21,29 +21,3 @@
     min-height: 56.25vw; /* 100 * 9 / 16 */
   }
 }
-
-.splash_laptop {
-  display: none;
-
-  @include laptop {
-    display: block;
-  }
-}
-
-.splash_tablet {
-  display: none;
-
-  @include tablet {
-    display: block;
-  }
-
-  @include laptop {
-    display: none;
-  }
-}
-
-.splash_phone {
-  @include tablet {
-    display: none;
-  }
-}
