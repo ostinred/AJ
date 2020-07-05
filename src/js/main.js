@@ -22,9 +22,9 @@ $(document).ready(function () {
   var videoWrapper = $('#splashVideo')
   // var video = $('#splashVideo video').get(0)
   var md = new MobileDetect(window.navigator.userAgent)
-  
+
   $('#splashVideo video').hide()
-  
+
   if (!!md.phone()) {
     var video = $('#splashVideo .splash_phone').get(0)
   } else if (!!md.tablet()) {
@@ -34,40 +34,42 @@ $(document).ready(function () {
   }
 
   $(video).show()
-  function hidePreloader() {
+  function preloaderTransitionEnd() {
     var el = document.getElementById('preloading')
-    el.classList.add('is-hidden')
-    document.querySelector('body').classList.remove('overflow-hidden')
 
     var fnHide = function () {
       el.style.display = 'none'
       el.removeEventListener('transitionend', fnHide)
     }
-    el.addEventListener('transitionend', fnHide)
+
+    var hidePreloader = function () {
+      el.addEventListener('transitionend', fnHide)
+      el.classList.add('is-hidden')
+      document.querySelector('body').classList.remove('overflow-hidden')
+    }
 
     if (localStorage.getItem('video_showed') !== 'true') {
       if (videoWrapper.length) {
         videoWrapper.show()
         $body.addClass('video-is-playing')
         $body.addClass('overflow-hidden')
-        var playVideo = function () {
-          var videoInterval = setInterval(function () {
-            if (video.readyState >= 3) {
-              video.play()
-              localStorage.setItem('video_showed', 'true')
-              clearInterval(videoInterval)
-            }
-          }, 5)
+        var videoInterval = setInterval(function () {
+          if (video.readyState >= 3) {
+            hidePreloader()
+            video.play()
+            localStorage.setItem('video_showed', 'true')
+            clearInterval(videoInterval)
+          }
+        }, 5)
 
-          video.addEventListener('ended', function () {
-            jQuery('#splashVideo').fadeOut()
-            $body.removeClass('overflow-hidden')
-            $body.removeClass('video-is-playing')
-          })
-        }
-
-        el.addEventListener('transitionstart', playVideo)
+        video.addEventListener('ended', function () {
+          jQuery('#splashVideo').fadeOut()
+          $body.removeClass('overflow-hidden')
+          $body.removeClass('video-is-playing')
+        })
       }
+    } else {
+      hidePreloader()
     }
   }
   $('.is-logo').click(function (e) {
@@ -75,7 +77,7 @@ $(document).ready(function () {
     window.location.href = '/'
   })
 
-  setTimeout(hidePreloader, startTimeout)
+  setTimeout(preloaderTransitionEnd, startTimeout)
 
   var $header = $('.is-header')
   var $body = $('body')
