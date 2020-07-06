@@ -37,7 +37,7 @@ var config = {
     video: "./dest/video",
     pdf: "./dest/pdf",
     fonts: "./dest/fonts",
-    favicon: "./dest",
+    favicon: "./dest/favicon",
   },
 };
 
