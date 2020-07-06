@@ -25,7 +25,7 @@ var config = {
     video: "./src/video/**/*",
     pdf: "./src/pdf/**/*",
     fonts: "./src/fonts/**/*",
-    favicon: "./src/favicon.ico",
+    favicon: "./src/favicon/**/*",
   },
   output: {
     html: "./dest/",
