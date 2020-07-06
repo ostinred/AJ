@@ -32,8 +32,9 @@ $(document).ready(function () {
   // } else {
   //   var video = $('#splashVideo .splash_laptop').get(0)
   // }
-
-  $(video).show();
+  if (laptop) {
+    $(video).show();
+  }
   function preloaderTransitionEnd() {
     var el = document.getElementById("preloading");
 
