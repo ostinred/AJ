@@ -25,6 +25,7 @@ var config = {
     video: "./src/video/**/*",
     pdf: "./src/pdf/**/*",
     fonts: "./src/fonts/**/*",
+    favicon: "./src/favicon/**/*",
   },
   output: {
     html: "./dest/",
@@ -36,6 +37,7 @@ var config = {
     video: "./dest/video",
     pdf: "./dest/pdf",
     fonts: "./dest/fonts",
+    favicon: "./dest/favicon",
   },
 };
 
@@ -99,6 +101,12 @@ gulp.task("copyFonts", function () {
   gulp.src(config.path.fonts).pipe(gulp.dest(config.output.fonts));
 });
 
+gulp.task("copyFavicon", function () {
+  gulp
+    .src(config.path.favicon)
+    .pipe(gulp.dest(config.output.favicon));
+});
+
 gulp.task("jsWatch", function () {
   return gulp
     .src(config.path.js)
@@ -109,6 +117,7 @@ gulp.task("jsWatch", function () {
 gulp.task("default", [
   "copyHTML",
   "copyImages",
+  "copyFavicon",
   "copyPDF",
   "copyFonts",
   "copyVideo",
