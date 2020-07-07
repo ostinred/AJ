@@ -21,20 +21,20 @@ $(document).ready(function () {
   var startTimeout = 1500;
   var videoWrapper = $("#splashVideo");
   var video = $("#splashVideo video").get(0);
-  var md = new MobileDetect(window.navigator.userAgent);
+  // var md = new MobileDetect(window.navigator.userAgent);
 
   $("#splashVideo video").hide();
 
-  if (!!md.phone()) {
-    var video = $("#splashVideo .splash_phone").get(0);
-  } else if (!!md.tablet()) {
-    var video = $("#splashVideo .splash_tablet").get(0);
-  } else {
-    var video = $("#splashVideo .splash_laptop").get(0);
-  }
-  // if (laptop) {
-  $(video).show();
+  // if (!!md.phone()) {
+  //   var video = $('#splashVideo .splash_phone').get(0)
+  // } else if (!!md.tablet()) {
+  //   var video = $('#splashVideo .splash_tablet').get(0)
+  // } else {
+  //   var video = $('#splashVideo .splash_laptop').get(0)
   // }
+  if (laptop) {
+    $(video).show();
+  }
   function preloaderTransitionEnd() {
     var el = document.getElementById("preloading");
 
@@ -51,8 +51,7 @@ $(document).ready(function () {
         .classList.remove("overflow-hidden");
     };
 
-    if (localStorage.getItem("video_showed") !== "true") {
-      // if (true) {
+    if (laptop && localStorage.getItem("video_showed") !== "true") {
       if (videoWrapper.length) {
         videoWrapper.show();
         $body.addClass("video-is-playing");

@@ -22,28 +22,28 @@
   }
 }
 
-.splash_laptop {
-  display: none;
+// .splash_laptop {
+//   display: none;
 
-  @include laptop {
-    display: block;
-  }
-}
+//   @include laptop {
+//     display: block;
+//   }
+// }
 
-.splash_tablet {
-  display: none;
+// .splash_tablet {
+//   display: none;
 
-  @include tablet {
-    display: block;
-  }
+//   @include tablet {
+//     display: block;
+//   }
 
-  @include laptop {
-    display: none;
-  }
-}
+//   @include laptop {
+//     display: none;
+//   }
+// }
 
-.splash_phone {
-  @include tablet {
-    display: none;
-  }
-}
+// .splash_phone {
+//   @include tablet {
+//     display: none;
+//   }
+// }
