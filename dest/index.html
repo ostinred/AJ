@@ -22,15 +22,42 @@
       href="https://ostinred.github.io/favicon/favicon.ico"
       type="image/x-icon"
     />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://ostinred.github.io/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://ostinred.github.io/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://ostinred.github.io/favicon/favicon-16x16.png">
-    <link rel="manifest" href="https://ostinred.github.io/favicon/site.webmanifest">
-    <link rel="mask-icon" href="https://ostinred.github.io/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="https://ostinred.github.io/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="https://ostinred.github.io/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://ostinred.github.io/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://ostinred.github.io/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://ostinred.github.io/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="https://ostinred.github.io/favicon/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="https://ostinred.github.io/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://ostinred.github.io/favicon/favicon.ico"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta
+      name="msapplication-config"
+      content="https://ostinred.github.io/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
 
     <style>
       #preloading {
@@ -80,8 +107,19 @@
       <img src="./img/loader.gif" alt="" />
     </div>
     <div id="splashVideo" class="splash-video">
-      <video type="video/mp4" muted>
+      <!-- <video type="video/mp4" muted>
         <source src="./video/splash.mp4" />
+      </video> -->
+
+      <video type="video/mp4" muted class="splash_laptop">
+        <source src="./video/splash_laptop.mp4" />
+      </video>
+
+      <video type="video/mp4" muted class="splash_tablet">
+        <source src="./video/splash_tablet.mp4" />
+      </video>
+      <video type="video/mp4" muted class="splash_phone">
+        <source src="./video/splash_phone.mp4" />
       </video>
     </div>
     <header role="header" class="is-header">
@@ -1309,6 +1347,7 @@
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"
     ></script>
+    <script src="./js/mobile-detect.js"></script>
     <script src="./js/slick.min.js"></script>
     <script src="./js/parallax.min.js"></script>
     <script src="./js/wow.min.js"></script>
