@@ -9,7 +9,8 @@
   }
 
   @include laptop {
-    padding: 0 0 0 clamp(25px, 3vw, 3vw);
+    padding: 5vh 0 5vh clamp(25px, 3vw, 3vw);
+    // padding: 5vh 0;
   }
 
   li {

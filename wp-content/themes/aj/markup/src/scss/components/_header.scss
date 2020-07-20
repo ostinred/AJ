@@ -73,7 +73,7 @@ $translation: 10vw;
   }
 
   @include tablet-only {
-    width: 60%;
+    // width: 60%;
   }
 
   @include laptop {
@@ -101,24 +101,15 @@ $translation: 10vw;
 
 .is-navigation-list {
   @include flex-column;
-  padding: 10vh 0 5vh;
+  padding: 10vh 0 0;
   height: 100%;
-
-  li {
-    &:last-child {
-      display: flex;
-      align-items: flex-end;
-      height: 100%;
-    }
-  }
 
   @include laptop {
     height: 100%;
   }
 
   li {
-    &.is-active {
-      // a {
+    &.current-menu-item {
       a {
         color: $primary-color;
         pointer-events: none;
@@ -126,14 +117,13 @@ $translation: 10vw;
     }
 
     @include hover {
-      a{ 
+      a {
         color: $primary-color;
       }
     }
   }
 }
 
-a,
 .is-navigation-list a {
   display: block;
   width: 100%;
@@ -274,6 +264,10 @@ a,
     z-index: 2;
   }
 
+  // display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
   &:before {
     content: "";
     width: 100%;
@@ -352,7 +346,7 @@ $translatesXOn: 21vw, 25vw, 29vw, 33vw, 37vw;
 $translatesXOff: 37vw, 33vw, 29vw, 25vw, 21vw;
 
 .is-navigation-list {
-  & > li:not(:last-child) {
+  & > li {
     opacity: 0;
 
     @include tablet-max {
