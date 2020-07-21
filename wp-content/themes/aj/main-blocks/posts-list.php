@@ -21,24 +21,26 @@
 
 ?>
       <div class="is-project wow <?=$classes?>">
-    <a class="is-project-media with-video-bg "
-      role="link"
-      href="<?=get_post_permalink($post['post']->ID)?>"
-    >
-      <img
-        class="project-image"
-        src="<?=get_field('sliding_image', $post['post']->ID)['url']?>"
-      />
+        <a class="is-project-media <?=get_video_preview($post['post'])?'with-video-bg':''?>"
+          role="link"
+          href="<?=get_post_permalink($post['post']->ID)?>"
+        >
+          <img
+            class="project-image"
+            src="<?=get_field('sliding_image', $post['post']->ID)['url']?>"
+          />
+          <?php if(get_video_preview($post['post'])):?>
 
-      <video
-        class="project-video"
-        loop
-        preload="metadata"
-        muted
-      >
-        <source src="<?=get_video_preview($post['post'])?>" type="video/mp4" />
-      </video>
-    </a>
+            <video
+              class="project-video"
+              loop
+              preload="metadata"
+              muted
+            >
+              <source src="<?=get_video_preview($post['post'])?>" type="video/mp4" />
+            </video>
+          <?php endif;?>
+        </a>
 
     <div class="project-text">
       <h3 class="project-heading">

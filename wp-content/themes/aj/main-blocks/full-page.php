@@ -1,17 +1,20 @@
-<a class="is-banner with-video-bg" href="<?=get_post_permalink($post->ID)?>">
+<a class="is-banner <?=get_video_preview($post)?'with-video-bg':''?>" href="<?=get_post_permalink($post->ID)?>">
   <img
     class="project-image"
     src="<?=get_field('sliding_image',$post->ID)['url']?>"
     alt=""
   />
-  <video
-    class="project-video"
-    loop
-    preload="metadata"
-    muted
-  >
-    <source src="<?=get_field('video_preview', $post->ID)['url']?>" type="video/mp4" />
-  </video>
+  <?php if(get_video_preview($post)):?>
+
+    <video
+      class="project-video"
+      loop
+      preload="metadata"
+      muted
+    >
+      <source src="<?=get_field('video_preview', $post->ID)['url']?>" type="video/mp4" />
+    </video>
+  <?php endif;?>
 
   <div class="is-banner__copies">
     <img

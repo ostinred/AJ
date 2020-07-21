@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>AJ | Homepage</title>
 
-    <meta name="description" content="Website - description" />
     <meta
       http-equiv="Content-Type"
       content="text/html; charset=utf-8"
@@ -260,90 +258,47 @@
               "menu_class" => "is-navigation-list",
               "container" => null,
         ]) ?>
-        <ul role="list" class="is-navigation-list">
-          <li role="listitem" class="is-active">
-            <a href="index.html" role="link" class="navigation-link">
-              Featured
+        <ul role="list" class="socials">
+          <li role="listitem">
+            <a
+              href="<?=get_field('linkedin_url','option') ?>"
+              role="link"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="icon-linkedin"></i>
             </a>
           </li>
           <li role="listitem">
             <a
-              href="<?= get_post_type_archive_link('catalog_post'); ?>"
+              href="<?=get_field('instagram_url','option') ?>"
               role="link"
-              class="navigation-link"
+              target="_blank"
+              class="social-link"
             >
-              Catalog
-            </a>
-          </li>
-          <li role="listitem">
-            <a href="about.html" role="link" class="navigation-link"
-              >About</a
-            >
-          </li>
-          <li role="listitem">
-            <a
-              href="#footer"
-              role="link"
-              class="navigation-link navigation-link__footer"
-            >
-              Contact
+              <i class="icon-instagram"></i>
             </a>
           </li>
           <li role="listitem">
             <a
-              href="<?=get_post_permalink(121)?>"
+              href="<?=get_field('vimeo_url','option') ?>"
               role="link"
-              class="navigation-link"
+              target="_blank"
+              class="social-link"
             >
-              Creativeish
+              <i class="icon-vimeo"></i>
             </a>
           </li>
-          <!-- socials -->
           <li role="listitem">
-            <ul role="list" class="socials">
-              <li role="listitem">
-                <a
-                  href="<?=get_field('linkedin_url','option') ?>"
-                  role="link"
-                  target="_blank"
-                  class="social-link"
-                >
-                  <i class="icon-linkedin"></i>
-                </a>
-              </li>
-              <li role="listitem">
-                <a
-                  href="<?=get_field('instagram_url','option') ?>"
-                  role="link"
-                  target="_blank"
-                  class="social-link"
-                >
-                  <i class="icon-instagram"></i>
-                </a>
-              </li>
-              <li role="listitem">
-                <a
-                  href="<?=get_field('vimeo_url','option') ?>"
-                  role="link"
-                  target="_blank"
-                  class="social-link"
-                >
-                  <i class="icon-vimeo"></i>
-                </a>
-              </li>
-              <li role="listitem">
-                <a
-                  href="<?=get_field('500px_url','option') ?>"
-                  role="link"
-                  target="_blank"
-                  class="social-link"
-                >
-                  <i class="icon-500px"></i>
-                </a>
-              </li>
-            </ul>
+            <a
+              href="<?=get_field('500px_url','option') ?>"
+              role="link"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="icon-500px"></i>
+            </a>
           </li>
-          <!-- end of socials -->
         </ul>
       </nav>
       <!-- end of navigation -->
