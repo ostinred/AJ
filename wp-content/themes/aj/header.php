@@ -259,52 +259,46 @@
               "container" => null,
         ]) ?>
         <ul role="list" class="socials">
-
           <li role="listitem">
-            <ul role="list" class="socials">
-              <li role="listitem">
-                <a
-                  href="<?=get_field('linkedin_url','option') ?>"
-                  role="link"
-                  target="_blank"
-                  class="social-link"
-                >
-                  <i class="icon-linkedin"></i>
-                </a>
-              </li>
-              <li role="listitem">
-                <a
-                  href="<?=get_field('instagram_url','option') ?>"
-                  role="link"
-                  target="_blank"
-                  class="social-link"
-                >
-                  <i class="icon-instagram"></i>
-                </a>
-              </li>
-              <li role="listitem">
-                <a
-                  href="<?=get_field('vimeo_url','option') ?>"
-                  role="link"
-                  target="_blank"
-                  class="social-link"
-                >
-                  <i class="icon-vimeo"></i>
-                </a>
-              </li>
-              <li role="listitem">
-                <a
-                  href="<?=get_field('500px_url','option') ?>"
-                  role="link"
-                  target="_blank"
-                  class="social-link"
-                >
-                  <i class="icon-500px"></i>
-                </a>
-              </li>
-            </ul>
+            <a
+              href="<?=get_field('linkedin_url','option') ?>"
+              role="link"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="icon-linkedin"></i>
+            </a>
           </li>
-          <!-- end of socials -->
+          <li role="listitem">
+            <a
+              href="<?=get_field('instagram_url','option') ?>"
+              role="link"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="icon-instagram"></i>
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="<?=get_field('vimeo_url','option') ?>"
+              role="link"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="icon-vimeo"></i>
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="<?=get_field('500px_url','option') ?>"
+              role="link"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="icon-500px"></i>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- end of navigation -->
