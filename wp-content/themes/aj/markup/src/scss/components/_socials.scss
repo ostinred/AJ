@@ -5,10 +5,10 @@
   pointer-events: none;
 
   @include mobile-max {
-    padding: 1em 0 0;
+    padding: 1em 0 5vh;
   }
 
-  @include laptop {
+  @include tablet {
     padding: 5vh 0 5vh clamp(25px, 3vw, 3vw);
     // padding: 5vh 0;
   }

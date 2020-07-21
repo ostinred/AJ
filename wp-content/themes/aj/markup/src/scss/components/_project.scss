@@ -28,6 +28,7 @@
     @include tablet {
       margin-top: 0.5em;
       width: auto;
+      max-width: 30vw;
     }
   }
 }
@@ -94,6 +95,11 @@
 .is-director__content {
   .is-project {
     &.right-aligned {
+      .project-text {
+        @include tablet {
+          margin-left: auto;
+        }
+      }
       .project-heading {
         color: $global-color;
       }
