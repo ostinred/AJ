@@ -207,7 +207,7 @@ if (have_posts()):
                   foreach(get_field('related_posts') as $post ) : ?>
                     <div class="is-project is-catalog__project wow">
                       <a
-                        class="is-project-media with-video-bg"
+                        class="is-project-media <?=get_video_preview($post['post'])?'with-video-bg':''?>"
                         role="link"
                         href="<?=get_post_permalink($post['post']->ID)?>"
                       >
@@ -215,14 +215,17 @@ if (have_posts()):
                           class="project-image"
                           src="<?=get_field('sliding_image', $post['post']->ID)['url']?>"
                         />
-      
-                        <video
-                          class="project-video"
-                          loop
-                          preload="metadata"
-                          muted>
-                          <source src="<?=get_video_preview($post['post'])?>" type="video/mp4" />
-                        </video>
+                        <?php if(get_video_preview($post['post'])):?>
+
+                          <video
+                            class="project-video"
+                            loop
+                            preload="metadata"
+                            muted>
+                            <source src="<?=get_video_preview($post['post'])?>" type="video/mp4" />
+                          </video>
+                        <?php endif;?>
+
                       </a>
       
                       <div class="project-text">

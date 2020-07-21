@@ -2,7 +2,7 @@
       <div class="is-footer__container">
           <div class="is-footer__logo">
             <a href="index.html" role="link">
-              <img src="./img/logo/logo-footer.svg" alt="AJ logo" />
+              <img src="<?=get_stylesheet_directory_uri()?>/img/logo/logo-footer.svg" alt="AJ logo" />
             </a>
           </div>
 
@@ -10,28 +10,38 @@
             <div class="is-footer__text">
               <h3 class="is-footer__info-title">AJ Rivvers</h3>
               <p>
-                Creative director by day, cinephile by dusk, “athlete”
-                by dawn, husband and father by always.
+                <?=get_field('description_in_footer','option')?>
               </p>
-              <a
-                class="is-footer__info-link"
-                href="about.html"
-                role="link"
-              >
-                Read more
+              <?php if(!is_about_page() && !empty(get_field('read_more','options'))):?>
+                <a
+                  class="is-footer__info-link"
+                  href="<?=get_post_permalink(get_field('read_more','option')->ID)?>"
+                  role="link"
+                >
+                  Read more
 
-                <i class="icon-arrow-right"></i>
-              </a>
+                  <i class="icon-arrow-right"></i>
+                </a>
+              <?php else: ?>
+                <a
+                  class="is-footer__info-link"
+                  href="/catalog_post"
+                  role="link"
+                >
+                  See the work
+                  <i class="icon-arrow-right"></i>
+                </a>
+              <?php endif; ?>
             </div>
 
             <div class="is-footer__text">
               <h3 class="is-footer__info-title">Contact</h3>
               <p>
                 <a
-                  href="mailto:aj@creativeish.com?subject=I couldn’t agree more.&body=Truths do inspire action. Meaning does create value. And fast is the new great. Can we set up time to talk more about the intersection of entertainment and technology?"
+                  href="mailto:<?=get_field('contact_email','option');?>?subject=I couldn’t agree more.&body=Truths do inspire action. Meaning does create value. And fast is the new great. Can we set up time to talk more about the intersection of entertainment and technology?"
                   role="link"
                 >
-                  aj@creativeish.com
+                  <?=get_field('contact_email','option');?>
                 </a>
               </p>
             </div>
@@ -40,7 +50,7 @@
 
         <div class="is-copyright">
           ©
-          <span></span>
+          <span><?=date('Y')?></span>
           AJ Rivvers
         </div>
       </footer>

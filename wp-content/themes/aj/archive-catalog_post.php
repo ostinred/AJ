@@ -12,7 +12,7 @@
             while (have_posts()) :the_post()?>
               <div class="is-project is-catalog__project wow">
                 <a
-                  class="is-project-media with-video-bg"
+                  class="is-project-media <?=get_video_preview(get_post())?'with-video-bg':''?>"
                   role="link"
                   href="<?=get_post_permalink()?>"
                 >
@@ -20,15 +20,16 @@
                     class="project-image"
                     src="<?=get_field('sliding_image')['url']?>"
                   />
-
-                  <video
-                    class="project-video"
-                    loop
-                    preload="metadata"
-                    muted
-                  >
-                    <source src="<?=get_video_preview(get_post())?>" type="video/mp4" />
-                  </video>
+                  <?php if(get_video_preview(get_post())):?>
+                    <video
+                      class="project-video"
+                      loop
+                      preload="metadata"
+                      muted
+                    >
+                      <source src="<?=get_video_preview(get_post())?>" type="video/mp4" />
+                    </video>
+                  <?php endif;?>
                 </a>
 
                 <div class="project-text">

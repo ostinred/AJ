@@ -64,50 +64,51 @@
         </div>
       </section>
       <!-- end of post -->
-
+      <?php if(!empty(get_field('related_posts')) ):?>
       <!-- related content -->
-      <div class="relative__block">
-        <div class="is-container">
-          <div class="relative__title wow">
-            Related posts
-          </div>
+        <div class="relative__block">
+          <div class="is-container">
+            <div class="relative__title wow">
+              Related posts
+            </div>
 
-          <div class="relative_content">
-          <?php           
-          if(!empty(get_field('related_posts')) ):
-            foreach(get_field('related_posts') as $post ) : ?>
-              <div class="is-project is-catalog__project wow">
-                <a
-                  class="is-project-media with-video-bg"
-                  role="link"
-                  href="<?=get_post_permalink($post['post']->ID)?>"
-                >
-                  <img
-                    class="project-image"
-                    src="<?=get_field('sliding_image', $post['post']->ID)['url']?>"
-                  />
+            <div class="relative_content">
+            <?php foreach(get_field('related_posts') as $post ) : ?>
+                <div class="is-project is-catalog__project wow">
+                  <a
+                    class="is-project-media <?=get_video_preview($post['post'])?'with-video-bg':''?>"
+                    role="link"
+                    href="<?=get_post_permalink($post['post']->ID)?>"
+                  >
+                    <img
+                      class="project-image"
+                      src="<?=get_field('sliding_image', $post['post']->ID)['url']?>"
+                    />
+                    <?php if(get_video_preview($post['post'])):?>
 
-                  <video
-                    class="project-video"
-                    loop
-                    preload="metadata"
-                    muted>
-                    <source src="<?=get_video_preview($post['post'])?>" type="video/mp4" />
-                  </video>
-                </a>
+                      <video
+                        class="project-video"
+                        loop
+                        preload="metadata"
+                        muted>
+                        <source src="<?=get_video_preview($post['post'])?>" type="video/mp4" />
+                      </video>
+                    <?php endif;?>
 
-                <div class="project-text">
-                  <h3 class="project-heading">
-                  <?=$post['post']->post_title?>
-                  </h3>
-                  <p class="project-company">1 May 2020</p>
+                  </a>
+
+                  <div class="project-text">
+                    <h3 class="project-heading">
+                    <?=$post['post']->post_title?>
+                    </h3>
+                    <p class="project-company">1 May 2020</p>
+                  </div>
                 </div>
-              </div>
-            <?php endforeach;?>
-          <?php endif; ?>
+              <?php endforeach;?>
+            </div>
           </div>
         </div>
-      </div>
+      <?php endif; ?>
       <!-- end of related content -->
     </div>
     <footer role="contentinfo" class="is-footer" id="footer">

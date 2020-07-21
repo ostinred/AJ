@@ -130,7 +130,7 @@ $(document).ready(function () {
     }
   });
 
-  $(".navigation-link__footer").click(function () {
+  $('[href="#footer"]').click(function () {
     closeNavigation();
   });
 
@@ -281,8 +281,6 @@ $(document).ready(function () {
     });
   }
 
-  // add copyright year
-  $(".is-copyright span").text(new Date().getFullYear());
 
   // add header transparent to specific pages
   var pagesHeader = [

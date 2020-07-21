@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>AJ | Homepage</title>
 
-    <meta name="description" content="Website - description" />
     <meta
       http-equiv="Content-Type"
       content="text/html; charset=utf-8"
@@ -260,45 +258,8 @@
               "menu_class" => "is-navigation-list",
               "container" => null,
         ]) ?>
-        <ul role="list" class="is-navigation-list">
-          <li role="listitem" class="is-active">
-            <a href="index.html" role="link" class="navigation-link">
-              Featured
-            </a>
-          </li>
-          <li role="listitem">
-            <a
-              href="<?= get_post_type_archive_link('catalog_post'); ?>"
-              role="link"
-              class="navigation-link"
-            >
-              Catalog
-            </a>
-          </li>
-          <li role="listitem">
-            <a href="about.html" role="link" class="navigation-link"
-              >About</a
-            >
-          </li>
-          <li role="listitem">
-            <a
-              href="#footer"
-              role="link"
-              class="navigation-link navigation-link__footer"
-            >
-              Contact
-            </a>
-          </li>
-          <li role="listitem">
-            <a
-              href="<?=get_post_permalink(121)?>"
-              role="link"
-              class="navigation-link"
-            >
-              Creativeish
-            </a>
-          </li>
-          <!-- socials -->
+        <ul role="list" class="socials">
+
           <li role="listitem">
             <ul role="list" class="socials">
               <li role="listitem">
