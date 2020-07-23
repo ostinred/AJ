@@ -1,3 +1,4 @@
+<?php global $wp?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,46 +18,56 @@
     <link
       id="favicon"
       rel="shortcut icon"
-      href="https://ostinred.github.io/favicon/favicon.ico"
+      href="<?=get_stylesheet_directory_uri()?>/favicon/favicon.ico"
       type="image/x-icon"
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="https://ostinred.github.io/favicon/apple-touch-icon.png"
+      href="<?=get_stylesheet_directory_uri()?>/favicon/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://ostinred.github.io/favicon/favicon-32x32.png"
+      href="<?=get_stylesheet_directory_uri()?>/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://ostinred.github.io/favicon/favicon-16x16.png"
+      href="<?=get_stylesheet_directory_uri()?>/favicon/favicon-16x16.png"
     />
     <link
       rel="manifest"
-      href="https://ostinred.github.io/favicon/site.webmanifest"
+      href="<?=get_stylesheet_directory_uri()?>/favicon/site.webmanifest"
     />
     <link
       rel="mask-icon"
-      href="https://ostinred.github.io/favicon/safari-pinned-tab.svg"
+      href="<?=get_stylesheet_directory_uri()?>/favicon/safari-pinned-tab.svg"
       color="#5bbad5"
     />
     <link
       rel="shortcut icon"
-      href="https://ostinred.github.io/favicon/favicon.ico"
+      href="<?=get_stylesheet_directory_uri()?>/favicon/favicon.ico"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta
       name="msapplication-config"
-      content="https://ostinred.github.io/favicon/browserconfig.xml"
+      content="<?=get_stylesheet_directory_uri()?>/favicon/browserconfig.xml"
     />
     <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<?=the_title()?>">
+    <meta property="og:url" content="<?=home_url( $wp->request )?>">
+    <?php  if(get_field('sliding_image')):?>
+      <meta property="og:image" content="<?=get_field('sliding_image')['url']?>">
+    <?php else:?>
+      <meta property="og:image" content="<?=get_stylesheet_directory_uri()?>/favicon/apple-touch-icon.png?>">
+    <?php endif;?>
+    <meta property="og:site_name" content="AJ Rivvers">
 
+    <meta property="og:description" content="See full text by visit URL">
     <style>
       #preloading {
         position: fixed;
@@ -257,7 +268,7 @@
               'theme_location' => 'header-menu',
               "menu_class" => "is-navigation-list",
               "container" => null,
-        ]) ?>
+        ]) ?> 
         <ul role="list" class="socials">
           <li role="listitem">
             <a

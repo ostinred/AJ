@@ -64,7 +64,8 @@
         </div>
       </section>
       <!-- end of post -->
-      <?php if(!empty(get_field('related_posts')) ):?>
+      
+      <?php if(!empty(get_field('related_posts') && is_array(get_field('related_posts'))) ):?>
       <!-- related content -->
         <div class="relative__block">
           <div class="is-container">

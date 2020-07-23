@@ -1,5 +1,5 @@
 <?php
-include __DIR__. "/vendor/mobile_detect.php";
+include __DIR__ . "/vendor/mobile_detect.php";
 
 function dbg()
 {
@@ -75,7 +75,7 @@ function get_vimeo_url($url)
     $regs = [];
     preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/', $url, $regs);
     $id = $regs[5];
-    
+
     return "https://player.vimeo.com/video/$id?color=ec2481&title=0&byline=0&portrait=0";
 
 }
@@ -92,15 +92,58 @@ function register_my_menus()
 }
 add_action('init', 'register_my_menus');
 
-function add_additional_class_on_li($classes, $item, $args) {
-    if(isset($args->add_li_class)) {
+function add_additional_class_on_li($classes, $item, $args)
+{
+    if (isset($args->add_li_class)) {
         $classes[] = $args->add_li_class;
     }
     return $classes;
 }
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
-function is_about_page(){
+function is_about_page()
+{
     return get_the_id() === 242;
 }
-add_theme_support( 'title-tag' );
+add_theme_support('title-tag');
+
+add_filter('pre_get_document_title', function ($title) {
+    return implode(" | ", array_reverse(explode('-', $title)));
+}, 999, 1);
+
+
+/**
+ * Remove the slug from published post permalinks. Only affect our custom post type, though.
+ */
+function gp_remove_cpt_slug( $post_link, $post ) {
+
+    if ( 'catalog_post' === $post->post_type && 'publish' === $post->post_status ) {
+        $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+    }
+
+    return $post_link;
+}
+add_filter( 'post_type_link', 'gp_remove_cpt_slug', 10, 2 );
+
+
+function gp_add_cpt_post_names_to_main_query( $query ) {
+
+	// Bail if this is not the main query.
+	if ( ! $query->is_main_query() ) {
+		return;
+	}
+
+	// Bail if this query doesn't match our very specific rewrite rule.
+	if ( ! isset( $query->query['page'] ) || 2 !== count( $query->query ) ) {
+		return;
+	}
+
+	// Bail if we're not querying based on the post name.
+	if ( empty( $query->query['name'] ) ) {
+		return;
+	}
+
+	// Add CPT to the list of post types WP will include when it queries based on the post name.
+	$query->set( 'post_type', array( 'post', 'page', 'catalog_post' ) );
+}
+add_action( 'pre_get_posts', 'gp_add_cpt_post_names_to_main_query' );
