@@ -41,6 +41,7 @@
   }
 
   .project-text {
+    margin-left: auto;
     text-align: right;
 
     @include mobile-max {
