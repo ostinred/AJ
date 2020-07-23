@@ -468,6 +468,10 @@ $desktop-2k: 2400px !default;
   padding: 0 15px;
   margin: 0 auto;
 
+  @include tablet() {
+    padding: 0 25px;
+  }
+
   @include laptop() {
     min-width: 920px;
     width: 100%;

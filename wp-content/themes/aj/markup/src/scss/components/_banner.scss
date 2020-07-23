@@ -98,7 +98,7 @@
 
   @include mobile-project-text;
 
-  @include laptop {
+  @include tablet {
     @include container;
   }
 
