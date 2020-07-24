@@ -122,7 +122,8 @@ if (have_posts()):
                 </div>
               <?php elseif ($block['type'] === 'threeImages'):?>
                 <div class="is-container">
-                  <div class="post-columns three-columns <?=$block['direction']==='descent'?'descent':''?>">
+
+                  <div class="post-columns <?=$block['direction']==='descent'?'descent':''?> <?=count($block['three_images'])===3?'three-columns':''?>">
                     <?php foreach ($block['three_images'] as $three_images): ?>
                         <figure class="is-block__image wow animated" style="visibility: visible; animation-name: fadeInUp;">
                           <img src="<?=$three_images['image']['url']?>" alt="">

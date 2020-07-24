@@ -86,7 +86,6 @@
                       src="<?=get_field('sliding_image', $post['post']->ID)['url']?>"
                     />
                     <?php if(get_video_preview($post['post'])):?>
-
                       <video
                         class="project-video"
                         loop
@@ -95,9 +94,7 @@
                         <source src="<?=get_video_preview($post['post'])?>" type="video/mp4" />
                       </video>
                     <?php endif;?>
-
                   </a>
-
                   <div class="project-text">
                     <h3 class="project-heading">
                     <?=$post['post']->post_title?>
