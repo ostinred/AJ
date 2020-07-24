@@ -18,8 +18,8 @@ function catalog_post_type()
             'labels' => array(
                 'name' => 'Projects',
                 'singular_name' => 'Projects',
-                'add_new' => 'Add Projects',
-                'add_new_item' => 'Add Projects',
+                'add_new' => 'Add new',
+                'add_new_item' => 'Add new Project',
                 'edit_item' => 'Edit Projects',
                 'new_item' => 'Projects',
                 'view_item' => 'View Projects',

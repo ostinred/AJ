@@ -102,7 +102,7 @@
                     <h3 class="project-heading">
                     <?=$post['post']->post_title?>
                     </h3>
-                    <p class="project-company">1 May 2020</p>
+                    <p class="project-company"><?=get_the_date('d M Y',$post['post']) ?></p>
                   </div>
                 </div>
               <?php endforeach;?>

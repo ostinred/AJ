@@ -21,9 +21,7 @@
           $position = "right-aligned";
           break;
       }
-
-
-?>
+    ?>
       <div class="is-project wow <?=$size?> <?=$position?>">
         <a class="is-project-media <?=get_video_preview($post['post'])?'with-video-bg':''?>"
           role="link"
@@ -51,7 +49,11 @@
         <?=$post['post']->post_title?>
       </h3>
       <p class="project-company">
-        <?=get_field('company', $post['post']->ID)?>
+        <?php if(!!$is_creativish):?>
+          <?=get_the_date('d M Y',$post['post']) ?>
+        <?php else:?>
+          <?=get_field('company', $post['post']->ID)?>
+        <?php endif;?>
       </p>
     </div>
   </div>

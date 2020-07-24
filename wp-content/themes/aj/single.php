@@ -227,7 +227,7 @@ if (have_posts()):
         </div>
       </div>
       <?php endif?>
-      <?php if(!empty(get_field('related_posts')) ):?>
+      <?php if(!empty(get_field('related_posts') && is_array(get_field('related_posts'))) ):?>
         <div class="relative__block">
           <div class="is-container">
             <div class="relative__title wow">
@@ -263,9 +263,9 @@ if (have_posts()):
       
                       <div class="project-text">
                         <h3 class="project-heading">
-                        <?=$post['post']->post_title?>
+                          <?=$post['post']->post_title?>
                         </h3>
-                        <p class="project-company">1 May 2020</p>
+                        <p class="project-company"><?=get_the_date('d M Y',$post['post']) ?></p>
                       </div>
                     </div>
                   <?php endforeach;?>
