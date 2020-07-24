@@ -73,6 +73,7 @@ if (have_posts()):
 		          </div>
 		        </div>
             <?php if (!empty(get_field('blocks'))):
+            
                 foreach (get_field('blocks') as $block): ?>
 			            <?php if ($block['type'] === 'parallaxBackground'): ?>
 			              <div class="is-parallax-wrapper">
@@ -119,6 +120,37 @@ if (have_posts()):
                       </div>
                     <?php endforeach;?>
                 </div>
+              <?php elseif ($block['type'] === 'threeImages'):?>
+                <div class="is-container">
+                  <div class="post-columns three-columns <?=$block['direction']==='descent'?'descent':''?>">
+                    <?php foreach ($block['three_images'] as $three_images): ?>
+                        <figure class="is-block__image wow animated" style="visibility: visible; animation-name: fadeInUp;">
+                          <img src="<?=$three_images['image']['url']?>" alt="">
+                        </figure>
+                    <?php endforeach ?>
+                  </div>
+                </div>
+              <?php elseif ($block['type'] === 'contentColumns'):?>
+                <div class="is-container">
+                  <div class="content-columns <?=$block['direction']==='descent'?'descent':''?>">
+                    <?php foreach ($block['columns'] as $columns): ?>
+                        
+                        <div>
+                          <?php foreach($columns['column'] as $column): ?>
+                            <?php if($column['type']==='image'):?>
+                              <img src="<?=$column['image']['url']?>" alt="" />
+                            <?php elseif($column['type']==='text'):?>
+                              <p>
+                                <?=$column['text']?>
+                              </p>
+                            <?php elseif($column['type']==='title'):?>
+                              <h3><?=$column['title']?></h3>
+                            <?php endif ?>
+                          <?php endforeach?>
+                        </div>
+                    <?php endforeach ?>
+                  </div>
+                </div
               <?php elseif ($block['type'] === 'imageCarousel'): ?>
                 <div class="is-container">
                   <div class="is-slider__wrapper">
@@ -163,6 +195,7 @@ if (have_posts()):
                     ]);
                   ?>
                 <?php endif;?>
+              
               <?php endforeach;
               endif;?>
           </div>
