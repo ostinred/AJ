@@ -57,9 +57,7 @@
       content="<?=get_stylesheet_directory_uri()?>/favicon/browserconfig.xml"
     />
     <meta name="theme-color" content="#ffffff" />
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="<?=the_title()?>">
-    <meta property="og:url" content="<?=home_url( $wp->request )?>">
+
     <?php  if(get_field('sliding_image')):?>
       <meta property="og:image" content="<?=get_field('sliding_image')['url']?>">
     <?php else:?>

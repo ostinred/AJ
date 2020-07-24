@@ -1,26 +1,28 @@
 <div class="is-container-fluid">
   <?php foreach ($posts_list as $key => $post): ?>
     <?php
-      $classes = "";
+      $size = "";
+      switch ($post['size']) {
+        case 'small':
+          $size = "is-project__small";
+          break;
+        case 'normal':
+          break;
+        case 'large':
+          $size = "is-project__large";
+        break;
+      }
+      $position = "";
+
       switch ($post['position']) {
         case 'left':
           break;
-        case 'smallLeft':
-          $classes = 'is-project__small';
-          break;
-        case 'smallRight':
-          $classes = "is-project__small right-aligned";
-          break;
         case 'right':
-          $classes = 'right-aligned';
-          break;
-        case 'center':
-          $classes = 'is-project__large';
+          $position = "right-aligned";
           break;
       }
-
-?>
-      <div class="is-project wow <?=$classes?>">
+    ?>
+      <div class="is-project wow <?=$size?> <?=$position?>">
         <a class="is-project-media <?=get_video_preview($post['post'])?'with-video-bg':''?>"
           role="link"
           href="<?=get_post_permalink($post['post']->ID)?>"
@@ -47,7 +49,11 @@
         <?=$post['post']->post_title?>
       </h3>
       <p class="project-company">
-        <?=get_field('company', $post['post']->ID)?>
+        <?php if(!!$is_creativish):?>
+          <?=get_the_date('d M Y',$post['post']) ?>
+        <?php else:?>
+          <?=get_field('company', $post['post']->ID)?>
+        <?php endif;?>
       </p>
     </div>
   </div>

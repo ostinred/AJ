@@ -132,7 +132,7 @@ if (have_posts()) :
           </p>
           <a
             class="about-pdf"
-            href="resume.ajrivvers.com"
+            href="<?=get_field('resume_url')?>"
             role="link"
           >
             Resume

@@ -32,7 +32,8 @@ Template Name: Page "Creativeish"
                 break;
                 case 'postsList':
                   my_template_part('main-blocks/posts', 'list', [
-                    'posts_list' => $block['posts_list']
+                    'posts_list' => $block['posts_list'],
+                    'is_creativish' => true
                   ]);
                   break;
                 }
