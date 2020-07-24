@@ -13,11 +13,22 @@ if (function_exists('acf_add_options_page')) {
 }
 function catalog_post_type()
 {
-    register_post_type('catalog_post',
+    register_post_type('project',
         array(
             'labels' => array(
-                'name' => __('Catalog post'),
-                'singular_name' => __('Catalog post'),
+                'name' => 'Projects',
+                'singular_name' => 'Projects',
+                'add_new' => 'Add Projects',
+                'add_new_item' => 'Add Projects',
+                'edit_item' => 'Edit Projects',
+                'new_item' => 'Projects',
+                'view_item' => 'View Projects',
+                'search_items' => 'Search Projects',
+                'not_found' => 'No Projects found',
+                'not_found_in_trash' => 'No Projects found in Trash',
+                'all_items' => 'All Projects',
+                'menu_name' => 'Projects',
+                'name_admin_bar' => 'Projects',
             ),
             'public' => true,
             'has_archive' => true,
@@ -111,39 +122,39 @@ add_filter('pre_get_document_title', function ($title) {
     return implode(" | ", array_reverse(explode('-', $title)));
 }, 999, 1);
 
-
 /**
  * Remove the slug from published post permalinks. Only affect our custom post type, though.
  */
-function gp_remove_cpt_slug( $post_link, $post ) {
+function gp_remove_cpt_slug($post_link, $post)
+{
 
-    if ( 'catalog_post' === $post->post_type && 'publish' === $post->post_status ) {
-        $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+    if ('project' === $post->post_type && 'publish' === $post->post_status) {
+        $post_link = str_replace('/' . $post->post_type . '/', '/', $post_link);
     }
 
     return $post_link;
 }
-add_filter( 'post_type_link', 'gp_remove_cpt_slug', 10, 2 );
+add_filter('post_type_link', 'gp_remove_cpt_slug', 10, 2);
 
+function gp_add_cpt_post_names_to_main_query($query)
+{
 
-function gp_add_cpt_post_names_to_main_query( $query ) {
+    // Bail if this is not the main query.
+    if (!$query->is_main_query()) {
+        return;
+    }
 
-	// Bail if this is not the main query.
-	if ( ! $query->is_main_query() ) {
-		return;
-	}
+    // Bail if this query doesn't match our very specific rewrite rule.
+    if (!isset($query->query['page']) || 2 !== count($query->query)) {
+        return;
+    }
 
-	// Bail if this query doesn't match our very specific rewrite rule.
-	if ( ! isset( $query->query['page'] ) || 2 !== count( $query->query ) ) {
-		return;
-	}
+    // Bail if we're not querying based on the post name.
+    if (empty($query->query['name'])) {
+        return;
+    }
 
-	// Bail if we're not querying based on the post name.
-	if ( empty( $query->query['name'] ) ) {
-		return;
-	}
-
-	// Add CPT to the list of post types WP will include when it queries based on the post name.
-	$query->set( 'post_type', array( 'post', 'page', 'catalog_post' ) );
+    // Add CPT to the list of post types WP will include when it queries based on the post name.
+    $query->set('post_type', array('post', 'page', 'project'));
 }
-add_action( 'pre_get_posts', 'gp_add_cpt_post_names_to_main_query' );
+add_action('pre_get_posts', 'gp_add_cpt_post_names_to_main_query');

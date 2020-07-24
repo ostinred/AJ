@@ -1,3 +1,11 @@
+<?php 
+/*
+Template Name: Page "Catalog"
+*/
+
+$args = array( 'posts_per_page' => 999999,'post_type'=>'project' );
+$all_posts = get_posts( $args );
+?>
 <?php get_header()?>
 
 <div class="is-default__page">
@@ -8,8 +16,7 @@
 
         <div class="is-catalog__grid">
           <?php 
-          if (have_posts()) :
-            while (have_posts()) :the_post()?>
+          foreach($all_posts as $post): setup_postdata($post);?>
               <div class="is-project is-catalog__project wow">
                 <a
                   class="is-project-media <?=get_video_preview(get_post())?'with-video-bg':''?>"
@@ -41,9 +48,7 @@
                   </p>
                 </div>
               </div>
-            <?php endwhile;
-          endif;
-          ?>
+            <?php endforeach;?>
         </div>
       </main>
     </div>
