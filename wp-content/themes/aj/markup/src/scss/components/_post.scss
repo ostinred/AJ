@@ -1,0 +1,138 @@
+.post-columns {
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &.three-columns {
+    .is-block__image {
+      @include tablet {
+        width: 30%;
+      }
+    }
+
+    &.descent {
+      .is-block__image {
+        & {
+          @include tablet {
+            margin-top: 150px;
+          }
+          animation-delay: 0.4s;
+        }
+
+        & + .is-block__image {
+          @include tablet {
+            margin-top: 75px;
+          }
+          animation-delay: 0.3s;
+        }
+
+        & + .is-block__image + .is-block__image {
+          margin-top: 0;
+          animation-delay: 0.2s;
+        }
+      }
+    }
+  }
+
+  &.descent {
+    .is-block__image {
+      & {
+        @include tablet {
+          margin-top: 75px;
+        }
+        animation-delay: 0.4s;
+      }
+
+      & + .is-block__image {
+        @include tablet {
+          margin-top: 0px;
+        }
+        animation-delay: 0.3s;
+      }
+    }
+  }
+
+  .is-block__image {
+    @include tablet {
+      width: 48%;
+    }
+
+    & {
+      animation-delay: 0.2s;
+    }
+
+    & + .is-block__image {
+      @include tablet {
+        margin-top: 75px;
+      }
+      animation-delay: 0.3s;
+    }
+
+    & + .is-block__image + .is-block__image {
+      @include tablet {
+        margin-top: 150px;
+      }
+      animation-delay: 0.4s;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.content-columns {
+  margin: 0 0 3em;
+
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div {
+    &:last-child {
+      @include tablet {
+        margin-top: 100px;
+      }
+    }
+  }
+
+  &.descent {
+    div {
+      &:first-child {
+        @include tablet {
+          margin-top: 100px;
+        }
+      }
+
+      &:last-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  & > div {
+    @include tablet {
+      width: 47%;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    padding-top: 0 !important;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 1.5em;
+  }
+}
