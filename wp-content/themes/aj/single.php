@@ -16,7 +16,7 @@ if (have_posts()):
 		          >
 		            <div class="is-banner__copies">
 		              <div>
-		                <p class="project-company wow"><?=get_field('company')?></p>
+		                <p class="project-company wow"><?=get_the_date('d M Y') ?></p>
 		                <h1 class="project-heading wow">
 		                  <?php the_title()?>
 		                </h1>
@@ -60,20 +60,7 @@ if (have_posts()):
 
 		      <!-- post -->
 		      <div class="is-block">
-		        <div class="is-container">
-		          <div class="is-block__row">
-		          <?=get_field('second_text_block')?>
-		          </div>
-		        </div>
-		        <div class="is-container">
-		          <div class="is-block__row">
-		            <figure class="is-block__image wow">
-		              <img src="<?=get_field('image')['url']?>" alt="" />
-		            </figure>
-		          </div>
-		        </div>
             <?php if (!empty(get_field('blocks'))):
-            
                 foreach (get_field('blocks') as $block): ?>
 			            <?php if ($block['type'] === 'parallaxBackground'): ?>
 			              <div class="is-parallax-wrapper">
@@ -89,6 +76,7 @@ if (have_posts()):
                       <h3>
                         <?=$block['title']?>
                       </h3>
+                      <?php if(is_array($block['rows']) && !empty($block['rows'])) ?>
                       <?php foreach ($block['rows'] as $row): ?>
                           <div class="is-block__row">
                             <?php if (!empty($row['elements'])): ?>
@@ -100,7 +88,7 @@ if (have_posts()):
                                       <img src="<?=$element['image']['url']?>" alt="" />
                                     </figure>
                                   <?php elseif ($element['type'] === 'vimeo'):?>
-                                  <figure class="is-block__video wow">
+                                  <figure class="is-block__video">
                                   <img src="<?=$element['image']['url']?>" alt="" />
                                     <div class="is-block__video-overlay">
                                       <button class="close-modal-btn" type="button"></button>

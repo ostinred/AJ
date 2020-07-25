@@ -253,7 +253,8 @@ $(document).ready(function () {
 
     videoIframe.each(function () {
       var el_src = $(this).attr("src");
-      $(this).attr("src", el_src);
+      
+      $(this).attr("src", el_src.replace('&autoplay=1',''));
     });
   }
 
