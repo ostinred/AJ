@@ -188,34 +188,6 @@ if (have_posts()):
               <?php endforeach;
               endif;?>
           </div>
-      <!-- end of post -->
-      <?php if(!empty(get_field('credits')) ):?>
-      <div class="is-credit">
-        <div class="is-container">
-          <button
-            role="button"
-            type="button"
-            class="is-credit__toggler"
-          >
-            credits
-
-            <i class="icon-arrow-bottom"></i>
-          </button>
-          <div class="is-credit__content">
-            <div class="is-credit__wrapper">
-              <?php foreach(get_field('credits') as $credit):?>
-                <div class="column">
-                  <?php foreach($credit['blocks'] as $block):?>
-                    <p class="is-credit__title"><?=$block['title']?></p>
-                    <?=$block['content']?>
-                  <?php endforeach;?>
-                </div>
-              <?php endforeach;?>
-            </div>
-          </div>
-        </div>
-      </div>
-      <?php endif?>
       <?php if(!empty(get_field('related_posts') && is_array(get_field('related_posts'))) ):?>
         <div class="relative__block">
           <div class="is-container">
