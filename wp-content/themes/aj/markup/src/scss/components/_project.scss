@@ -112,9 +112,27 @@
       }
     }
 
+    &:hover {
+      .project-heading {
+        color: $primary-color;
+      }
+    }
+
     .project-text {
       @include mobile-max {
         width: 50%;
+      }
+    }
+  }
+}
+
+.is-homepage__content,
+.is-director__content,
+.is-creative__content {
+  .is-project {
+    @include hover {
+      .project-heading {
+        color: $primary-color;
       }
     }
   }
