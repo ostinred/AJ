@@ -25,7 +25,7 @@
               <?php else: ?>
                 <a
                   class="is-footer__info-link"
-                  href="/catalog_post"
+                  href="/catalog"
                   role="link"
                 >
                   See the work
