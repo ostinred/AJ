@@ -30,7 +30,7 @@ $translation: 10vw;
   position: relative;
   z-index: 3;
   display: flex;
-  padding: 15px;
+  padding: 15px 11px;
   align-items: center;
 
   @include laptop {
@@ -235,6 +235,16 @@ $translation: 10vw;
 
     &:after {
       transform: translate(-50%, -48%) rotate(-31deg);
+    }
+
+    @include mobile-max {
+      &:before {
+        transform: translate(-50%, -34%) rotate(28deg);
+      }
+
+      &:after {
+        transform: translate(-50%, -48%) rotate(-30deg);
+      }
     }
   }
 }
@@ -456,7 +466,8 @@ $translatesXOff: 37vw, 33vw, 29vw, 25vw, 21vw;
 
 .contact-is-active {
   li {
-    &.is-active {
+    &.current-menu-item,
+    &.current_page_item {
       a {
         color: $global-color !important;
       }

@@ -104,18 +104,6 @@
       .project-heading {
         color: $global-color;
       }
-
-      &:hover {
-        .project-heading {
-          color: $primary-color;
-        }
-      }
-    }
-
-    &:hover {
-      .project-heading {
-        color: $primary-color;
-      }
     }
 
     .project-text {
@@ -129,12 +117,8 @@
 .is-homepage__content,
 .is-director__content,
 .is-creative__content {
-  .is-project {
-    @include hover {
-      .project-heading {
-        color: $primary-color;
-      }
-    }
+  .is-project-media:hover + .project-text .project-heading {
+    color: $primary-color;
   }
 }
 
