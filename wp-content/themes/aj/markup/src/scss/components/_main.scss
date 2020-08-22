@@ -85,12 +85,19 @@ $quote-padding: 0.2em;
   padding-right: 15px;
 
   @include tablet {
-    padding-right: 30px;
+    padding-right: 28px;
+  }
+
+  @include desktop {
+  }
+
+  @include desktop-2k {
+    padding-right: 22px;
   }
 
   @include hover {
     i {
-      transform: translateX(50%);
+      transform: translateX(30%);
     }
   }
 }

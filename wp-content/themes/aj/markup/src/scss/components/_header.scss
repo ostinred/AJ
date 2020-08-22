@@ -147,11 +147,15 @@ $translation: 10vw;
 .navigation-btn__wrapper {
   position: relative;
   z-index: 3;
-  padding: 10px 15px;
+  padding: 10px;
 
   @include tablet {
-    padding: 30px 25px;
+    padding: 30px 34px;
   }
+
+  // @include laptop {
+  //   padding: 30px 25px;
+  // }
 
   @include laptop {
     cursor: pointer;
@@ -164,11 +168,11 @@ $translation: 10vw;
   position: relative;
   z-index: 1;
   @include flex-center;
-  @include size(32px 33px);
+  @include size(25px 26px);
 
-  // @include tablet {
-  //   @include size(32px 33px);
-  // }
+  @include tablet {
+    @include size(32px 33px);
+  }
 
   &:before,
   &:after {
@@ -191,7 +195,7 @@ $translation: 10vw;
   }
 
   &:before {
-    top: 9px;
+    top: 6px;
 
     @include tablet {
       top: 9px;
@@ -199,7 +203,7 @@ $translation: 10vw;
   }
 
   &:after {
-    top: 24px;
+    top: 18px;
     transform: translate(-50%, -50%);
 
     @include tablet {
