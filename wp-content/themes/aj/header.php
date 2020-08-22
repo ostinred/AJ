@@ -58,9 +58,9 @@
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <?php  if(get_field('sliding_image')):?>
+    <?php if (get_field('sliding_image')): ?>
       <meta property="og:image" content="<?=get_field('sliding_image')['url']?>">
-    <?php else:?>
+    <?php else: ?>
       <meta property="og:image" content="<?=get_stylesheet_directory_uri()?>/favicon/apple-touch-icon.png?>">
     <?php endif;?>
     <meta property="og:site_name" content="AJ Rivvers">
@@ -116,15 +116,15 @@
     </div>
     <div id="splashVideo" class="splash-video">
       <?php $detect = new Mobile_Detect();?>
-      <?php if($detect->isMobile()):?>
+      <?php if ($detect->isMobile()): ?>
         <video type="video/mp4" muted class="splash_phone">
           <source src="<?=get_stylesheet_directory_uri()?>/markup/dest/video/splash_phone.mp4" />
         </video>
-      <?php elseif($detect->isTablet()):?>
+      <?php elseif ($detect->isTablet()): ?>
         <video type="video/mp4" muted class="splash_tablet">
           <source src="<?=get_stylesheet_directory_uri()?>/markup/dest/video/splash_tablet.mp4" />
         </video>
-      <?php else:?>
+      <?php else: ?>
         <video type="video/mp4" muted class="splash_laptop">
           <source src="<?=get_stylesheet_directory_uri()?>/markup/dest/video/splash_laptop.mp4" />
         </video>
@@ -263,14 +263,14 @@
       <!-- navigation -->
       <nav role="navigation" class="is-navigation">
         <?php wp_nav_menu([
-              'theme_location' => 'header-menu',
-              "menu_class" => "is-navigation-list",
-              "container" => null,
-        ]) ?> 
+    'theme_location' => 'header-menu',
+    "menu_class" => "is-navigation-list",
+    "container" => null,
+])?>
         <ul role="list" class="socials">
           <li role="listitem">
             <a
-              href="<?=get_field('linkedin_url','option') ?>"
+              href="<?=get_field('linkedin_url', 'option')?>"
               role="link"
               target="_blank"
               class="social-link"
@@ -280,7 +280,7 @@
           </li>
           <li role="listitem">
             <a
-              href="<?=get_field('instagram_url','option') ?>"
+              href="<?=get_field('instagram_url', 'option')?>"
               role="link"
               target="_blank"
               class="social-link"
@@ -290,17 +290,17 @@
           </li>
           <li role="listitem">
             <a
-              href="<?=get_field('vimeo_url','option') ?>"
+              href="<?=get_field('twitter_url', 'option')?>"
               role="link"
               target="_blank"
               class="social-link"
             >
-              <i class="icon-vimeo"></i>
+              <i class="icon-twitter"></i>
             </a>
           </li>
           <li role="listitem">
             <a
-              href="<?=get_field('500px_url','option') ?>"
+              href="<?=get_field('500px_url', 'option')?>"
               role="link"
               target="_blank"
               class="social-link"

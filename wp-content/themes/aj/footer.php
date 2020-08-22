@@ -10,12 +10,12 @@
             <div class="is-footer__text">
               <h3 class="is-footer__info-title">AJ Rivvers</h3>
               <p>
-                <?=get_field('description_in_footer','option')?>
+                <?=get_field('description_in_footer', 'option')?>
               </p>
-              <?php if(!is_about_page() && !empty(get_field('read_more','options'))):?>
+              <?php if (!is_about_page() && !empty(get_field('read_more', 'options'))): ?>
                 <a
                   class="is-footer__info-link"
-                  href="<?=get_post_permalink(get_field('read_more','option')->ID)?>"
+                  href="<?=get_post_permalink(get_field('read_more', 'option')->ID)?>"
                   role="link"
                 >
                   Read more
@@ -25,23 +25,23 @@
               <?php else: ?>
                 <a
                   class="is-footer__info-link"
-                  href="/catalog_post"
+                  href="/catalog"
                   role="link"
                 >
                   See the work
                   <i class="icon-arrow-right"></i>
                 </a>
-              <?php endif; ?>
+              <?php endif;?>
             </div>
 
             <div class="is-footer__text">
               <h3 class="is-footer__info-title">Contact</h3>
               <p>
                 <a
-                  href="mailto:<?=get_field('contact_email','option');?>?subject=I couldn’t agree more.&body=Truths do inspire action. Meaning does create value. And fast is the new great. Can we set up time to talk more about the intersection of entertainment and technology?"
+                  href="mailto:<?=get_field('contact_email', 'option');?>?subject=I couldn’t agree more.&body=Truths do inspire action. Meaning does create value. And fast is the new great. Can we set up time to talk more about the intersection of entertainment and technology?"
                   role="link"
                 >
-                  <?=get_field('contact_email','option');?>
+                  <?=get_field('contact_email', 'option');?>
                 </a>
               </p>
             </div>
