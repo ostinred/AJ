@@ -29,7 +29,7 @@ var config = {
   },
   output: {
     html: "./dest/",
-    cssFile: "app.min.css",
+    cssFile: "styles.min.css",
     cssPath: "./dest/css/",
     homeDir: "./dest/",
     img: "./dest/img",
